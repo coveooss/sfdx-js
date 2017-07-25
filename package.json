@@ -71,6 +71,9 @@
       }
     }
   },
+  "dependencies": {
+    "reflect-metadata": "^0.1.10"
+  },
   "devDependencies": {
     "@types/jest": "^20.0.0",
     "@types/node": "^8.0.0",
