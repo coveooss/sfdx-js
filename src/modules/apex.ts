@@ -5,7 +5,7 @@ import {
   apiCommand
 } from "../core/decorators"
 import { loglevel } from "./common"
-import { CommandExecutioner } from "../core/commandExecutioner"
+import { ICommandExecutioner } from "../core/commandExecutioner"
 
 export enum TemplateValues {
   DefaultApexClass,
@@ -28,7 +28,7 @@ export class ICreateOptions {
 @apiNamespace("force")
 @apiCommandClass("apex")
 export class Apex {
-  constructor(private requestExecutioner: CommandExecutioner) {}
+  constructor(private requestExecutioner: ICommandExecutioner) {}
 
   @apiCommand("class:create")
   public classCreate(options: ICreateOptions): void {

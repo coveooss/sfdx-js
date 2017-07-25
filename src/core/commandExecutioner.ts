@@ -1,10 +1,14 @@
-import { CommandRunner } from "./commandRunner"
+import { ICommandRunner } from "./commandRunner"
 import { ResponseParser } from "./responseParser"
 import { CommandBuilder } from "./commandBuilder"
 
-export class CommandExecutioner {
+export interface ICommandExecutioner {
+  execute<T>(requestClass: any, requestObject: any): Promise<T | undefined>
+}
+
+export class CommandExecutioner implements ICommandExecutioner {
   constructor(
-    private commandRunner: CommandRunner,
+    private commandRunner: ICommandRunner,
     private defaultOptions?: Object
   ) {}
 

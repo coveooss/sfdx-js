@@ -1,18 +1,18 @@
-import { CommandExecutioner } from "./core/CommandExecutioner"
+import {
+  ICommandExecutioner,
+  CommandExecutioner
+} from "./core/CommandExecutioner"
 import { CommandRunner } from "./core/commandRunner"
 import { Apex } from "./modules/apex"
 
-// Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
-// import "core-js/fn/array.find"
-// ...
 export class SFDX {
   private static defaultOptions: Object = { json: true }
 
   public apex: Apex
 
-  private requestExecutioner: CommandExecutioner
+  private requestExecutioner: ICommandExecutioner
 
-  constructor(requestExecutioner?: CommandExecutioner) {
+  constructor(requestExecutioner?: ICommandExecutioner) {
     if (requestExecutioner === undefined) {
       const commandRunner = new CommandRunner("sfdx")
       this.requestExecutioner = new CommandExecutioner(
