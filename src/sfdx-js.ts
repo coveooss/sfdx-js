@@ -1,4 +1,4 @@
-import { RequestExecutioner } from "./core/RequestExecutioner"
+import { CommandExecutioner } from "./core/CommandExecutioner"
 import { CommandRunner } from "./core/commandRunner"
 import { Apex } from "./modules/apex"
 
@@ -10,12 +10,12 @@ export class SFDX {
 
   public apex: Apex
 
-  private requestExecutioner: RequestExecutioner
+  private requestExecutioner: CommandExecutioner
 
-  constructor(requestExecutioner?: RequestExecutioner) {
+  constructor(requestExecutioner?: CommandExecutioner) {
     if (requestExecutioner === undefined) {
       const commandRunner = new CommandRunner("sfdx")
-      this.requestExecutioner = new RequestExecutioner(
+      this.requestExecutioner = new CommandExecutioner(
         commandRunner,
         SFDX.defaultOptions
       )
@@ -28,7 +28,7 @@ export class SFDX {
 
   public static createUsingPath(SFDXPath: string) {
     const commandRunner = new CommandRunner(SFDXPath)
-    const requestExecutioner = new RequestExecutioner(
+    const requestExecutioner = new CommandExecutioner(
       commandRunner,
       SFDX.defaultOptions
     )
@@ -36,6 +36,3 @@ export class SFDX {
     return new SFDX(requestExecutioner)
   }
 }
-
-let sfdx = new SFDX()
-sfdx.apex.classCreate({ className: "test" })

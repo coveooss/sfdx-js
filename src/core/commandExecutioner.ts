@@ -1,8 +1,8 @@
 import { CommandRunner } from "./commandRunner"
 import { ResponseParser } from "./responseParser"
-import { RequestBuilder } from "./requestBuilder"
+import { CommandBuilder } from "./commandBuilder"
 
-export class RequestExecutioner {
+export class CommandExecutioner {
   constructor(
     private commandRunner: CommandRunner,
     private defaultOptions?: Object
@@ -16,7 +16,7 @@ export class RequestExecutioner {
       requestObject = Object.assign(requestObject, this.defaultOptions)
     }
 
-    let requestBuilder = new RequestBuilder(requestObject, requestClass)
+    let requestBuilder = new CommandBuilder(requestObject, requestClass)
     let command = requestBuilder.build()
 
     let executePromise = new Promise<T | undefined>((resolve, reject) => {

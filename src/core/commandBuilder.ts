@@ -6,7 +6,7 @@ import {
   apiCommandClassMetadataKey
 } from "../core/decorators"
 
-export class RequestBuilder {
+export class CommandBuilder {
   constructor(private requestObject: any, private resquestClass: any) {}
 
   public build() {
