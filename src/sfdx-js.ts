@@ -6,6 +6,8 @@ import { Apex } from "./modules/apex"
 // import "core-js/fn/array.find"
 // ...
 export class SFDX {
+  private static defaultOptions: Object = { json: true }
+
   public apex: Apex
 
   private requestExecutioner: RequestExecutioner
@@ -13,7 +15,10 @@ export class SFDX {
   constructor(requestExecutioner?: RequestExecutioner) {
     if (requestExecutioner === undefined) {
       const commandRunner = new CommandRunner("sfdx")
-      this.requestExecutioner = new RequestExecutioner(commandRunner)
+      this.requestExecutioner = new RequestExecutioner(
+        commandRunner,
+        SFDX.defaultOptions
+      )
     } else {
       this.requestExecutioner = requestExecutioner
     }
@@ -23,7 +28,10 @@ export class SFDX {
 
   public static createUsingPath(SFDXPath: string) {
     const commandRunner = new CommandRunner(SFDXPath)
-    const requestExecutioner = new RequestExecutioner(commandRunner)
+    const requestExecutioner = new RequestExecutioner(
+      commandRunner,
+      SFDX.defaultOptions
+    )
 
     return new SFDX(requestExecutioner)
   }
