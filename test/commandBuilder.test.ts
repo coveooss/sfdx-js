@@ -4,7 +4,7 @@ import {
   ICommandExecutioner,
   CommandExecutioner
 } from "../src/core/commandExecutioner"
-import { Apex, ICreateOptions } from "../src/modules/apex"
+import { Apex } from "../src/modules/apex"
 
 describe("Can create commands", () => {
   it("requestExecutionner is instantiable", () => {
@@ -19,7 +19,7 @@ describe("Can create commands", () => {
     const response = apex.classCreate("foo")
 
     expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-      "force apex:class:create --classname foo"
+      "force:apex:class:create --classname foo"
     )
   })
 })

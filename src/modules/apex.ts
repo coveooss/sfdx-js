@@ -14,10 +14,6 @@ export enum TemplateValues {
   InboundEmailService
 }
 
-interface Function {
-  propName?: string
-}
-
 @apiNamespace("force")
 @apiCommandClass("apex")
 export class Apex {
@@ -31,7 +27,7 @@ export class Apex {
     @apiParameter("--apiversion") apiVersion?: string,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--loglevel") loglevel?: loglevel
-  ): void {
-    this.requestExecutioner.execute(this, this.classCreate, arguments)
+  ): Promise<void> {
+    return this.requestExecutioner.execute(this, this.classCreate, arguments)
   }
 }
