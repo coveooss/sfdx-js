@@ -14,15 +14,8 @@ export enum TemplateValues {
   InboundEmailService
 }
 
-export class ICreateOptions {
-  public constructor(
-    @apiParameter("--classname") public className: string,
-    @apiParameter("--template") public template?: TemplateValues,
-    @apiParameter("--outputDir") public outputDir?: string,
-    @apiParameter("--apiversion") public apiVersion?: string,
-    @apiParameter("--json") public json?: Boolean,
-    @apiParameter("--loglevel") public loglevel?: loglevel
-  ) {}
+interface Function {
+  propName?: string
 }
 
 @apiNamespace("force")
@@ -31,7 +24,14 @@ export class Apex {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   @apiCommand("class:create")
-  public classCreate(options: ICreateOptions): void {
-    this.requestExecutioner.execute(this, options)
+  public classCreate(
+    @apiParameter("--classname") className: string,
+    @apiParameter("--template") template?: TemplateValues,
+    @apiParameter("--outputDir") outputDir?: string,
+    @apiParameter("--apiversion") apiVersion?: string,
+    @apiParameter("--json") json?: Boolean,
+    @apiParameter("--loglevel") loglevel?: loglevel
+  ): void {
+    this.requestExecutioner.execute(this, this.classCreate, arguments)
   }
 }

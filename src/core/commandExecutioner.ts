@@ -3,7 +3,11 @@ import { ResponseParser } from "./responseParser"
 import { CommandBuilder } from "./commandBuilder"
 
 export interface ICommandExecutioner {
-  execute<T>(requestClass: any, requestObject: any): Promise<T | undefined>
+  execute<T>(
+    requestClass: Object,
+    requestMethod: Function,
+    requestOptions: IArguments
+  ): Promise<T | undefined>
 }
 
 export class CommandExecutioner implements ICommandExecutioner {
@@ -13,14 +17,19 @@ export class CommandExecutioner implements ICommandExecutioner {
   ) {}
 
   public execute<T>(
-    requestClass: any,
-    requestObject: any
+    requestClass: Object,
+    requestMethod: Function,
+    requestOptions: IArguments
   ): Promise<T | undefined> {
     if (this.defaultOptions !== undefined) {
-      requestObject = Object.assign(requestObject, this.defaultOptions)
+      requestOptions = Object.assign(requestOptions, this.defaultOptions)
     }
 
-    let requestBuilder = new CommandBuilder(requestObject, requestClass)
+    let requestBuilder = new CommandBuilder(
+      requestClass,
+      requestMethod,
+      requestOptions
+    )
     let command = requestBuilder.build()
 
     let executePromise = new Promise<T | undefined>((resolve, reject) => {
