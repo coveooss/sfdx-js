@@ -1,5 +1,5 @@
-import { CommandExecutioner } from "../src/core/commandExecutioner"
-import { CommandRunner } from "../src/core/commandRunner"
+import { CommandExecutioner } from "../../src/core/commandExecutioner"
+import { CommandRunner } from "../../src/core/commandRunner"
 
 describe("Can create commands", () => {
   it("CommandExecutioner is instantiable", () => {

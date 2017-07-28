@@ -1,10 +1,10 @@
-import { CommandBuilder } from "../src/core/commandBuilder"
-import { ICommandRunner } from "../src/core/commandRunner"
+import { CommandBuilder } from "../../src/core/commandBuilder"
+import { ICommandRunner } from "../../src/core/commandRunner"
 import {
   ICommandExecutioner,
   CommandExecutioner
-} from "../src/core/commandExecutioner"
-import { Apex } from "../src/modules/apex"
+} from "../../src/core/commandExecutioner"
+import { Apex } from "../../src/modules/apex"
 
 describe("Can create commands", () => {
   it("Can run class create", () => {

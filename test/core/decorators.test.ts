@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand,
   DecoratorUtil
-} from "../src/core/decorators"
+} from "../../src/core/decorators"
 
 describe("Can create commands", () => {
   @apiNamespace("force")

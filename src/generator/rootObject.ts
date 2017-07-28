@@ -25,6 +25,8 @@ export interface Result {
   longDescription: string
   help: string
   requiresWorkspace: boolean
+
+  // This property is always empty.
   args: any[]
   flags: Flag[]
   supportsTargetUsername: boolean
