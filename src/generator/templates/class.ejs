@@ -1,0 +1,28 @@
+import {
+  apiParameter,
+  apiNamespace,
+  apiCommandClass,
+  apiCommand
+} from "../core/decorators"
+import { loglevel } from "../modules/common"
+import { ICommandExecutioner } from "../core/commandExecutioner"
+
+@apiNamespace("force")
+@apiCommandClass("<%= apiCommandClass %>")
+export class <%= className %> {
+  constructor(private requestExecutioner: ICommandExecutioner) {}
+
+  <% _.each(functionDefinitions, function(functionDef) { %>
+    @apiCommand("<%= functionDef.apiCommand %>")
+    public <%= functionDef.name %>(
+      <% var numberOfParameters = functionDef.parameters.length;
+      _.each(functionDef.parameters, function(functionParameter, index) { %>
+        @apiParameter("<%= functionParameter.flagKey %>") <%= functionParameter.name %>: <%= functionParameter.type %><% if(numberOfParameters !== (index - 1)){ %>,<% } %>
+      <% }) %>
+    ): Promise<<%= functionDef.returnType %> | void> {
+      return this.requestExecutioner.execute<<%= functionDef.returnType %>>(this, this.<%= functionDef.name %>, arguments)
+    }
+
+  <% }) %>
+}
+

@@ -6,9 +6,8 @@ describe("Can create commands", () => {
     let commandRunner = new CommandRunner("sfdx")
     let generator = new Generator(commandRunner)
 
-    debugger
     let jsonFile = require("../../commands.json")
-    let test = generator.generate(JSON.stringify(jsonFile))
-    debugger
+    let jsonString = JSON.stringify(jsonFile)
+    // let test = generator.generate(jsonString)
   })
 })

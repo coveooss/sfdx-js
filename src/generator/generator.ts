@@ -1,6 +1,14 @@
 import { ICommandRunner } from "../core/commandRunner"
 import { ResponseParser } from "../core/responseParser"
-import { RootObject } from "./rootObject"
+import { RootObject, Result, Flag } from "./rootObject"
+import {
+  IClassDefinition,
+  IFunctionDefinition,
+  IParameterDefinition
+} from "./templates/classDefinition"
+import * as fs from "fs-extra"
+import * as _ from "underscore"
+import * as path from "path"
 
 export class Generator {
   constructor(private commandRunner: ICommandRunner) {}
@@ -8,16 +16,115 @@ export class Generator {
   public async generate(json?: string) {
     // If no JSON is passed, use SFDX to gather it.
     if (json === undefined) {
-      let result = await this.commandRunner.runCommand(
+      const commandResult = await this.commandRunner.runCommand(
         "force:doc:commands:display --json"
       )
-      if (result.stderr !== undefined) {
-        throw new Error(result.stderr)
+      if (commandResult.stderr !== undefined) {
+        throw new Error(commandResult.stderr)
       }
-      json = result.stdout
+      json = commandResult.stdout
+    }
+    debugger
+
+    const responseParser = new ResponseParser()
+    const rootObject = responseParser.parse<RootObject>(json)
+    const classDefinitions: { [id: string]: IClassDefinition } = {}
+    rootObject.result.forEach(result => {
+      if (!result.command) {
+        return
+      }
+
+      let className = this.capitalizeFirstLetter(result.topic)
+
+      // Check if existing, else creates it.
+      if (!classDefinitions[className]) {
+        classDefinitions[className] = {
+          apiCommandClass: className,
+          className: className,
+          fileName: result.topic,
+          functionDefinitions: []
+        }
+      }
+
+      let functionDefinition: IFunctionDefinition = {
+        apiCommand: result.command,
+        name: this.extractFunctionNameFromCommand(result.command),
+        parameters: this.extractParameters(result),
+        returnType: this.extractReturnType(result)
+      }
+
+      let classNameDefinition = classDefinitions[className]
+      classNameDefinition.functionDefinitions.push(functionDefinition)
+    })
+    debugger
+
+    const templateFile = fs
+      .readFileSync(path.resolve(__dirname, "./templates/class.ejs"))
+      .toString()
+    const classTemplate = _.template(templateFile)
+
+    console.log("Cleaning generated modules.")
+    const directoryPath = path.resolve(__dirname, "../generatedModules")
+    try {
+      fs.removeSync(directoryPath)
+    } catch (e) {
+      // Ignore
     }
 
-    let responseParser = new ResponseParser()
-    let rootObject = responseParser.parse<RootObject>(json)
+    fs.mkdirSync(directoryPath)
+
+    _.forEach(classDefinitions, classDefinition => {
+      let classImplementation = classTemplate(classDefinition)
+      fs.writeFileSync(
+        path.resolve(
+          __dirname,
+          "../generatedModules/" + classDefinition.fileName + ".ts"
+        ),
+        classImplementation
+      )
+    })
+  }
+
+  private extractParameters(result: Result): IParameterDefinition[] {
+    return _.map(result.flags, flag => {
+      let parameter: IParameterDefinition = {
+        name: flag.name,
+        flagKey: "--" + flag.name,
+        type: this.extractType(flag)
+      }
+
+      return parameter
+    })
+  }
+
+  private extractReturnType(result: Result) {
+    return "Object"
+  }
+
+  private extractType(flag: Flag): string {
+    if (flag.type === "flag") {
+      return "Boolean"
+    }
+
+    return "string"
+  }
+
+  private extractApiCommandFromCommand(command: string): string {
+    const splitElements = command.split(":")
+    return splitElements.slice(1, splitElements.length).join(":")
+  }
+
+  private extractFunctionNameFromCommand(command: string): string {
+    const commandParts = command.split(":")
+    return _.union(
+      [commandParts[0]],
+      _.map(commandParts.splice(1), element => {
+        return this.capitalizeFirstLetter(element)
+      })
+    ).join("")
+  }
+
+  private capitalizeFirstLetter(element: string): string {
+    return element.charAt(0).toUpperCase() + element.slice(1)
   }
 }

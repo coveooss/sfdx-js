@@ -1,5 +1,8 @@
 export interface Flag {
+  // long name
   name: string
+
+  // shot name.
   char: string
   description: string
   longDescription: string
