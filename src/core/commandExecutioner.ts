@@ -3,6 +3,12 @@ import { ResponseParser } from "./responseParser"
 import { CommandBuilder } from "./commandBuilder"
 
 export interface ICommandExecutioner {
+  execute(
+    requestClass: Object,
+    requestMethod: Function,
+    requestOptions: IArguments
+  ): Promise<void>
+
   execute<T>(
     requestClass: Object,
     requestMethod: Function,
