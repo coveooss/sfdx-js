@@ -7,19 +7,21 @@ import {
 import { Apex } from "../src/modules/apex"
 
 describe("Can create commands", () => {
-  it("requestExecutionner is instantiable", () => {
+  it("Can run class create", () => {
     const commandRunnerMock = jest.fn<ICommandRunner>(() => ({
-      runCommand: jest.fn()
+      runCommand: jest.fn(() => {
+        return Promise.resolve({})
+      })
     }))
 
     let commandRunnerMockImpl = new commandRunnerMock()
 
     let commandExecutioner = new CommandExecutioner(commandRunnerMockImpl)
     const apex = new Apex(commandExecutioner)
-    const response = apex.classCreate("foo")
-
-    expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-      "force:apex:class:create --classname foo"
-    )
+    return apex.classCreate("foo").then(() => {
+      expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
+        "force:apex:class:create --classname foo"
+      )
+    })
   })
 })

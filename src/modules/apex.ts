@@ -26,7 +26,8 @@ export class Apex {
     @apiParameter("--outputDir") outputDir?: string,
     @apiParameter("--apiversion") apiVersion?: string,
     @apiParameter("--json") json?: Boolean,
-    @apiParameter("--loglevel") loglevel?: loglevel
+    @apiParameter("--loglevel") loglevel?: loglevel,
+    ...args: string[]
   ): Promise<void> {
     return this.requestExecutioner.execute(this, this.classCreate, arguments)
   }

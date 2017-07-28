@@ -7,7 +7,7 @@ export interface ICommandExecutioner {
     requestClass: Object,
     requestMethod: Function,
     requestOptions: IArguments
-  ): Promise<T | undefined>
+  ): Promise<T | void>
 }
 
 export class CommandExecutioner implements ICommandExecutioner {
@@ -16,11 +16,36 @@ export class CommandExecutioner implements ICommandExecutioner {
     private defaultOptions?: Object
   ) {}
 
-  public execute<T>(
+  public async execute(
     requestClass: Object,
     requestMethod: Function,
     requestOptions: IArguments
-  ): Promise<T | undefined> {
+  ): Promise<void>
+
+  public async execute<T>(
+    requestClass: Object,
+    requestMethod: Function,
+    requestOptions: IArguments
+  ): Promise<T | void> {
+    let result = await this.internalExecute(
+      requestClass,
+      requestMethod,
+      requestOptions
+    )
+
+    if (result.stdout === undefined || !result.stdout) {
+      return Promise.resolve()
+    }
+
+    let responseParser = new ResponseParser()
+    return responseParser.parse<T>(result.stdout)
+  }
+
+  private async internalExecute(
+    requestClass: Object,
+    requestMethod: Function,
+    requestOptions: IArguments
+  ) {
     if (this.defaultOptions !== undefined) {
       requestOptions = Object.assign(requestOptions, this.defaultOptions)
     }
@@ -32,24 +57,6 @@ export class CommandExecutioner implements ICommandExecutioner {
     )
     let command = requestBuilder.build()
 
-    let executePromise = new Promise<T | undefined>((resolve, reject) => {
-      let responsePromise = this.commandRunner.runCommand(command)
-      responsePromise.then(result => {
-        if (result.stderr !== undefined) {
-          reject(result.stderr)
-          return
-        }
-
-        // Let's parse the response.
-        if (result.stdout === undefined) {
-          resolve(undefined)
-        } else {
-          let responseParser = new ResponseParser()
-          resolve(responseParser.parse<T>(result.stdout))
-        }
-      })
-    })
-
-    return executePromise
+    return await this.commandRunner.runCommand(command)
   }
 }
