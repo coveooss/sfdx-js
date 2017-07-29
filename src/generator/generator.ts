@@ -11,7 +11,10 @@ import * as _ from "underscore"
 import * as path from "path"
 
 export class Generator {
-  constructor(private commandRunner: ICommandRunner) {}
+  templateHelpers: any = {}
+  constructor(private commandRunner: ICommandRunner) {
+    this.initializeTemplateHelpers()
+  }
 
   public async generate(json?: string) {
     // If no JSON is passed, use SFDX to gather it.
@@ -76,7 +79,9 @@ export class Generator {
     fs.mkdirSync(directoryPath)
 
     _.forEach(classDefinitions, classDefinition => {
-      let classImplementation = classTemplate(classDefinition)
+      let classImplementation = classTemplate(
+        this.addTemplateHelper(classDefinition)
+      )
       fs.writeFileSync(
         path.resolve(
           __dirname,
@@ -93,11 +98,12 @@ export class Generator {
         name: flag.name,
         flagKey: "--" + flag.name,
         type: this.extractType(flag),
-        description: flag.longDescription
+        description: flag.longDescription,
+        optional: !flag.required
       }
 
       return parameter
-    })
+    }).sort(param => (param.optional ? 1 : -1))
   }
 
   private extractReturnType(result: Result) {
@@ -129,5 +135,17 @@ export class Generator {
 
   private capitalizeFirstLetter(element: string): string {
     return element.charAt(0).toUpperCase() + element.slice(1)
+  }
+
+  private addTemplateHelper(element: Object): any {
+    return _.extend({}, element, this.templateHelpers)
+  }
+
+  private initializeTemplateHelpers() {
+    this.templateHelpers.escapeForComments = this.escapeForComments
+  }
+
+  private escapeForComments(element: string) {
+    return element.replace(/\*\//g, "* /").replace(/\n/g, "\n     * ")
   }
 }

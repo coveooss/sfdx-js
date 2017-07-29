@@ -21,4 +21,5 @@ export interface IParameterDefinition {
   flagKey: string
   type: string
   description: string
+  optional: Boolean
 }

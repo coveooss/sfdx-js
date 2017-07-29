@@ -19,20 +19,20 @@ export class Doc {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-    * display help for force commands
-    *
-    * @param {Boolean} json Format output as JSON. 
-    * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-    * @returns {(Object)}
-    * @memberof Doc
-    * @description Displays help for force commands.
-    * @example Displays help for force commands.
-    * force:doc:commands:display [--json] [--loglevel <string>]
-    */
+     * display help for force commands
+     *
+     * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+     * @param {Boolean} json Format output as JSON. 
+     * @returns {(Promise<Object | void>)}
+     * @memberof Doc
+     * @description Displays help for force commands.
+     * @example Displays help for force commands.
+     * force:doc:commands:display [--json] [--loglevel <string>]
+     */
   @apiCommand("commands:display")
   public commandsDisplay(
-    @apiParameter("--json") json: Boolean,
-    @apiParameter("--loglevel") loglevel: string
+    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--json") json?: Boolean
   ): Promise<Object | void> {
     return this.requestExecutioner.execute<Object>(
       this,
@@ -42,20 +42,20 @@ export class Doc {
   }
 
   /**
-    * list the force commands
-    *
-    * @param {Boolean} json Format output as JSON. 
-    * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-    * @returns {(Object)}
-    * @memberof Doc
-    * @description Displays a list of force commands.
-    * @example Displays a list of force commands and their descriptions.
-    * force:doc:commands:list [--json] [--loglevel <string>]
-    */
+     * list the force commands
+     *
+     * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+     * @param {Boolean} json Format output as JSON. 
+     * @returns {(Promise<Object | void>)}
+     * @memberof Doc
+     * @description Displays a list of force commands.
+     * @example Displays a list of force commands and their descriptions.
+     * force:doc:commands:list [--json] [--loglevel <string>]
+     */
   @apiCommand("commands:list")
   public commandsList(
-    @apiParameter("--json") json: Boolean,
-    @apiParameter("--loglevel") loglevel: string
+    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--json") json?: Boolean
   ): Promise<Object | void> {
     return this.requestExecutioner.execute<Object>(
       this,
