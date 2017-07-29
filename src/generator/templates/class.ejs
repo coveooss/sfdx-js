@@ -7,19 +7,34 @@ import {
 import { loglevel } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
+/**
+ * <%= className %>
+ *
+ * @export
+ * @class <%= className %>
+ */
 @apiNamespace("force")
 @apiCommandClass("<%= apiCommandClass %>")
 export class <%= className %> {
   constructor(private requestExecutioner: ICommandExecutioner) {}
-
   <% _.each(functionDefinitions, function(functionDef) { %>
+   /**
+    * <%= functionDef.shortDescription %>
+    *<% _.each(functionDef.parameters, function(functionParameter) { %>
+    * @param {<%= functionParameter.type %>} <%= functionParameter.name %> <%= functionParameter.description %> <% })%>
+    * @returns {(<%= functionDef.returnType %>)}
+    * @memberof <%= className %>
+    * @description <%= functionDef.description.replace(/\n/g, '\n    \* ') %>
+    * @example <%= functionDef.help.replace(/\n/g, '\n    \* ') %>
+    * <%= functionDef.example.replace(/\n/g, '\n    \* ') %>
+    */
     @apiCommand("<%= functionDef.apiCommand %>")
     public <%= functionDef.name %>(
       <% var numberOfParameters = functionDef.parameters.length;
-      _.each(functionDef.parameters, function(functionParameter, index) { %>
-        @apiParameter("<%= functionParameter.flagKey %>") <%= functionParameter.name %>: <%= functionParameter.type %><% if(numberOfParameters !== (index - 1)){ %>,<% } %>
-      <% }) %>
-    ): Promise<<%= functionDef.returnType %> | void> {
+      _.each(functionDef.parameters, function(functionParameter, index) {
+      %>@apiParameter("<%= functionParameter.flagKey %>") <%= functionParameter.name %>: <%= functionParameter.type %><% if((numberOfParameters - 1) !== index){ %>,<% } %>
+      <% })
+%>): Promise<<%= functionDef.returnType %> | void> {
       return this.requestExecutioner.execute<<%= functionDef.returnType %>>(this, this.<%= functionDef.name %>, arguments)
     }
 

@@ -24,7 +24,6 @@ export class Generator {
       }
       json = commandResult.stdout
     }
-    debugger
 
     const responseParser = new ResponseParser()
     const rootObject = responseParser.parse<RootObject>(json)
@@ -50,13 +49,16 @@ export class Generator {
         apiCommand: result.command,
         name: this.extractFunctionNameFromCommand(result.command),
         parameters: this.extractParameters(result),
-        returnType: this.extractReturnType(result)
+        returnType: this.extractReturnType(result),
+        shortDescription: result.description,
+        description: result.longDescription,
+        example: result.usage,
+        help: result.help
       }
 
       let classNameDefinition = classDefinitions[className]
       classNameDefinition.functionDefinitions.push(functionDefinition)
     })
-    debugger
 
     const templateFile = fs
       .readFileSync(path.resolve(__dirname, "./templates/class.ejs"))
@@ -90,7 +92,8 @@ export class Generator {
       let parameter: IParameterDefinition = {
         name: flag.name,
         flagKey: "--" + flag.name,
-        type: this.extractType(flag)
+        type: this.extractType(flag),
+        description: flag.longDescription
       }
 
       return parameter
