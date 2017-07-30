@@ -10,6 +10,7 @@ import {
 import * as fs from "fs-extra"
 import * as _ from "underscore"
 import * as path from "path"
+import * as moment from "moment"
 
 export class Generator {
   templateHelpers: any = {}
@@ -181,9 +182,16 @@ export class Generator {
 
   private initializeTemplateHelpers() {
     this.templateHelpers.escapeForComments = this.escapeForComments
+    this.templateHelpers.getCurrentFormatedDate = this.getCurrentFormatedDate
   }
 
   private escapeForComments(element: string) {
     return element.replace(/\*\//g, "* /").replace(/\n/g, "\n   * ")
+  }
+
+  private getCurrentFormatedDate(): string {
+    // Something is weird with moment and typescript. We must call default on the function.
+    // https://github.com/aurelia/skeleton-navigation/issues/606
+    return (moment as any).default().format("MMMM Do YYYY, h:mm:ss a")
   }
 }

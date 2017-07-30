@@ -86,6 +86,8 @@
     "@types/node": "^8.0.0",
     "@types/bluebird": "^3.5.8",
     "@types/underscore": "^1.8.1",
+    "@types/moment": "^2.13.0",
+    "moment": "^2.18.1",
     "colors": "^1.1.2",
     "commitizen": "^2.9.6",
     "coveralls": "^2.13.1",
