@@ -21,8 +21,8 @@ export class Org {
   /**
    * create a scratch org
    *
-   * @param {string} env Environment where the scratch org is created: [sandbox*,virtual,prototype]. 
    * @param {IStringKeyPair[] | string[] | string} expression The key pair expression for the command 
+   * @param {string} env Environment where the scratch org is created: [sandbox*,virtual,prototype]. 
    * @param {string} definitionfile Path to a scratch org definition file. Either --definitionfile or --definitionjson is required. 
    * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
@@ -46,8 +46,8 @@ export class Org {
    */
   @apiCommand("create")
   public create(
-    @apiParameter("--env") env?: string,
     @apiParameter("") expression?: IStringKeyPair[] | string[] | string,
+    @apiParameter("--env") env?: string,
     @apiParameter("--definitionfile") definitionfile?: string,
     @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,

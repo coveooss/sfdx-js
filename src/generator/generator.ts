@@ -114,8 +114,15 @@ export class Generator {
         type: "IStringKeyPair[] | string[] | string"
       })
     }
-
-    return parameters.sort(param => (param.optional ? 1 : -1))
+    return parameters.sort((a, b) => {
+      if (a.optional && b.optional) {
+        // Empty flag key should always be on top of other optional parameters.
+        if (a.flagKey === "") {
+          return -1
+        }
+      }
+      return a.optional ? 1 : -1
+    })
   }
 
   private extractReturnType(result: Result) {
