@@ -24,10 +24,8 @@ export class Generator {
       const commandResult = await this.commandRunner.runCommand(
         "force:doc:commands:display --json"
       )
-      if (commandResult.stderr !== undefined) {
-        throw new Error(commandResult.stderr)
-      }
-      json = commandResult.stdout
+
+      json = commandResult
     }
 
     const responseParser = new ResponseParser()

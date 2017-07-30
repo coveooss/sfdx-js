@@ -39,12 +39,8 @@ export class CommandExecutioner implements ICommandExecutioner {
       requestOptions
     )
 
-    if (result.stdout === undefined || !result.stdout) {
-      return Promise.resolve()
-    }
-
     let responseParser = new ResponseParser()
-    return responseParser.parse<T>(result.stdout)
+    return responseParser.parse<T>(result)
   }
 
   private async internalExecute(

@@ -12,7 +12,7 @@
   "author": "Marc-Antoine Veilleux <maveilleux@coveo.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/coveo/sfdx-js.git"
   },
   "license": "MIT",
   "engines": {
@@ -78,7 +78,6 @@
   },
   "dependencies": {
     "reflect-metadata": "^0.1.10",
-    "process-promises": "^1.0.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

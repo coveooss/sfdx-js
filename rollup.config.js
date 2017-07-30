@@ -16,7 +16,7 @@ export default {
   context: 'window',
   sourceMap: true,
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['process-promises', 'reflect-metadata', 'underscore'],
+  external: ['child_process', 'reflect-metadata', 'underscore'],
   plugins: [
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
     commonjs(),
@@ -29,7 +29,7 @@ export default {
     sourceMaps()
   ],
   globals: {
-    'process-promises': 'process-promises',
+    'child_process': 'child_process',
     'underscore': '_'
   }
 }

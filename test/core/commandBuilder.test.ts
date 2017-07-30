@@ -11,7 +11,7 @@ describe("Can create commands", () => {
   it("Can run class create", () => {
     const commandRunnerMock = jest.fn<ICommandRunner>(() => ({
       runCommand: jest.fn(() => {
-        return Promise.resolve({})
+        return Promise.resolve("{}")
       })
     }))
 
@@ -29,7 +29,7 @@ describe("Can create commands", () => {
   it("Can run class create", () => {
     const commandRunnerMock = jest.fn<ICommandRunner>(() => ({
       runCommand: jest.fn(() => {
-        return Promise.resolve({})
+        return Promise.resolve("{}")
       })
     }))
 
