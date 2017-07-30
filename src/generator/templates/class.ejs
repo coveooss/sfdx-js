@@ -18,16 +18,16 @@ import { ICommandExecutioner } from "../core/commandExecutioner"
 export class <%= className %> {
   constructor(private requestExecutioner: ICommandExecutioner) {}
   <% _.each(functionDefinitions, function(functionDef) { %>
-    /**
-     * <%= escapeForComments(functionDef.shortDescription) %>
-     *<% _.each(functionDef.parameters, function(functionParameter) { %>
-     * @param {<%= functionParameter.type %>} <%= functionParameter.name %> <%= escapeForComments(functionParameter.description) %> <% })%>
-     * @returns {(Promise<<%= functionDef.returnType %> | void>)}
-     * @memberof <%= escapeForComments(className) %>
-     * @description <%= escapeForComments(functionDef.description) %>
-     * @example <%= escapeForComments(functionDef.help) %>
-     * <%= escapeForComments(functionDef.example) %>
-     */
+  /**
+   * <%= escapeForComments(functionDef.shortDescription) %>
+   *<% _.each(functionDef.parameters, function(functionParameter) { %>
+   * @param {<%= functionParameter.type %>} <%= functionParameter.name %> <%= escapeForComments(functionParameter.description) %> <% })%>
+   * @returns {(Promise<<%= functionDef.returnType %> | void>)}
+   * @memberof <%= escapeForComments(className) %>
+   * @description <%= escapeForComments(functionDef.description) %>
+   * @example <%= escapeForComments(functionDef.help) %>
+   * <%= escapeForComments(functionDef.example) %>
+   */
     @apiCommand("<%= functionDef.apiCommand %>")
     public <%= functionDef.name %>(
       <% var numberOfParameters = functionDef.parameters.length;

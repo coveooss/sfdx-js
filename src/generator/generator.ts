@@ -146,6 +146,6 @@ export class Generator {
   }
 
   private escapeForComments(element: string) {
-    return element.replace(/\*\//g, "* /").replace(/\n/g, "\n     * ")
+    return element.replace(/\*\//g, "* /").replace(/\n/g, "\n   * ")
   }
 }
