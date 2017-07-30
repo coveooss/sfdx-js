@@ -41,7 +41,7 @@ describe("Can create commands", () => {
       .set([{ key: "key1", value: "value1" }, { key: "key2", value: "value2" }])
       .then(() => {
         expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-          "force:config:set key1=value1  key2=value2"
+          "force:config:set key1=value1 key2=value2"
         )
       })
   })

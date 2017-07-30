@@ -3,7 +3,7 @@ import {
   CommandExecutioner
 } from "./core/CommandExecutioner"
 import { CommandRunner } from "./core/commandRunner"
-import { Apex } from "./modules/apex"
+import { Apex } from "./generatedModules/apex"
 
 export class SFDX {
   private static defaultOptions: Object = { json: true }

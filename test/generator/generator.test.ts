@@ -8,6 +8,6 @@ describe("Can create commands", () => {
 
     let jsonFile = require("../../commands.json")
     let jsonString = JSON.stringify(jsonFile)
-    let test = generator.generate(jsonString)
+    // let test = generator.generate(jsonString)
   })
 })
