@@ -23,3 +23,7 @@ export interface IParameterDefinition {
   description: string
   optional: Boolean
 }
+
+export interface IClassDefinitions {
+  classDefinitions: IClassDefinition[]
+}

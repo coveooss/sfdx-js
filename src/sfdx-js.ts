@@ -3,16 +3,13 @@ import {
   CommandExecutioner
 } from "./core/CommandExecutioner"
 import { CommandRunner } from "./core/commandRunner"
-import { Apex } from "./generatedModules/apex"
+import { GeneratedSFDX } from "./generatedModules/generatedSFDX"
 
-export class SFDX {
+export class SFDX extends GeneratedSFDX {
   private static defaultOptions: Object = { json: true }
 
-  public apex: Apex
-
-  private requestExecutioner: ICommandExecutioner
-
   constructor(requestExecutioner?: ICommandExecutioner) {
+    super()
     if (requestExecutioner === undefined) {
       const commandRunner = new CommandRunner("sfdx")
       this.requestExecutioner = new CommandExecutioner(
@@ -23,7 +20,7 @@ export class SFDX {
       this.requestExecutioner = requestExecutioner
     }
 
-    this.apex = new Apex(this.requestExecutioner)
+    this.initializeModules()
   }
 
   public static createUsingPath(SFDXPath: string) {

@@ -4,7 +4,8 @@ import { RootObject, Result, Flag } from "./rootObject"
 import {
   IClassDefinition,
   IFunctionDefinition,
-  IParameterDefinition
+  IParameterDefinition,
+  IClassDefinitions
 } from "./templates/classDefinition"
 import * as fs from "fs-extra"
 import * as _ from "underscore"
@@ -90,6 +91,20 @@ export class Generator {
         classImplementation
       )
     })
+
+    let classDefinitionsTemplateElement: IClassDefinitions = {
+      classDefinitions: _.map(classDefinitions, element => element)
+    }
+
+    const templateSFDXFile = fs
+      .readFileSync(path.resolve(__dirname, "./templates/sfdxClass.ejs"))
+      .toString()
+    const sfdxClassTemplate = _.template(templateSFDXFile)
+
+    fs.writeFileSync(
+      path.resolve(__dirname, "../generatedModules/generatedSFDX.ts"),
+      sfdxClassTemplate(this.addTemplateHelper(classDefinitionsTemplateElement))
+    )
   }
 
   private extractParameters(result: Result): IParameterDefinition[] {
