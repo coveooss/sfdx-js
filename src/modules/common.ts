@@ -6,3 +6,8 @@ export enum loglevel {
   error,
   fatal
 }
+
+export interface IStringKeyPair {
+  key: string
+  value: string
+}

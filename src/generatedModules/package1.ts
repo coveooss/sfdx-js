@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -24,7 +24,7 @@ export class Package1 {
    * @param {string} packageid ID of the metadata package (starts with 033) of which you’re creating a new version. 
    * @param {string} name Package version name. 
    * @param {string} postinstallurl Post install URL. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} wait Minutes to wait for the package version to be created. The default is 2 minutes. 
@@ -44,7 +44,7 @@ export class Package1 {
     @apiParameter("--packageid") packageid: string,
     @apiParameter("--name") name: string,
     @apiParameter("--postinstallurl") postinstallurl?: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--wait") wait?: string,
@@ -65,7 +65,7 @@ export class Package1 {
    * retrieve status of package upload request
    *
    * @param {string} requestid The ID of the PackageUploadRequest. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -77,7 +77,7 @@ export class Package1 {
   @apiCommand("version:create:get")
   public versionCreateGet(
     @apiParameter("--requestid") requestid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -92,7 +92,7 @@ export class Package1 {
    * display details about a package version
    *
    * @param {string} packageversionid ID (starts with 04t) of the metadata package version whose details you want to display. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -104,7 +104,7 @@ export class Package1 {
   @apiCommand("version:display")
   public versionDisplay(
     @apiParameter("--packageversionid") packageversionid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -118,7 +118,7 @@ export class Package1 {
   /**
    * list package versions for the specified package or for the org
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} packageid Metadata package ID (starts with 033) whose package versions you want to list. If not specified, shows all versions for all packages (managed and unmanaged) in the org. 
@@ -130,7 +130,7 @@ export class Package1 {
    */
   @apiCommand("version:list")
   public versionList(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--packageid") packageid?: string

@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -23,7 +23,7 @@ export class Data {
    *
    * @param {string} sobjecttype The sObject type of the records you’re deleting. 
    * @param {string} csvfile The path to the CSV file that contains the IDs of the records to delete. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} wait The number of minutes to wait for the command to complete before displaying the results. 
@@ -43,7 +43,7 @@ export class Data {
   public bulkDelete(
     @apiParameter("--sobjecttype") sobjecttype: string,
     @apiParameter("--csvfile") csvfile: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--wait") wait?: string
@@ -59,7 +59,7 @@ export class Data {
    * view the status of a bulk data load job or batch
    *
    * @param {string} jobid The ID of the job you want to view or of the job whose batch you want to view. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} batchid The ID of the batch whose status you want to view. 
@@ -74,7 +74,7 @@ export class Data {
   @apiCommand("bulk:status")
   public bulkStatus(
     @apiParameter("--jobid") jobid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--batchid") batchid?: string
@@ -91,7 +91,7 @@ export class Data {
    *
    * @param {string} sobjecttype The sObject type of the records you want to upsert. 
    * @param {string} csvfile The path to the CSV file that defines the records to upsert. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} wait The number of minutes to wait for the command to complete before displaying the results. 
@@ -114,7 +114,7 @@ export class Data {
   public bulkUpsert(
     @apiParameter("--sobjecttype") sobjecttype: string,
     @apiParameter("--csvfile") csvfile: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--wait") wait?: string,
@@ -132,7 +132,7 @@ export class Data {
    *
    * @param {string} sobjecttype The sObject type of the record you’re creating. 
    * @param {string} values The <fieldName>=<value> pairs you’re creating. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -152,7 +152,7 @@ export class Data {
   public recordCreate(
     @apiParameter("--sobjecttype") sobjecttype: string,
     @apiParameter("--values") values: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -167,7 +167,7 @@ export class Data {
    * delete a record
    *
    * @param {string} sobjecttype The sObject type of the record you’re deleting. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} where A list of <fieldName>=<value> pairs to search for. 
@@ -190,7 +190,7 @@ export class Data {
   @apiCommand("record:delete")
   public recordDelete(
     @apiParameter("--sobjecttype") sobjecttype: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--where") where?: string,
@@ -207,7 +207,7 @@ export class Data {
    * view a record
    *
    * @param {string} sobjecttype The sObject type of the record you’re retrieving. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} where A list of <fieldName>=<value> pairs to search for. 
@@ -230,7 +230,7 @@ export class Data {
   @apiCommand("record:get")
   public recordGet(
     @apiParameter("--sobjecttype") sobjecttype: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--where") where?: string,
@@ -248,7 +248,7 @@ export class Data {
    *
    * @param {string} sobjecttype The sObject type of the record you’re updating. 
    * @param {string} values The <fieldName>=<value> pairs you’re updating. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} where A list of <fieldName>=<value> pairs to search for. 
@@ -270,7 +270,7 @@ export class Data {
   public recordUpdate(
     @apiParameter("--sobjecttype") sobjecttype: string,
     @apiParameter("--values") values: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--where") where?: string,
@@ -287,7 +287,7 @@ export class Data {
    * execute a soql query
    *
    * @param {string} query SOQL query to execute. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {Boolean} usetoolingapi Execute the query using Tooling API. 
@@ -305,7 +305,7 @@ export class Data {
   @apiCommand("soql:query")
   public soqlQuery(
     @apiParameter("--query") query: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--usetoolingapi") usetoolingapi?: Boolean
@@ -321,7 +321,7 @@ export class Data {
    * export data from an org into sobject tree format for force:data:tree:import consumption
    *
    * @param {string} query SOQL query statement or the path of the file containing a SOQL query statement to retrieve the records to export. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} outputdir Directory to store generated files. 
@@ -340,7 +340,7 @@ export class Data {
   @apiCommand("tree:export")
   public treeExport(
     @apiParameter("--query") query: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--outputdir") outputdir?: string,
@@ -357,7 +357,7 @@ export class Data {
   /**
    * import data into an org using sobject tree api
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {Boolean} confighelp Displays the schema information for the configuration file. If you use this option, all other options, except --json, are ignored. 
@@ -377,7 +377,7 @@ export class Data {
    */
   @apiCommand("tree:import")
   public treeImport(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--confighelp") confighelp?: Boolean,

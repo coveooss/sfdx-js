@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -23,7 +23,7 @@ export class Visualforce {
    *
    * @param {string} componentname The Visualforce component name. The name can be up to 40 characters and must start with a letter. 
    * @param {string} label The label saved in the metadata for the Visualforce component. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} apiversion The API version of the created source. 
    * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
@@ -46,7 +46,7 @@ export class Visualforce {
   public componentCreate(
     @apiParameter("--componentname") componentname: string,
     @apiParameter("--label") label: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--apiversion") apiversion?: string,
     @apiParameter("--reflect") reflect?: string,
@@ -65,7 +65,7 @@ export class Visualforce {
    *
    * @param {string} pagename The Visualforce page name. The name can be up to 40 characters and must start with a letter. 
    * @param {string} label The label saved in the metadata for the Visualforce page. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} apiversion The API version of the created source. 
    * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
@@ -88,7 +88,7 @@ export class Visualforce {
   public pageCreate(
     @apiParameter("--pagename") pagename: string,
     @apiParameter("--label") label: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--apiversion") apiversion?: string,
     @apiParameter("--reflect") reflect?: string,

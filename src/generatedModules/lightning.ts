@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -22,7 +22,7 @@ export class Lightning {
    * create a lightning app
    *
    * @param {string} appname The Lightning app name. The name can be up to 40 characters and must start with a letter. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} apiversion The API version of the created source. 
    * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
@@ -43,7 +43,7 @@ export class Lightning {
   @apiCommand("app:create")
   public appCreate(
     @apiParameter("--appname") appname: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--apiversion") apiversion?: string,
     @apiParameter("--reflect") reflect?: string,
@@ -61,7 +61,7 @@ export class Lightning {
    * create a lightning component
    *
    * @param {string} componentname The Lightning component name. The name can be up to 40 characters and must start with a letter. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} apiversion The API version of the created source. 
    * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
@@ -82,7 +82,7 @@ export class Lightning {
   @apiCommand("component:create")
   public componentCreate(
     @apiParameter("--componentname") componentname: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--apiversion") apiversion?: string,
     @apiParameter("--reflect") reflect?: string,
@@ -100,7 +100,7 @@ export class Lightning {
    * create a lightning event
    *
    * @param {string} eventname The Lightning event name. The name can be up to 40 characters and must start with a letter. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} apiversion The API version of the created source. 
    * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
@@ -121,7 +121,7 @@ export class Lightning {
   @apiCommand("event:create")
   public eventCreate(
     @apiParameter("--eventname") eventname: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--apiversion") apiversion?: string,
     @apiParameter("--reflect") reflect?: string,
@@ -139,7 +139,7 @@ export class Lightning {
    * create a lightning interface
    *
    * @param {string} interfacename The Lightning interface name. The name can be up to 40 characters and must start with a letter. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} apiversion The API version of the created source. 
    * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
@@ -160,7 +160,7 @@ export class Lightning {
   @apiCommand("interface:create")
   public interfaceCreate(
     @apiParameter("--interfacename") interfacename: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--apiversion") apiversion?: string,
     @apiParameter("--reflect") reflect?: string,
@@ -178,7 +178,7 @@ export class Lightning {
    * create a lightning test
    *
    * @param {string} testname The name of the new Lightning test. The name can be up to 40 characters and must start with a letter. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
    * @param {string} outputdir The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory. 
@@ -197,7 +197,7 @@ export class Lightning {
   @apiCommand("test:create")
   public testCreate(
     @apiParameter("--testname") testname: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--reflect") reflect?: string,
     @apiParameter("--outputdir") outputdir?: string,
@@ -213,7 +213,7 @@ export class Lightning {
   /**
    * invoke lightning component tests
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} timeout Time, in milliseconds, to wait for the results element to be present in the DOM, before failing and moving on to the next test. 
@@ -234,7 +234,7 @@ export class Lightning {
    */
   @apiCommand("test:run")
   public testRun(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--timeout") timeout?: string,

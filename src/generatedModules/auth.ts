@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -24,7 +24,7 @@ export class Auth {
    * @param {string} username The authentication username. 
    * @param {string} jwtkeyfile Path to a file containing the private key. 
    * @param {string} clientid The OAuth client ID (sometimes referred to as the consumer key). 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} setalias Sets an alias for the authenticated org. 
    * @param {Boolean} setdefaultusername Sets the authenticated org as the default username that all commands run against. 
@@ -45,7 +45,7 @@ export class Auth {
     @apiParameter("--username") username: string,
     @apiParameter("--jwtkeyfile") jwtkeyfile: string,
     @apiParameter("--clientid") clientid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--setalias") setalias?: string,
     @apiParameter("--setdefaultusername") setdefaultusername?: Boolean,
@@ -64,7 +64,7 @@ export class Auth {
    * authorize an org using an sfdx auth url
    *
    * @param {string} sfdxurlfile Path to a file containing the SFDX URL. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} setalias Sets an alias for the authenticated org. 
    * @param {Boolean} setdefaultusername Sets the authenticated org as the default username that all commands run against. 
@@ -84,7 +84,7 @@ export class Auth {
   @apiCommand("sfdxurl:store")
   public sfdxurlStore(
     @apiParameter("--sfdxurlfile") sfdxurlfile: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--setalias") setalias?: string,
     @apiParameter("--setdefaultusername") setdefaultusername?: Boolean,
@@ -101,7 +101,7 @@ export class Auth {
   /**
    * authorize an org using the web login flow
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {Boolean} disablemasking Disables masking of user input (for use with problematic terminals). 
    * @param {string} setalias Sets an alias for the authenticated org. 
@@ -122,7 +122,7 @@ export class Auth {
    */
   @apiCommand("web:login")
   public webLogin(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--disablemasking") disablemasking?: Boolean,
     @apiParameter("--setalias") setalias?: string,

@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -21,7 +21,7 @@ export class Source {
   /**
    * convert sfdx source into the metadata api source format
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} packagename The name of the package to associate with the Metadata API source. 
    * @param {string} outputdir The output directory to export the Metadata API source to. 
@@ -40,7 +40,7 @@ export class Source {
    */
   @apiCommand("convert")
   public convert(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--packagename") packagename?: string,
     @apiParameter("--outputdir") outputdir?: string,
@@ -57,7 +57,7 @@ export class Source {
    * edit a lightning page with lightning app builder
    *
    * @param {string} sourcefile File to edit. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {Boolean} urlonly Generate a navigation URL path, but don’t launch a browser-based editor. 
@@ -76,7 +76,7 @@ export class Source {
   @apiCommand("open")
   public open(
     @apiParameter("--sourcefile") sourcefile: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--urlonly") urlonly?: Boolean
@@ -87,7 +87,7 @@ export class Source {
   /**
    * pull source from the scratch org to the project
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {Boolean} forceoverwrite Runs the pull command even if conflicts exist. Changes in the scratch org overwrite changes in the project. 
@@ -100,7 +100,7 @@ export class Source {
    */
   @apiCommand("pull")
   public pull(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--forceoverwrite") forceoverwrite?: Boolean,
@@ -112,7 +112,7 @@ export class Source {
   /**
    * push source to an org from the project
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {Boolean} forceoverwrite Runs the push command even if conflicts exist. Changes in the project overwrite changes in the scratch org. 
@@ -126,7 +126,7 @@ export class Source {
    */
   @apiCommand("push")
   public push(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--forceoverwrite") forceoverwrite?: Boolean,
@@ -139,7 +139,7 @@ export class Source {
   /**
    * list local changes and/or changes in a scratch org
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {Boolean} remote Lists the changes that have been made in the scratch org. 
@@ -157,7 +157,7 @@ export class Source {
    */
   @apiCommand("status")
   public status(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--remote") remote?: Boolean,

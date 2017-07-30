@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -22,7 +22,7 @@ export class Package2 {
    * create a package2
    *
    * @param {string} name Name of the package2 to create. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @param {string} namespace Global namespace for the package2. 
@@ -41,7 +41,7 @@ export class Package2 {
   @apiCommand("create")
   public create(
     @apiParameter("--name") name: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
     @apiParameter("--namespace") namespace?: string,
@@ -53,7 +53,7 @@ export class Package2 {
   /**
    * list the org’s installed subscriber package2 versions
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -64,7 +64,7 @@ export class Package2 {
    */
   @apiCommand("installed:list")
   public installedList(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -78,7 +78,7 @@ export class Package2 {
   /**
    * list all package2 packages in the dev hub org
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @returns {(Promise<Object | void>)}
@@ -89,7 +89,7 @@ export class Package2 {
    */
   @apiCommand("list")
   public list(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string
   ): Promise<Object | void> {
@@ -100,7 +100,7 @@ export class Package2 {
    * create a manifest for the package2 from the specified directory
    *
    * @param {string} directory Directory for reading the package2 contents and generating the package2 manifest JSON file. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @returns {(Promise<Object | void>)}
@@ -112,7 +112,7 @@ export class Package2 {
   @apiCommand("manifest:create")
   public manifestCreate(
     @apiParameter("--directory") directory: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string
   ): Promise<Object | void> {
@@ -126,7 +126,7 @@ export class Package2 {
   /**
    * list all subscriber package2 members in the org
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -137,7 +137,7 @@ export class Package2 {
    */
   @apiCommand("members:list")
   public membersList(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -153,7 +153,7 @@ export class Package2 {
    *
    * @param {string} package2id ID of parent package2 (starts with 0Ho). 
    * @param {string} directory The directory that contains the manifest, descriptor, and contents of the package2 version. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @param {string} wait The number of minutes to wait for the package2 version to be created. 
@@ -178,7 +178,7 @@ export class Package2 {
   public versionCreate(
     @apiParameter("--package2id") package2id: string,
     @apiParameter("--directory") directory: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
     @apiParameter("--wait") wait?: string,
@@ -197,7 +197,7 @@ export class Package2 {
    * retrieve a package2 version creation request in the dev hub org
    *
    * @param {string} package2createrequestid The ID of the package2 version creation request you want to display. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @returns {(Promise<Object | void>)}
@@ -214,7 +214,7 @@ export class Package2 {
   @apiCommand("version:create:get")
   public versionCreateGet(
     @apiParameter("--package2createrequestid") package2createrequestid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string
   ): Promise<Object | void> {
@@ -228,7 +228,7 @@ export class Package2 {
   /**
    * list package2 version creation requests in the dev hub org
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @param {string} status Filters the list based on the status of version creation requests. 
@@ -252,7 +252,7 @@ export class Package2 {
    */
   @apiCommand("version:create:list")
   public versionCreateList(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
     @apiParameter("--status") status?: string,
@@ -269,7 +269,7 @@ export class Package2 {
    * retrieve a package version in the dev hub org
    *
    * @param {string} package2versionid The package2 version ID (starts with 05i). 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @returns {(Promise<Object | void>)}
@@ -284,7 +284,7 @@ export class Package2 {
   @apiCommand("version:get")
   public versionGet(
     @apiParameter("--package2versionid") package2versionid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string
   ): Promise<Object | void> {
@@ -299,7 +299,7 @@ export class Package2 {
    * install a subscriber package2 version
    *
    * @param {string} subscriberpackage2versionid The ID of the subscriber package2 version to install (starts with 04t). 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -319,7 +319,7 @@ export class Package2 {
   public versionInstall(
     @apiParameter("--subscriberpackage2versionid")
     subscriberpackage2versionid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -334,7 +334,7 @@ export class Package2 {
    * list all package2 versions in the dev hub org
    *
    * @param {Boolean} verbose Display extended package2 versions detail. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {Boolean} concise Displays limited package2 version details. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
@@ -363,7 +363,7 @@ export class Package2 {
   @apiCommand("version:list")
   public versionList(
     @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--concise") concise?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
@@ -384,7 +384,7 @@ export class Package2 {
    * uninstall a subscriber package2 version
    *
    * @param {string} subscriberpackage2versionid The ID of the subscriber package2 version to uninstall (starts with 04t). 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -403,7 +403,7 @@ export class Package2 {
   public versionUninstall(
     @apiParameter("--subscriberpackage2versionid")
     subscriberpackage2versionid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -418,7 +418,7 @@ export class Package2 {
    * update a package2 version in the dev hub org
    *
    * @param {string} package2versionid The package2 version ID (starts with 05i). 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @param {Boolean} setasreleased Sets the package2 version as released. Second-generation packages can’t be changed to beta after they've been released. 
@@ -441,7 +441,7 @@ export class Package2 {
   @apiCommand("version:update")
   public versionUpdate(
     @apiParameter("--package2versionid") package2versionid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
     @apiParameter("--setasreleased") setasreleased?: Boolean,

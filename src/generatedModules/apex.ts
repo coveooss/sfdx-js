@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -22,7 +22,7 @@ export class Apex {
    * create an apex class
    *
    * @param {string} classname The name of the new Apex class. The name can be up to 40 characters and must start with a letter. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} apiversion The API version of the created source. 
    * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
@@ -43,7 +43,7 @@ export class Apex {
   @apiCommand("class:create")
   public classCreate(
     @apiParameter("--classname") classname: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--apiversion") apiversion?: string,
     @apiParameter("--reflect") reflect?: string,
@@ -60,7 +60,7 @@ export class Apex {
   /**
    * execute anonymous apex code
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} apexcodefile Path to a local file that contains Apex code. 
@@ -82,7 +82,7 @@ export class Apex {
    */
   @apiCommand("execute")
   public execute(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--apexcodefile") apexcodefile?: string
@@ -98,7 +98,7 @@ export class Apex {
    * fetch a debug log
    *
    * @param {string} logid ID of the log to display. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -114,7 +114,7 @@ export class Apex {
   @apiCommand("log:get")
   public logGet(
     @apiParameter("--logid") logid: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -124,7 +124,7 @@ export class Apex {
   /**
    * list debug logs
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -139,7 +139,7 @@ export class Apex {
    */
   @apiCommand("log:list")
   public logList(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -155,7 +155,7 @@ export class Apex {
    *
    * @param {string} testrunid ID of test run. 
    * @param {Boolean} verbose Displays Apex test processing details. If json format is specified, processing details aren’t displayed. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} wait Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently. 
@@ -177,7 +177,7 @@ export class Apex {
   public testReport(
     @apiParameter("--testrunid") testrunid: string,
     @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--wait") wait?: string,
@@ -198,7 +198,7 @@ export class Apex {
    * @param {string} wait Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently. 
    * @param {Boolean} verbose Displays Apex test processing details. If json format is specified, processing details aren’t displayed. 
    * @param {string} classnames Comma-separated list of Apex test class names to execute. You can’t specify both class names and suite names. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} precompilewait Specifies how long to wait (in minutes) for Apex pre-compilation to complete before running the tests or timing out. 
@@ -228,7 +228,7 @@ export class Apex {
     @apiParameter("--wait") wait?: string,
     @apiParameter("--verbose") verbose?: Boolean,
     @apiParameter("--classnames") classnames?: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--precompilewait") precompilewait?: string,

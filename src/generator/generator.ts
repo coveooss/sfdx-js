@@ -93,7 +93,7 @@ export class Generator {
   }
 
   private extractParameters(result: Result): IParameterDefinition[] {
-    return _.map(result.flags, flag => {
+    let parameters = _.map(result.flags, flag => {
       let parameter: IParameterDefinition = {
         name: flag.name,
         flagKey: "--" + flag.name,
@@ -103,7 +103,19 @@ export class Generator {
       }
 
       return parameter
-    }).sort(param => (param.optional ? 1 : -1))
+    })
+
+    if (result.variableArgs) {
+      parameters.push({
+        name: "expression",
+        description: "The key pair expression for the command",
+        flagKey: "",
+        optional: !result.variableArgsRequired,
+        type: "IStringKeyPair[]"
+      })
+    }
+
+    return parameters.sort(param => (param.optional ? 1 : -1))
   }
 
   private extractReturnType(result: Result) {
@@ -113,6 +125,10 @@ export class Generator {
   private extractType(flag: Flag): string {
     if (flag.type === "flag") {
       return "Boolean"
+    }
+
+    if (flag.name === "loglevel") {
+      return "loglevel"
     }
 
     return "string"

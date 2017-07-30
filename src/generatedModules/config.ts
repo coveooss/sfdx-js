@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -21,8 +21,9 @@ export class Config {
   /**
    * get config var value(s) for given name(s)
    *
+   * @param {IStringKeyPair[]} expression The key pair expression for the command 
    * @param {Boolean} verbose Emit additional command output to stdout. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Config
@@ -40,8 +41,9 @@ export class Config {
    */
   @apiCommand("get")
   public get(
+    @apiParameter("") expression?: IStringKeyPair[],
     @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean
   ): Promise<Object | void> {
     return this.requestExecutioner.execute<Object>(this, this.get, arguments)
@@ -50,7 +52,7 @@ export class Config {
   /**
    * list config vars for sfdx
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Config
@@ -60,7 +62,7 @@ export class Config {
    */
   @apiCommand("list")
   public list(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean
   ): Promise<Object | void> {
     return this.requestExecutioner.execute<Object>(this, this.list, arguments)
@@ -69,7 +71,8 @@ export class Config {
   /**
    * set config vars for sfdx
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {IStringKeyPair[]} expression The key pair expression for the command 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {Boolean} global Sets the configuration variables globally, so they can be used from any directory. 
    * @returns {(Promise<Object | void>)}
@@ -84,7 +87,8 @@ export class Config {
    */
   @apiCommand("set")
   public set(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("") expression: IStringKeyPair[],
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--global") global?: Boolean
   ): Promise<Object | void> {

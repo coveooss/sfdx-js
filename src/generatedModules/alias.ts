@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -21,7 +21,7 @@ export class Alias {
   /**
    * list username aliases for sfdx
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Alias
@@ -32,7 +32,7 @@ export class Alias {
    */
   @apiCommand("list")
   public list(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean
   ): Promise<Object | void> {
     return this.requestExecutioner.execute<Object>(this, this.list, arguments)
@@ -41,7 +41,8 @@ export class Alias {
   /**
    * set username aliases for sfdx
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {IStringKeyPair[]} expression The key pair expression for the command 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Alias
@@ -58,7 +59,8 @@ export class Alias {
    */
   @apiCommand("set")
   public set(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("") expression?: IStringKeyPair[],
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean
   ): Promise<Object | void> {
     return this.requestExecutioner.execute<Object>(this, this.set, arguments)

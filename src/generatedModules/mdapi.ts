@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -22,7 +22,7 @@ export class Mdapi {
    * convert metadata api source into the sfdx source format
    *
    * @param {string} rootdir The root directory that contains the source you retrieved using Metadata API. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} outputdir The directory to store your source in after it’s converted to the Salesforce DX format. Can be an absolute or relative path. 
    * @returns {(Promise<Object | void>)}
@@ -40,7 +40,7 @@ export class Mdapi {
   @apiCommand("convert")
   public convert(
     @apiParameter("--rootdir") rootdir: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--outputdir") outputdir?: string
   ): Promise<Object | void> {
@@ -57,7 +57,7 @@ export class Mdapi {
    * @param {string} rollbackonerror Indicates whether any failure causes a complete rollback of the deploy operation. The default is true. If set to false, the operation performs actions that don’t have errors and returns errors for the remaining actions. You must set this parameter to true if you are deploying to a production org. 
    * @param {Boolean} verbose Indicates that you want verbose output from the deploy operation. 
    * @param {string} checkonly Validates the deployed metadata and runs all Apex tests, but prevents the deployment from being saved to the org. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} zipfile The path to the .zip file of metadata files to deploy. Required to initiate a deployment if you do not use --deploydir. If you specify both --zipfile and --deploydir, a zip file of the contents of the --deploydir directory is written to the location specified by --zipfile. 
@@ -84,7 +84,7 @@ export class Mdapi {
     @apiParameter("--rollbackonerror") rollbackonerror?: string,
     @apiParameter("--verbose") verbose?: Boolean,
     @apiParameter("--checkonly") checkonly?: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--zipfile") zipfile?: string,
@@ -104,7 +104,7 @@ export class Mdapi {
    * @param {Boolean} singlepackage Specifies whether only a single package is being retrieved (true) or more than one package (false). 
    * @param {Boolean} verbose Indicates that you want verbose output from the retrieve operation. 
    * @param {string} apiversion Use to override the default, which is the latest version supported by your CLI plug-in, with the version in your package.xml file. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {string} jobid The job ID (asyncId) of the retrieve you want to check. You must specify a --retrievetargetdir. Use with --wait to resume waiting. 
@@ -124,7 +124,7 @@ export class Mdapi {
     @apiParameter("--singlepackage") singlepackage?: Boolean,
     @apiParameter("--verbose") verbose?: Boolean,
     @apiParameter("--apiversion") apiversion?: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--jobid") jobid?: string,

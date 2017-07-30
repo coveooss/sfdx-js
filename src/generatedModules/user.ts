@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -21,7 +21,7 @@ export class User {
   /**
    * generate a password for a scratch org
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
@@ -37,7 +37,7 @@ export class User {
    */
   @apiCommand("password:generate")
   public passwordGenerate(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
     @apiParameter("--targetusername") targetusername?: string
@@ -53,7 +53,7 @@ export class User {
    * assign a permission set to the admin user of an org
    *
    * @param {string} permsetname The name of the permission set to assign. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -68,7 +68,7 @@ export class User {
   @apiCommand("permset:assign")
   public permsetAssign(
     @apiParameter("--permsetname") permsetname: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {

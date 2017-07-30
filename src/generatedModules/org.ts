@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -21,14 +21,15 @@ export class Org {
   /**
    * create a scratch org
    *
-   * @param {string} setalias Set an alias for for the created scratch org. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {string} env Environment where the scratch org is created: [sandbox*,virtual,prototype]. 
+   * @param {IStringKeyPair[]} expression The key pair expression for the command 
    * @param {string} definitionfile Path to a scratch org definition file. Either --definitionfile or --definitionjson is required. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @param {string} wait Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently. 
-   * @param {string} env Environment where the scratch org is created: [sandbox*,virtual,prototype]. 
    * @param {string} definitionjson Scratch org definition in JSON format. Either --definitionfile or --definitionjson is required. 
+   * @param {string} setalias Set an alias for for the created scratch org. 
    * @param {Boolean} setdefaultusername Sets the created org as the default username. 
    * @param {string} clientid Connected app consumer key, as configured in your Dev Hub. 
    * @param {Boolean} nonamespace Creates the scratch org with no namespace. Useful when using a scratch org to test installations of packages with namespaces. 
@@ -45,14 +46,15 @@ export class Org {
    */
   @apiCommand("create")
   public create(
-    @apiParameter("--setalias") setalias?: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--env") env?: string,
+    @apiParameter("") expression?: IStringKeyPair[],
     @apiParameter("--definitionfile") definitionfile?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
     @apiParameter("--wait") wait?: string,
-    @apiParameter("--env") env?: string,
     @apiParameter("--definitionjson") definitionjson?: string,
+    @apiParameter("--setalias") setalias?: string,
     @apiParameter("--setdefaultusername") setdefaultusername?: Boolean,
     @apiParameter("--clientid") clientid?: string,
     @apiParameter("--nonamespace") nonamespace?: Boolean
@@ -64,7 +66,7 @@ export class Org {
    * mark a scratch org for deletion
    *
    * @param {string} targetusername Username for the target org. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {Boolean} noprompt No prompt to confirm deletion. 
    * @returns {(Promise<Object | void>)}
@@ -80,7 +82,7 @@ export class Org {
   @apiCommand("delete")
   public delete(
     @apiParameter("--targetusername") targetusername: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--noprompt") noprompt?: Boolean
   ): Promise<Object | void> {
@@ -91,7 +93,7 @@ export class Org {
    * get org description
    *
    * @param {Boolean} verbose Emit additional command output to stdout. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
@@ -109,7 +111,7 @@ export class Org {
   @apiCommand("display")
   public display(
     @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string
   ): Promise<Object | void> {
@@ -124,7 +126,7 @@ export class Org {
    * list all active orgs you’ve created or authenticated to
    *
    * @param {Boolean} verbose Lists more information about each org. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {Boolean} noprompt Do not prompt for confirmation. 
    * @param {Boolean} clean Remove all local org authorizations for deleted or expired orgs. 
@@ -141,7 +143,7 @@ export class Org {
   @apiCommand("list")
   public list(
     @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--noprompt") noprompt?: Boolean,
     @apiParameter("--clean") clean?: Boolean,
@@ -153,7 +155,7 @@ export class Org {
   /**
    * open an org in your browser
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @param {Boolean} urlonly Displays a navigation URL, but doesn’t launch your browser. 
@@ -177,7 +179,7 @@ export class Org {
    */
   @apiCommand("open")
   public open(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--targetusername") targetusername?: string,
     @apiParameter("--urlonly") urlonly?: Boolean,

@@ -4,7 +4,7 @@ import {
   apiCommandClass,
   apiCommand
 } from "../core/decorators"
-import { loglevel } from "../modules/common"
+import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
 /**
@@ -22,7 +22,7 @@ export class Project {
    * create a new SFDX project
    *
    * @param {string} projectname The name for the new project. Any valid folder name is accepted. 
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {string} json Formats output as JSON. 
    * @param {string} defaultpackagedir The default package directory name. Metadata items such as classes and Lightning bundles are placed inside this folder. 
    * @param {string} namespace The namespace associated with this project and any connected scratch orgs. 
@@ -46,7 +46,7 @@ export class Project {
   @apiCommand("create")
   public create(
     @apiParameter("--projectname") projectname: string,
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: string,
     @apiParameter("--defaultpackagedir") defaultpackagedir?: string,
     @apiParameter("--namespace") namespace?: string,
@@ -62,7 +62,7 @@ export class Project {
   /**
    * update project config files to the latest format
    *
-   * @param {string} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
+   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {Boolean} forceupgrade Run all upgrades, even if the project definition files have already been upgraded. 
    * @returns {(Promise<Object | void>)}
@@ -75,7 +75,7 @@ export class Project {
    */
   @apiCommand("upgrade")
   public upgrade(
-    @apiParameter("--loglevel") loglevel?: string,
+    @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--forceupgrade") forceupgrade?: Boolean
   ): Promise<Object | void> {
