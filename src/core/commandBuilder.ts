@@ -1,5 +1,7 @@
 import "reflect-metadata"
 import { DecoratorUtil } from "../core/decorators"
+import { IStringKeyPair } from "../modules/common"
+import * as _ from "underscore"
 
 export class CommandBuilder {
   constructor(
@@ -54,7 +56,7 @@ export class CommandBuilder {
     key: string,
     value: any,
     requestMethod: Function
-  ) {
+  ): string | undefined {
     const apiParameter = DecoratorUtil.getApiParameter(
       key,
       this.getFunctionName(requestMethod),
@@ -65,6 +67,11 @@ export class CommandBuilder {
         // When false, we simply don't return any commands.
         return undefined
       }
+    } else if (_.isArray(value)) {
+      return _.map(value, element => {
+        let pair = element as IStringKeyPair
+        return pair.key + "=" + pair.value
+      }).join(" ")
     } else {
       return apiParameter + " " + value
     }

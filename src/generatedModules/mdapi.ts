@@ -14,7 +14,7 @@ import { ICommandExecutioner } from "../core/commandExecutioner"
  * @class Mdapi
  */
 @apiNamespace("force")
-@apiCommandClass("Mdapi")
+@apiCommandClass("mdapi")
 export class Mdapi {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 

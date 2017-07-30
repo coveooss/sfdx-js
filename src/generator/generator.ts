@@ -41,7 +41,7 @@ export class Generator {
       // Check if existing, else creates it.
       if (!classDefinitions[className]) {
         classDefinitions[className] = {
-          apiCommandClass: className,
+          apiCommandClass: result.topic,
           className: className,
           fileName: result.topic,
           functionDefinitions: []
@@ -68,7 +68,7 @@ export class Generator {
       .toString()
     const classTemplate = _.template(templateFile)
 
-    console.log("Cleaning generated modules.")
+    // Cleaning generated modules.
     const directoryPath = path.resolve(__dirname, "../generatedModules")
     try {
       fs.removeSync(directoryPath)

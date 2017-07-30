@@ -78,7 +78,8 @@
   },
   "dependencies": {
     "reflect-metadata": "^0.1.10",
-    "process-promises": "^1.0.0"
+    "process-promises": "^1.0.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "@types/jest": "^20.0.0",
@@ -112,7 +113,6 @@
     "tslint-config-standard": "^6.0.0",
     "typedoc": "^0.7.1",
     "typescript": "^2.3.4",
-    "underscore": "^1.8.3",
     "validate-commit-msg": "^2.12.2"
   }
 }

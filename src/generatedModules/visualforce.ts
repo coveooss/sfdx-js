@@ -14,7 +14,7 @@ import { ICommandExecutioner } from "../core/commandExecutioner"
  * @class Visualforce
  */
 @apiNamespace("force")
-@apiCommandClass("Visualforce")
+@apiCommandClass("visualforce")
 export class Visualforce {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 

@@ -14,7 +14,7 @@ import { ICommandExecutioner } from "../core/commandExecutioner"
  * @class Limits
  */
 @apiNamespace("force")
-@apiCommandClass("Limits")
+@apiCommandClass("limits")
 export class Limits {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 

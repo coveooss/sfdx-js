@@ -14,7 +14,7 @@ import { ICommandExecutioner } from "../core/commandExecutioner"
  * @class Lightning
  */
 @apiNamespace("force")
-@apiCommandClass("Lightning")
+@apiCommandClass("lightning")
 export class Lightning {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 

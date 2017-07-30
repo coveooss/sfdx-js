@@ -14,7 +14,7 @@ import { ICommandExecutioner } from "../core/commandExecutioner"
  * @class Auth
  */
 @apiNamespace("force")
-@apiCommandClass("Auth")
+@apiCommandClass("auth")
 export class Auth {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
