@@ -3,7 +3,7 @@ import {
   CommandExecutioner
 } from "./core/CommandExecutioner"
 import { CommandRunner } from "./core/commandRunner"
-import { GeneratedSFDX } from "./generatedModules/generatedSFDX"
+import { GeneratedSFDX } from "./generated/generatedSFDX"
 
 export class SFDX extends GeneratedSFDX {
   private static defaultOptions: Object = { json: true }

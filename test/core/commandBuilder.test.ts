@@ -4,8 +4,8 @@ import {
   ICommandExecutioner,
   CommandExecutioner
 } from "../../src/core/commandExecutioner"
-import { Apex } from "../../src/generatedModules/apex"
-import { Config } from "../../src/generatedModules/config"
+import { Apex } from "../../src/generated/apex"
+import { Config } from "../../src/generated/config"
 
 describe("Can create commands", () => {
   it("Can run class create", () => {

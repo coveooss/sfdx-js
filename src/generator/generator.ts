@@ -71,7 +71,7 @@ export class Generator {
     const classTemplate = _.template(templateFile)
 
     // Cleaning generated modules.
-    const directoryPath = path.resolve(__dirname, "../generatedModules")
+    const directoryPath = path.resolve(__dirname, "../generated")
     try {
       fs.removeSync(directoryPath)
     } catch (e) {
@@ -87,7 +87,7 @@ export class Generator {
       fs.writeFileSync(
         path.resolve(
           __dirname,
-          "../generatedModules/" + classDefinition.fileName + ".ts"
+          "../generated/" + classDefinition.fileName + ".ts"
         ),
         classImplementation
       )
@@ -103,7 +103,7 @@ export class Generator {
     const sfdxClassTemplate = _.template(templateSFDXFile)
 
     fs.writeFileSync(
-      path.resolve(__dirname, "../generatedModules/generatedSFDX.ts"),
+      path.resolve(__dirname, "../generated/generatedSFDX.ts"),
       sfdxClassTemplate(this.addTemplateHelper(classDefinitionsTemplateElement))
     )
   }
