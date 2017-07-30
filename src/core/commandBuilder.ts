@@ -69,8 +69,12 @@ export class CommandBuilder {
       }
     } else if (_.isArray(value)) {
       return _.map(value, element => {
-        let pair = element as IStringKeyPair
-        return pair.key + "=" + pair.value
+        if (_.has(element, "key") && _.has(element, "value")) {
+          let pair = element as IStringKeyPair
+          return pair.key + "=" + pair.value
+        }
+        // this is any other type of array. Return as is.
+        return element
       }).join(" ")
     } else {
       return apiParameter + " " + value

@@ -21,7 +21,7 @@ export class Config {
   /**
    * get config var value(s) for given name(s)
    *
-   * @param {IStringKeyPair[]} expression The key pair expression for the command 
+   * @param {IStringKeyPair[] | string[] | string} expression The key pair expression for the command 
    * @param {Boolean} verbose Emit additional command output to stdout. 
    * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
@@ -41,7 +41,7 @@ export class Config {
    */
   @apiCommand("get")
   public get(
-    @apiParameter("") expression?: IStringKeyPair[],
+    @apiParameter("") expression?: IStringKeyPair[] | string[] | string,
     @apiParameter("--verbose") verbose?: Boolean,
     @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean
@@ -71,7 +71,7 @@ export class Config {
   /**
    * set config vars for sfdx
    *
-   * @param {IStringKeyPair[]} expression The key pair expression for the command 
+   * @param {IStringKeyPair[] | string[] | string} expression The key pair expression for the command 
    * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @param {Boolean} global Sets the configuration variables globally, so they can be used from any directory. 
@@ -87,7 +87,7 @@ export class Config {
    */
   @apiCommand("set")
   public set(
-    @apiParameter("") expression: IStringKeyPair[],
+    @apiParameter("") expression: IStringKeyPair[] | string[] | string,
     @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean,
     @apiParameter("--global") global?: Boolean

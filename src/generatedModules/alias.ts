@@ -41,7 +41,7 @@ export class Alias {
   /**
    * set username aliases for sfdx
    *
-   * @param {IStringKeyPair[]} expression The key pair expression for the command 
+   * @param {IStringKeyPair[] | string[] | string} expression The key pair expression for the command 
    * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
    * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
@@ -59,7 +59,7 @@ export class Alias {
    */
   @apiCommand("set")
   public set(
-    @apiParameter("") expression?: IStringKeyPair[],
+    @apiParameter("") expression?: IStringKeyPair[] | string[] | string,
     @apiParameter("--loglevel") loglevel?: loglevel,
     @apiParameter("--json") json?: Boolean
   ): Promise<Object | void> {

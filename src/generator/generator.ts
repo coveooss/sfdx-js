@@ -111,7 +111,7 @@ export class Generator {
         description: "The key pair expression for the command",
         flagKey: "",
         optional: !result.variableArgsRequired,
-        type: "IStringKeyPair[]"
+        type: "IStringKeyPair[] | string[] | string"
       })
     }
 
