@@ -12,12 +12,8 @@ describe("Can create commands", () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout
   })
 
-  it("CommandExecutioner is instantiable", () => {
+  it("Generator is instantiable", () => {
     let commandRunner = new CommandRunner("sfdx")
     let generator = new Generator(commandRunner)
-
-    let jsonFile = require("../../commands.json")
-    let jsonString = JSON.stringify(jsonFile)
-    return generator.generate(jsonString)
   })
 })
