@@ -1,5 +1,5 @@
 // Generated on July 30th 2017, 5:53:28 pm. DO NOT MODIFY
-import { ICommandExecutioner } from "../core/CommandExecutioner"
+import { ICommandExecutioner } from "../core/commandExecutioner"
 import { Limits } from "./limits"
 import { Lightning } from "./lightning"
 import { Data } from "./data"

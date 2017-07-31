@@ -1,7 +1,7 @@
 import {
   ICommandExecutioner,
   CommandExecutioner
-} from "./core/CommandExecutioner"
+} from "./core/commandExecutioner"
 import { CommandRunner } from "./core/commandRunner"
 import { GeneratedSFDX } from "./generated/generatedSFDX"
 
