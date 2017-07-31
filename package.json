@@ -1,6 +1,6 @@
 {
   "name": "sfdx-js",
-  "version": "0.0.0",
+  "version": "0.0.1-development",
   "description": "",
   "keywords": [],
   "main": "dist/sfdx-js.umd.js",
