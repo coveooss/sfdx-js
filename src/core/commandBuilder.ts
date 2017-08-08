@@ -1,4 +1,3 @@
-import "reflect-metadata"
 import { DecoratorUtil } from "../core/decorators"
 import { IStringKeyPair } from "../modules/common"
 import * as _ from "underscore"

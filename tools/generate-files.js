@@ -9,4 +9,3 @@ var stringFile = JSON.stringify(commandFile)
 generator.generate(stringFile).then(() => {
   console.log('Generating done')
 })
-
