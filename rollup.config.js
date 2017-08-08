@@ -1,6 +1,8 @@
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import sourceMaps from 'rollup-plugin-sourcemaps'
+import builtins from 'rollup-plugin-node-builtins';
+import globals from 'rollup-plugin-node-globals';
 const pkg = require('./package.json')
 const camelCase = require('lodash.camelcase')
 
@@ -10,7 +12,7 @@ export default {
   entry: `compiled/${libraryName}.js`,
   targets: [
 	  { dest: pkg.main, moduleName: camelCase(libraryName), format: 'umd' },
-	  { dest: pkg.module, format: 'es' }
+    { dest: pkg.module, format: 'cjs' }
   ],
   // To make "this is undefined" warning shut up.
   context: 'window',
@@ -26,10 +28,13 @@ export default {
     resolve(),
 
     // Resolve source maps to the original source
-    sourceMaps()
+    sourceMaps(),
+
+    globals()
+
   ],
   globals: {
     'child_process': 'child_process',
-    'underscore': '_'
+    'underscore': '_',
   }
 }

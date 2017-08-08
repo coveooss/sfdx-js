@@ -14,7 +14,10 @@ import * as moment from "moment"
 
 export class Generator {
   templateHelpers: any = {}
-  constructor(private commandRunner: ICommandRunner) {
+  constructor(
+    private commandRunner: ICommandRunner,
+    private rootDirectory: string = path.resolve(__dirname, "./../..")
+  ) {
     this.initializeTemplateHelpers()
   }
 
@@ -64,12 +67,14 @@ export class Generator {
     })
 
     const templateFile = fs
-      .readFileSync(path.resolve(__dirname, "./templates/class.ejs"))
+      .readFileSync(
+        path.resolve(this.rootDirectory, "./src/generator/templates/class.ejs")
+      )
       .toString()
     const classTemplate = _.template(templateFile)
 
     // Cleaning generated modules.
-    const directoryPath = path.resolve(__dirname, "../generated")
+    const directoryPath = path.resolve(this.rootDirectory, "./src/generated")
     try {
       fs.removeSync(directoryPath)
     } catch (e) {
@@ -84,8 +89,8 @@ export class Generator {
       )
       fs.writeFileSync(
         path.resolve(
-          __dirname,
-          "../generated/" + classDefinition.fileName + ".ts"
+          this.rootDirectory,
+          "./src/generated/" + classDefinition.fileName + ".ts"
         ),
         classImplementation
       )
@@ -96,12 +101,17 @@ export class Generator {
     }
 
     const templateSFDXFile = fs
-      .readFileSync(path.resolve(__dirname, "./templates/sfdxClass.ejs"))
+      .readFileSync(
+        path.resolve(
+          this.rootDirectory,
+          "./src/generator/templates/sfdxClass.ejs"
+        )
+      )
       .toString()
     const sfdxClassTemplate = _.template(templateSFDXFile)
 
     fs.writeFileSync(
-      path.resolve(__dirname, "../generated/generatedSFDX.ts"),
+      path.resolve(this.rootDirectory, "./src/generated/generatedSFDX.ts"),
       sfdxClassTemplate(this.addTemplateHelper(classDefinitionsTemplateElement))
     )
   }
@@ -190,6 +200,6 @@ export class Generator {
   private getCurrentFormatedDate(): string {
     // Something is weird with moment and typescript. We must call default on the function.
     // https://github.com/aurelia/skeleton-navigation/issues/606
-    return (moment as any).default().format("MMMM Do YYYY, h:mm:ss a")
+    return moment().format("MMMM Do YYYY, h:mm:ss a")
   }
 }

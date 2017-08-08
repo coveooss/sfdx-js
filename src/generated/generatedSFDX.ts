@@ -1,4 +1,4 @@
-// Generated on July 30th 2017, 5:53:28 pm. DO NOT MODIFY
+// Generated on August 8th 2017, 4:54:51 pm. DO NOT MODIFY
 import { ICommandExecutioner } from "../core/commandExecutioner"
 import { Limits } from "./limits"
 import { Lightning } from "./lightning"

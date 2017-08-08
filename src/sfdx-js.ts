@@ -1,35 +1,6 @@
-import {
-  ICommandExecutioner,
-  CommandExecutioner
-} from "./core/commandExecutioner"
+import { SFDX } from "./core/sfdx"
 import { CommandRunner } from "./core/commandRunner"
-import { GeneratedSFDX } from "./generated/generatedSFDX"
+import { CommandExecutioner } from "./core/commandExecutioner"
+import { Generator } from "./generator/generator"
 
-export class SFDX extends GeneratedSFDX {
-  private static defaultOptions: Object = { json: true }
-
-  constructor(requestExecutioner?: ICommandExecutioner) {
-    super()
-    if (requestExecutioner === undefined) {
-      const commandRunner = new CommandRunner("sfdx")
-      this.requestExecutioner = new CommandExecutioner(
-        commandRunner,
-        SFDX.defaultOptions
-      )
-    } else {
-      this.requestExecutioner = requestExecutioner
-    }
-
-    this.initializeModules()
-  }
-
-  public static createUsingPath(SFDXPath: string) {
-    const commandRunner = new CommandRunner(SFDXPath)
-    const requestExecutioner = new CommandExecutioner(
-      commandRunner,
-      SFDX.defaultOptions
-    )
-
-    return new SFDX(requestExecutioner)
-  }
-}
+export { CommandExecutioner, CommandRunner, Generator, SFDX }
