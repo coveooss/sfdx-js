@@ -21,6 +21,7 @@ TODO
  - `npm run build`: Generage bundles and typings, create docs
  - `npm run lint`: Lints code
  - `npm run commit`: Commit using conventional commit style ([husky](https://github.com/typicode/husky) will tell you to use it if you haven't :wink:)
+ - `npm run generate`: Generate wrapper classes using the SFDX executable in path.
 
 ### Git Hooks
 

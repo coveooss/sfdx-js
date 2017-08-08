@@ -32,7 +32,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "generate": "sfdx force:doc:commands:display --json > commands.json && tsc && node tools/generate-files.js"
+    "generate": "sfdx force:doc:commands:display --json > commands.json && node tools/generate-files.js"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
