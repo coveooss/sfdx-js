@@ -9,6 +9,11 @@
   "files": [
     "dist"
   ],
+  "publishConfig":{
+    "init-author-email": "sandbox_JSUI@coveo.com",
+    "init.author.name":"Coveo",
+    "init.author.url": "http://source.coveo.com/"
+  },
   "author": "Marc-Antoine Veilleux <maveilleux@coveo.com>",
   "repository": {
     "type": "git",
