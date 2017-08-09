@@ -9,8 +9,16 @@
 A typescript compatible javascript wrapper for Salesforce DX cli.
 
 ### Usage
+ ```
+    const sfdx = require('sfdx-js').SFDX.createUsingPath('sfdx')
+    sfdx.auth.webLogin().then(function() {
+      console.log('done!');
+    })
+ ```
 
-TODO
+### Documentation
+Read our doc here:
+https://coveo.github.io/sfdx-js/
 
 ### dev scripts
 
