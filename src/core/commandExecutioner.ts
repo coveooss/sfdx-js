@@ -13,7 +13,7 @@ export interface ICommandExecutioner {
     requestClass: Object,
     requestMethod: Function,
     requestOptions: IArguments
-  ): Promise<T | void>
+  ): Promise<T | string | void>
 }
 
 export class CommandExecutioner implements ICommandExecutioner {
@@ -32,7 +32,7 @@ export class CommandExecutioner implements ICommandExecutioner {
     requestClass: Object,
     requestMethod: Function,
     requestOptions: IArguments
-  ): Promise<T | void> {
+  ): Promise<T | string | void> {
     let result = await this.internalExecute(
       requestClass,
       requestMethod,
