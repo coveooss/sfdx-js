@@ -83,7 +83,7 @@ export class DecoratorUtil {
     )
   }
 
-  public static getParameterNames(fn: any) {
+  public static getParameterNames(fn: any): string[] {
     let code = fn
       .toString()
       .replace(COMMENTS, "")

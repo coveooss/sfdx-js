@@ -67,4 +67,28 @@ describe("Can create commands", () => {
       )
     })
   })
+
+  it("Can use default options", () => {
+    commandExecutioner = new CommandExecutioner(commandRunnerMockImpl, {
+      json: true
+    })
+    auth = new Auth(commandExecutioner)
+    return auth.webLogin().then(() => {
+      expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
+        "force:auth:web:login --json"
+      )
+    })
+  })
+
+  it("Can overide default options", () => {
+    commandExecutioner = new CommandExecutioner(commandRunnerMockImpl, {
+      json: true
+    })
+    auth = new Auth(commandExecutioner)
+    return auth.webLogin(undefined, false).then(() => {
+      expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
+        "force:auth:web:login"
+      )
+    })
+  })
 })

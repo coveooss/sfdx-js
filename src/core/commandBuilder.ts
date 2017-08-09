@@ -39,9 +39,18 @@ export class CommandBuilder {
   private buildParameters() {
     let parameters: string[] = []
     let parameterNames = DecoratorUtil.getParameterNames(this.requestMethod)
-    Object.keys(this.requestOptions).forEach(index => {
+    Object.keys(this.requestOptions)
+    parameterNames.forEach((parameterName, index) => {
       let propertyValue = this.requestOptions[index]
-      let parameterName = parameterNames[index]
+      // If the value is undefined, let's check for default options.
+      if (this.defaultOptions !== undefined && propertyValue === undefined) {
+        let defaultOptionValue = (this.defaultOptions as any)[
+          parameterName
+        ] as string
+        if (defaultOptionValue !== undefined) {
+          propertyValue = defaultOptionValue
+        }
+      }
       if (propertyValue !== undefined) {
         const propertyCommand = this.mapPropertyToCommand(
           parameterName,
