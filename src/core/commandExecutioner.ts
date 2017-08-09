@@ -48,14 +48,11 @@ export class CommandExecutioner implements ICommandExecutioner {
     requestMethod: Function,
     requestOptions: IArguments
   ) {
-    if (this.defaultOptions !== undefined) {
-      requestOptions = Object.assign(requestOptions, this.defaultOptions)
-    }
-
     let requestBuilder = new CommandBuilder(
       requestClass,
       requestMethod,
-      requestOptions
+      requestOptions,
+      this.defaultOptions
     )
     let command = requestBuilder.build()
 

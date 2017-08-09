@@ -6,7 +6,8 @@ export class CommandBuilder {
   constructor(
     private requestClass: Object,
     private requestMethod: Function,
-    private requestOptions: any
+    private requestOptions: any,
+    private defaultOptions?: Object
   ) {}
 
   public build() {
@@ -71,6 +72,8 @@ export class CommandBuilder {
         // When false, we simply don't return any commands.
         return undefined
       }
+      // Simply return the flag.
+      return apiParameter
     } else if (_.isArray(value)) {
       return _.map(value, element => {
         if (_.has(element, "key") && _.has(element, "value")) {
