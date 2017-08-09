@@ -6,6 +6,7 @@ import {
 } from "../../src/core/commandExecutioner"
 import { Apex } from "../../src/generated/apex"
 import { Config } from "../../src/generated/config"
+import { Auth } from "../../src/generated/auth"
 
 describe("Can create commands", () => {
   it("Can run class create", () => {
@@ -44,5 +45,23 @@ describe("Can create commands", () => {
           "force:config:set key1=value1 key2=value2"
         )
       })
+  })
+
+  it("Can run web login with no parameters", () => {
+    const commandRunnerMock = jest.fn<ICommandRunner>(() => ({
+      runCommand: jest.fn(() => {
+        return Promise.resolve("{}")
+      })
+    }))
+
+    let commandRunnerMockImpl = new commandRunnerMock()
+
+    let commandExecutioner = new CommandExecutioner(commandRunnerMockImpl)
+    const auth = new Auth(commandExecutioner)
+    return auth.webLogin().then(() => {
+      expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
+        "force:auth:web:login"
+      )
+    })
   })
 })

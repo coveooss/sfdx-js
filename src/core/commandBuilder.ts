@@ -10,7 +10,12 @@ export class CommandBuilder {
   ) {}
 
   public build() {
-    return this.buildCommand() + " " + this.buildParameters()
+    let command = this.buildCommand()
+    const parameters = this.buildParameters()
+    if (parameters !== undefined) {
+      command += " " + parameters
+    }
+    return command
   }
 
   private buildCommand() {
