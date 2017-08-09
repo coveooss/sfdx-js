@@ -85,8 +85,6 @@
   "dependencies": {
     "reflect-metadata": "^0.1.10",
     "underscore": "^1.8.3",
-
-    // Needed for the generator
     "moment": "^2.18.1",
     "fs-extra": "^4.0.1"
   },
