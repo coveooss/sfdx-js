@@ -37,7 +37,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "generate": "sfdx force:doc:commands:display --json > commands.json && node tools/generate-files.js"
+    "generate": "sfdx force:doc:commands:display --json > commands.json && tsc --project ./tools && node tools/generate-files.js"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -84,9 +84,7 @@
   },
   "dependencies": {
     "reflect-metadata": "^0.1.10",
-    "underscore": "^1.8.3",
-    "moment": "^2.18.1",
-    "fs-extra": "^4.0.1"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "@types/jest": "^20.0.0",
@@ -115,6 +113,8 @@
     "ts-jest": "^20.0.6",
     "ts-node": "^3.0.6",
     "tsc-watch": "^1.0.5",
+    "moment": "^2.18.1",
+    "fs-extra": "^4.0.1",
     "tslint": "^5.4.3",
     "tslint-config-prettier": "^1.1.0",
     "tslint-config-standard": "^6.0.0",

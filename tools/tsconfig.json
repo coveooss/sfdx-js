@@ -10,16 +10,13 @@
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "declarationDir": "dist/types",
-        "outDir": "compiled",
+        "declarationDir": "../compiled_tools/types",
+        "outDir": "../compiled_tools",
         "typeRoots": [
-          "node_modules/@types"
+          "../node_modules/@types"
         ]
     },
     "include": [
-      "src"
-    ],
-    "exclude": [
-      "tools"
+      "src/**/*.ts"
     ]
 }

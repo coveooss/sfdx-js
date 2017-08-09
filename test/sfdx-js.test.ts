@@ -1,4 +1,4 @@
-import { SFDX } from "../src/sfdx-js"
+import SFDX from "../src/sfdx-js"
 
 describe("SFDX Interface", () => {
   it("SFDX is instantiable", () => {

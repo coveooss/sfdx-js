@@ -10,7 +10,7 @@ A typescript compatible javascript wrapper for Salesforce DX cli.
 
 ### Usage
  ```
-    const sfdx = require('sfdx-js').SFDX.createUsingPath('sfdx')
+    const sfdx = require('sfdx-js').createUsingPath('sfdx')
     sfdx.auth.webLogin().then(function() {
       console.log('done!');
     })

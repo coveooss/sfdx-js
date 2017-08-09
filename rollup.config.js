@@ -15,7 +15,7 @@ export default {
   // To make "this is undefined" warning shut up.
   context: 'window',
   sourceMap: true,
-  exports: 'named',
+  exports: 'auto',
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: ['child_process', 'reflect-metadata', 'underscore', 'fs-extra', 'path', 'moment'],
   plugins: [
