@@ -3,7 +3,7 @@ import { ICommandExecutioner } from "../core/commandExecutioner";<%
  _.each(classDefinitions, function(classDefinition) { %>
 import {<%= classDefinition.className %>} from "./<%= classDefinition.fileName %>"<% }) %>
 
-export abstract class GeneratedSFDX {
+export abstract class GeneratedClient {
   <% _.each(classDefinitions, function(classDefinition) { %>
   public <%= classDefinition.fileName %>: <%= classDefinition.className %>;<% }) %>
 

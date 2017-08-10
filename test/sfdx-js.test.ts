@@ -1,7 +1,7 @@
-import SFDX from "../src/sfdx-js"
+import { Client } from "../src/sfdx-js"
 
-describe("SFDX Interface", () => {
-  it("SFDX is instantiable", () => {
-    expect(new SFDX()).toBeInstanceOf(SFDX)
+describe("Client Interface", () => {
+  it("Client is instantiable", () => {
+    expect(new Client()).toBeInstanceOf(Client)
   })
 })

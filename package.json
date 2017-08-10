@@ -1,11 +1,11 @@
 {
   "name": "sfdx-js",
-  "version": "0.0.3",
-  "description": "",
-  "keywords": [],
-  "main": "dist/sfdx-js.umd.js",
-  "module": "dist/sfdx-js.cjs.js",
-  "typings": "dist/types/sfdx-js.d.ts",
+  "version": "2.1.0",
+  "description": "A node wrapper for Salesforce DX",
+  "keywords": ["sfdx", "node", "wrapper", "salesforce", "dx"],
+  "main": "./dist/sfdx-js.umd.js",
+  "module": "./dist/sfdx-js.cjs.js",
+  "typings": "./dist/types/sfdx-js.d.ts",
   "files": [
     "dist"
   ],

@@ -9,3 +9,4 @@ dist
 compiled
 .awcache
 commands.json
+compiled_tools*

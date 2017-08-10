@@ -1,4 +1,4 @@
-// Generated on August 8th 2017, 4:54:51 pm. DO NOT MODIFY
+// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
 import { ICommandExecutioner } from "../core/commandExecutioner"
 import { Limits } from "./limits"
 import { Lightning } from "./lightning"
@@ -19,7 +19,7 @@ import { User } from "./user"
 import { Schema } from "./schema"
 import { Package1 } from "./package1"
 
-export abstract class GeneratedSFDX {
+export abstract class GeneratedClient {
   public limits: Limits
   public lightning: Lightning
   public data: Data

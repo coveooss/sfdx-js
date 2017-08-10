@@ -66,7 +66,7 @@ export class Generator {
 
     const templateFile = fs
       .readFileSync(
-        path.resolve(this.rootDirectory, "./src/generator/templates/class.ejs")
+        path.resolve(this.rootDirectory, "./tools/src/generator/templates/class.ejs")
       )
       .toString()
     const classTemplate = _.template(templateFile)
@@ -102,14 +102,14 @@ export class Generator {
       .readFileSync(
         path.resolve(
           this.rootDirectory,
-          "./src/generator/templates/sfdxClass.ejs"
+          "./tools/src/generator/templates/sfdxClass.ejs"
         )
       )
       .toString()
     const sfdxClassTemplate = _.template(templateSFDXFile)
 
     fs.writeFileSync(
-      path.resolve(this.rootDirectory, "./src/generated/generatedSFDX.ts"),
+      path.resolve(this.rootDirectory, "./src/generated/generatedClient.ts"),
       sfdxClassTemplate(this.addTemplateHelper(classDefinitionsTemplateElement))
     )
   }

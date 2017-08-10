@@ -3,9 +3,9 @@ import {
   CommandExecutioner
 } from "./core/commandExecutioner"
 import { CommandRunner } from "./core/commandRunner"
-import { GeneratedSFDX } from "./generated/generatedSFDX"
+import { GeneratedClient } from "./generated/generatedClient"
 
-export default class SFDX extends GeneratedSFDX {
+export class Client extends GeneratedClient {
   private static defaultOptions: Object = { json: true }
 
   constructor(requestExecutioner?: ICommandExecutioner) {
@@ -14,7 +14,7 @@ export default class SFDX extends GeneratedSFDX {
       const commandRunner = new CommandRunner("sfdx")
       this.requestExecutioner = new CommandExecutioner(
         commandRunner,
-        SFDX.defaultOptions
+        Client.defaultOptions
       )
     } else {
       this.requestExecutioner = requestExecutioner
@@ -27,9 +27,9 @@ export default class SFDX extends GeneratedSFDX {
     const commandRunner = new CommandRunner(SFDXPath)
     const requestExecutioner = new CommandExecutioner(
       commandRunner,
-      SFDX.defaultOptions
+      Client.defaultOptions
     )
 
-    return new SFDX(requestExecutioner)
+    return new Client(requestExecutioner)
   }
 }
