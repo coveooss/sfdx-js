@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,57 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method list of class Alias.
+ *
+ * @export
+ * @interface IAliasList
+ */
+export interface IAliasList {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IAliasList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IAliasList
+   */
+  json?: Boolean
+}
+
+/**
+ * Options for the method set of class Alias.
+ *
+ * @export
+ * @interface IAliasSet
+ */
+export interface IAliasSet {
+  /**
+   * [Optional] The key pair expression for the command
+   * @type {IStringKeyPair[] | string[] | string}
+   * @memberof IAliasSet
+   */
+  expression?: IStringKeyPair[] | string[] | string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IAliasSet
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IAliasSet
+   */
+  json?: Boolean
+}
 
 /**
  * Alias
@@ -21,9 +72,6 @@ export class Alias {
 
   /**
    * list username aliases for sfdx
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Alias
    * @description Lists the aliases that sfdx can use for various commands and tasks.
@@ -32,19 +80,22 @@ export class Alias {
    * force:alias:list [--json] [--loglevel <string>]
    */
   @apiCommand("list")
-  public list(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.list, arguments)
+  public list(options?: IAliasList): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.list,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * set username aliases for sfdx
-   *
-   * @param {IStringKeyPair[] | string[] | string} expression The key pair expression for the command 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Alias
    * @description Sets an alias that sfdx can use for various commands and tasks.
@@ -59,11 +110,18 @@ export class Alias {
    * force:alias:set name=value... [--json] [--loglevel <string>]
    */
   @apiCommand("set")
-  public set(
-    @apiParameter("") expression?: IStringKeyPair[] | string[] | string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.set, arguments)
+  public set(options?: IAliasSet): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      expression: "",
+      loglevel: "--loglevel",
+      json: "--json"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.set,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 }

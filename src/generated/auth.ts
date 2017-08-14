@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,191 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method jwtGrant of class Auth.
+ *
+ * @export
+ * @interface IAuthJwtGrant
+ */
+export interface IAuthJwtGrant {
+  /**
+   * [Required] The authentication username.
+   * @type {string}
+   * @memberof IAuthJwtGrant
+   */
+  username: string
+
+  /**
+   * [Required] Path to a file containing the private key.
+   * @type {string}
+   * @memberof IAuthJwtGrant
+   */
+  jwtkeyfile: string
+
+  /**
+   * [Required] The OAuth client ID (sometimes referred to as the consumer key).
+   * @type {string}
+   * @memberof IAuthJwtGrant
+   */
+  clientid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IAuthJwtGrant
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IAuthJwtGrant
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Sets an alias for the authenticated org.
+   * @type {string}
+   * @memberof IAuthJwtGrant
+   */
+  setalias?: string
+
+  /**
+   * [Optional] Sets the authenticated org as the default username that all commands run against.
+   * @type {Boolean}
+   * @memberof IAuthJwtGrant
+   */
+  setdefaultusername?: Boolean
+
+  /**
+   * [Optional] Sets the authenticated org as the default Dev Hub org for scratch org creation.
+   * @type {Boolean}
+   * @memberof IAuthJwtGrant
+   */
+  setdefaultdevhubusername?: Boolean
+
+  /**
+   * [Optional] The login URL of the Salesforce instance that the org lives on.
+   * @type {string}
+   * @memberof IAuthJwtGrant
+   */
+  instanceurl?: string
+}
+
+/**
+ * Options for the method sfdxurlStore of class Auth.
+ *
+ * @export
+ * @interface IAuthSfdxurlStore
+ */
+export interface IAuthSfdxurlStore {
+  /**
+   * [Required] Path to a file containing the SFDX URL.
+   * @type {string}
+   * @memberof IAuthSfdxurlStore
+   */
+  sfdxurlfile: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IAuthSfdxurlStore
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IAuthSfdxurlStore
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Sets an alias for the authenticated org.
+   * @type {string}
+   * @memberof IAuthSfdxurlStore
+   */
+  setalias?: string
+
+  /**
+   * [Optional] Sets the authenticated org as the default username that all commands run against.
+   * @type {Boolean}
+   * @memberof IAuthSfdxurlStore
+   */
+  setdefaultusername?: Boolean
+
+  /**
+   * [Optional] Sets the authenticated org as the default Dev Hub org for scratch org creation.
+   * @type {Boolean}
+   * @memberof IAuthSfdxurlStore
+   */
+  setdefaultdevhubusername?: Boolean
+}
+
+/**
+ * Options for the method webLogin of class Auth.
+ *
+ * @export
+ * @interface IAuthWebLogin
+ */
+export interface IAuthWebLogin {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IAuthWebLogin
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IAuthWebLogin
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Disables masking of user input (for use with problematic terminals).
+   * @type {Boolean}
+   * @memberof IAuthWebLogin
+   */
+  disablemasking?: Boolean
+
+  /**
+   * [Optional] Sets an alias for the authenticated org.
+   * @type {string}
+   * @memberof IAuthWebLogin
+   */
+  setalias?: string
+
+  /**
+   * [Optional] Sets the authenticated org as the default username that all commands run against.
+   * @type {Boolean}
+   * @memberof IAuthWebLogin
+   */
+  setdefaultusername?: Boolean
+
+  /**
+   * [Optional] Sets the authenticated org as the default Dev Hub org for scratch org creation.
+   * @type {Boolean}
+   * @memberof IAuthWebLogin
+   */
+  setdefaultdevhubusername?: Boolean
+
+  /**
+   * [Optional] The login URL of the Salesforce instance that the org lives on.
+   * @type {string}
+   * @memberof IAuthWebLogin
+   */
+  instanceurl?: string
+
+  /**
+   * [Optional] The OAuth client ID (sometimes referred to as the consumer key).
+   * @type {string}
+   * @memberof IAuthWebLogin
+   */
+  clientid?: string
+}
 
 /**
  * Auth
@@ -21,16 +206,6 @@ export class Auth {
 
   /**
    * authorize an org using the jwt flow
-   *
-   * @param {string} username The authentication username. 
-   * @param {string} jwtkeyfile Path to a file containing the private key. 
-   * @param {string} clientid The OAuth client ID (sometimes referred to as the consumer key). 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} setalias Sets an alias for the authenticated org. 
-   * @param {Boolean} setdefaultusername Sets the authenticated org as the default username that all commands run against. 
-   * @param {Boolean} setdefaultdevhubusername Sets the authenticated org as the default Dev Hub org for scratch org creation. 
-   * @param {string} instanceurl The login URL of the Salesforce instance that the org lives on. 
    * @returns {(Promise<Object | void>)}
    * @memberof Auth
    * @description Authorizes a Salesforce org using the JWT flow.
@@ -42,34 +217,29 @@ export class Auth {
    * force:auth:jwt:grant -u <string> -f <filepath> -i <string> [-r <url>] [-d] [-s] [-a <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("jwt:grant")
-  public jwtGrant(
-    @apiParameter("--username") username: string,
-    @apiParameter("--jwtkeyfile") jwtkeyfile: string,
-    @apiParameter("--clientid") clientid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--setalias") setalias?: string,
-    @apiParameter("--setdefaultusername") setdefaultusername?: Boolean,
-    @apiParameter("--setdefaultdevhubusername")
-    setdefaultdevhubusername?: Boolean,
-    @apiParameter("--instanceurl") instanceurl?: string
-  ): Promise<Object | void> {
+  public jwtGrant(options: IAuthJwtGrant): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      username: "--username",
+      jwtkeyfile: "--jwtkeyfile",
+      clientid: "--clientid",
+      loglevel: "--loglevel",
+      json: "--json",
+      setalias: "--setalias",
+      setdefaultusername: "--setdefaultusername",
+      setdefaultdevhubusername: "--setdefaultdevhubusername",
+      instanceurl: "--instanceurl"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.jwtGrant,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * authorize an org using an sfdx auth url
-   *
-   * @param {string} sfdxurlfile Path to a file containing the SFDX URL. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} setalias Sets an alias for the authenticated org. 
-   * @param {Boolean} setdefaultusername Sets the authenticated org as the default username that all commands run against. 
-   * @param {Boolean} setdefaultdevhubusername Sets the authenticated org as the default Dev Hub org for scratch org creation. 
    * @returns {(Promise<Object | void>)}
    * @memberof Auth
    * @description Authorizes a Salesforce org using an SFDX auth URL.
@@ -83,33 +253,26 @@ export class Auth {
    * force:auth:sfdxurl:store -f <filepath> [-d] [-s] [-a <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("sfdxurl:store")
-  public sfdxurlStore(
-    @apiParameter("--sfdxurlfile") sfdxurlfile: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--setalias") setalias?: string,
-    @apiParameter("--setdefaultusername") setdefaultusername?: Boolean,
-    @apiParameter("--setdefaultdevhubusername")
-    setdefaultdevhubusername?: Boolean
-  ): Promise<Object | void> {
+  public sfdxurlStore(options: IAuthSfdxurlStore): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      sfdxurlfile: "--sfdxurlfile",
+      loglevel: "--loglevel",
+      json: "--json",
+      setalias: "--setalias",
+      setdefaultusername: "--setdefaultusername",
+      setdefaultdevhubusername: "--setdefaultdevhubusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.sfdxurlStore,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * authorize an org using the web login flow
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {Boolean} disablemasking Disables masking of user input (for use with problematic terminals). 
-   * @param {string} setalias Sets an alias for the authenticated org. 
-   * @param {Boolean} setdefaultusername Sets the authenticated org as the default username that all commands run against. 
-   * @param {Boolean} setdefaultdevhubusername Sets the authenticated org as the default Dev Hub org for scratch org creation. 
-   * @param {string} instanceurl The login URL of the Salesforce instance that the org lives on. 
-   * @param {string} clientid The OAuth client ID (sometimes referred to as the consumer key). 
    * @returns {(Promise<Object | void>)}
    * @memberof Auth
    * @description Authorizes a Salesforce org by opening a browser so you can log in through salesforce.com.
@@ -122,21 +285,23 @@ export class Auth {
    * force:auth:web:login [-i <string>] [-r <url>] [-d] [-s] [-a <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("web:login")
-  public webLogin(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--disablemasking") disablemasking?: Boolean,
-    @apiParameter("--setalias") setalias?: string,
-    @apiParameter("--setdefaultusername") setdefaultusername?: Boolean,
-    @apiParameter("--setdefaultdevhubusername")
-    setdefaultdevhubusername?: Boolean,
-    @apiParameter("--instanceurl") instanceurl?: string,
-    @apiParameter("--clientid") clientid?: string
-  ): Promise<Object | void> {
+  public webLogin(options?: IAuthWebLogin): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      disablemasking: "--disablemasking",
+      setalias: "--setalias",
+      setdefaultusername: "--setdefaultusername",
+      setdefaultdevhubusername: "--setdefaultdevhubusername",
+      instanceurl: "--instanceurl",
+      clientid: "--clientid"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.webLogin,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }

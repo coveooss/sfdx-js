@@ -8,6 +8,26 @@ import {
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
 
+<% _.each(functionDefinitions, function(functionDef) { %>
+/**
+ * Options for the method <%= functionDef.name %> of class <%= className %>.
+ *
+ * @export
+ * @interface I<%= className %><%= capitalizeFirstLetter(functionDef.name) %>
+ */
+export interface I<%= className %><%= capitalizeFirstLetter(functionDef.name) %> {
+<% var numberOfParameters = functionDef.parameters.length;
+  _.each(functionDef.parameters, function(functionParameter, index) {
+%>
+  /**
+   * <%= functionParameter.optional ? '[Optional]' : '[Required]' %> <%= escapeForComments(functionParameter.description) %>
+   * @type {<%= functionParameter.type %>}
+   * @memberof I<%= className %><%= capitalizeFirstLetter(functionDef.name) %>
+   */
+  <%= functionParameter.name %><% if(functionParameter.optional){ %>?<% } %>: <%= functionParameter.type %><% if((numberOfParameters - 1) !== index){ %>,<% } %>
+<% }) %>}
+<% }) %>
+
 /**
  * <%= className %>
  *
@@ -21,8 +41,6 @@ export class <%= className %> {
   <% _.each(functionDefinitions, function(functionDef) { %>
   /**
    * <%= escapeForComments(functionDef.shortDescription) %>
-   *<% _.each(functionDef.parameters, function(functionParameter) { %>
-   * @param {<%= functionParameter.type %>} <%= functionParameter.name %> <%= escapeForComments(functionParameter.description) %> <% })%>
    * @returns {(Promise<<%= functionDef.returnType %> | void>)}
    * @memberof <%= escapeForComments(className) %>
    * @description <%= escapeForComments(functionDef.description) %>
@@ -30,15 +48,14 @@ export class <%= className %> {
    * <%= escapeForComments(functionDef.example) %>
    */
     @apiCommand("<%= functionDef.apiCommand %>")
-    public <%= functionDef.name %>(
+    public <%= functionDef.name %>(options<% if(isAllOptionalParameters(functionDef.parameters)) {%>?<%} %>: I<%= className %><%= capitalizeFirstLetter(functionDef.name) %>) : Promise<<%= functionDef.returnType %> | void> {
+      const parameterNamesToSwitchNames = {
       <% var numberOfParameters = functionDef.parameters.length;
       _.each(functionDef.parameters, function(functionParameter, index) {
-      %>@apiParameter("<%= functionParameter.flagKey %>") <%= functionParameter.name %><% if(functionParameter.optional){ %>?<% } %>: <%= functionParameter.type %><% if((numberOfParameters - 1) !== index){ %>,<% } %>
-      <% })
-%>): Promise<<%= functionDef.returnType %> | void> {
-      return this.requestExecutioner.execute<<%= functionDef.returnType %>>(this, this.<%= functionDef.name %>, arguments)
-    }
+      %>  <%= functionParameter.name %>: "<%= functionParameter.flagKey %>"<% if((numberOfParameters - 1) !== index){ %>,<% } %>
+      <% }) %>}
 
+      return this.requestExecutioner.execute<<%= functionDef.returnType %>>(this, this.<%= functionDef.name %>, options, parameterNamesToSwitchNames)
+    }
   <% }) %>
 }
-

@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,50 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method commandsDisplay of class Doc.
+ *
+ * @export
+ * @interface IDocCommandsDisplay
+ */
+export interface IDocCommandsDisplay {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IDocCommandsDisplay
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IDocCommandsDisplay
+   */
+  json?: Boolean
+}
+
+/**
+ * Options for the method commandsList of class Doc.
+ *
+ * @export
+ * @interface IDocCommandsList
+ */
+export interface IDocCommandsList {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IDocCommandsList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IDocCommandsList
+   */
+  json?: Boolean
+}
 
 /**
  * Doc
@@ -21,9 +65,6 @@ export class Doc {
 
   /**
    * display help for force commands
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Doc
    * @description Displays help for force commands.
@@ -32,21 +73,23 @@ export class Doc {
    */
   @apiCommand("commands:display")
   public commandsDisplay(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean
+    options?: IDocCommandsDisplay
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.commandsDisplay,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * list the force commands
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Doc
    * @description Displays a list of force commands.
@@ -54,14 +97,17 @@ export class Doc {
    * force:doc:commands:list [--json] [--loglevel <string>]
    */
   @apiCommand("commands:list")
-  public commandsList(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean
-  ): Promise<Object | void> {
+  public commandsList(options?: IDocCommandsList): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.commandsList,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }

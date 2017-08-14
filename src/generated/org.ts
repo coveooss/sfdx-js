@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,263 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method create of class Org.
+ *
+ * @export
+ * @interface IOrgCreate
+ */
+export interface IOrgCreate {
+  /**
+   * [Optional] The key pair expression for the command
+   * @type {IStringKeyPair[] | string[] | string}
+   * @memberof IOrgCreate
+   */
+  expression?: IStringKeyPair[] | string[] | string
+
+  /**
+   * [Optional] Environment where the scratch org is created: [sandbox*,virtual,prototype].
+   * @type {string}
+   * @memberof IOrgCreate
+   */
+  env?: string
+
+  /**
+   * [Optional] Path to a scratch org definition file. Either --definitionfile or --definitionjson is required.
+   * @type {string}
+   * @memberof IOrgCreate
+   */
+  definitionfile?: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IOrgCreate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IOrgCreate
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IOrgCreate
+   */
+  targetdevhubusername?: string
+
+  /**
+   * [Optional] Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently.
+   * @type {string}
+   * @memberof IOrgCreate
+   */
+  wait?: string
+
+  /**
+   * [Optional] Scratch org definition in JSON format. Either --definitionfile or --definitionjson is required.
+   * @type {string}
+   * @memberof IOrgCreate
+   */
+  definitionjson?: string
+
+  /**
+   * [Optional] Set an alias for for the created scratch org.
+   * @type {string}
+   * @memberof IOrgCreate
+   */
+  setalias?: string
+
+  /**
+   * [Optional] Sets the created org as the default username.
+   * @type {Boolean}
+   * @memberof IOrgCreate
+   */
+  setdefaultusername?: Boolean
+
+  /**
+   * [Optional] Connected app consumer key, as configured in your Dev Hub.
+   * @type {string}
+   * @memberof IOrgCreate
+   */
+  clientid?: string
+
+  /**
+   * [Optional] Creates the scratch org with no namespace. Useful when using a scratch org to test installations of packages with namespaces.
+   * @type {Boolean}
+   * @memberof IOrgCreate
+   */
+  nonamespace?: Boolean
+}
+
+/**
+ * Options for the method delete of class Org.
+ *
+ * @export
+ * @interface IOrgDelete
+ */
+export interface IOrgDelete {
+  /**
+   * [Required] Username for the target org.
+   * @type {string}
+   * @memberof IOrgDelete
+   */
+  targetusername: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IOrgDelete
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IOrgDelete
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] No prompt to confirm deletion.
+   * @type {Boolean}
+   * @memberof IOrgDelete
+   */
+  noprompt?: Boolean
+}
+
+/**
+ * Options for the method display of class Org.
+ *
+ * @export
+ * @interface IOrgDisplay
+ */
+export interface IOrgDisplay {
+  /**
+   * [Optional] Emit additional command output to stdout.
+   * @type {Boolean}
+   * @memberof IOrgDisplay
+   */
+  verbose?: Boolean
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IOrgDisplay
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IOrgDisplay
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IOrgDisplay
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method list of class Org.
+ *
+ * @export
+ * @interface IOrgList
+ */
+export interface IOrgList {
+  /**
+   * [Optional] Lists more information about each org.
+   * @type {Boolean}
+   * @memberof IOrgList
+   */
+  verbose?: Boolean
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IOrgList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IOrgList
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Do not prompt for confirmation.
+   * @type {Boolean}
+   * @memberof IOrgList
+   */
+  noprompt?: Boolean
+
+  /**
+   * [Optional] Remove all local org authorizations for deleted or expired orgs.
+   * @type {Boolean}
+   * @memberof IOrgList
+   */
+  clean?: Boolean
+
+  /**
+   * [Optional] Lists all authenticated orgs, including expired, deleted, and unknown-status scratch orgs.
+   * @type {Boolean}
+   * @memberof IOrgList
+   */
+  all?: Boolean
+}
+
+/**
+ * Options for the method open of class Org.
+ *
+ * @export
+ * @interface IOrgOpen
+ */
+export interface IOrgOpen {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IOrgOpen
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IOrgOpen
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IOrgOpen
+   */
+  targetusername?: string
+
+  /**
+   * [Optional] Displays a navigation URL, but doesn’t launch your browser.
+   * @type {Boolean}
+   * @memberof IOrgOpen
+   */
+  urlonly?: Boolean
+
+  /**
+   * [Optional] Navigation URL path (not including domain).
+   * @type {string}
+   * @memberof IOrgOpen
+   */
+  path?: string
+}
 
 /**
  * Org
@@ -21,19 +278,6 @@ export class Org {
 
   /**
    * create a scratch org
-   *
-   * @param {IStringKeyPair[] | string[] | string} expression The key pair expression for the command 
-   * @param {string} env Environment where the scratch org is created: [sandbox*,virtual,prototype]. 
-   * @param {string} definitionfile Path to a scratch org definition file. Either --definitionfile or --definitionjson is required. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
-   * @param {string} wait Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently. 
-   * @param {string} definitionjson Scratch org definition in JSON format. Either --definitionfile or --definitionjson is required. 
-   * @param {string} setalias Set an alias for for the created scratch org. 
-   * @param {Boolean} setdefaultusername Sets the created org as the default username. 
-   * @param {string} clientid Connected app consumer key, as configured in your Dev Hub. 
-   * @param {Boolean} nonamespace Creates the scratch org with no namespace. Useful when using a scratch org to test installations of packages with namespaces. 
    * @returns {(Promise<Object | void>)}
    * @memberof Org
    * @description Creates a scratch org using values specified in a configuration file or key=value pairs that you specify on the command line. Values specified on the command line override values in the configuration file.
@@ -46,30 +290,32 @@ export class Org {
    * force:org:create name=value... [-f <filepath>] [-n] [-i <string>] [-s] [-a <string>] [-w <minutes>] [-v <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("create")
-  public create(
-    @apiParameter("") expression?: IStringKeyPair[] | string[] | string,
-    @apiParameter("--env") env?: string,
-    @apiParameter("--definitionfile") definitionfile?: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
-    @apiParameter("--wait") wait?: string,
-    @apiParameter("--definitionjson") definitionjson?: string,
-    @apiParameter("--setalias") setalias?: string,
-    @apiParameter("--setdefaultusername") setdefaultusername?: Boolean,
-    @apiParameter("--clientid") clientid?: string,
-    @apiParameter("--nonamespace") nonamespace?: Boolean
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.create, arguments)
+  public create(options?: IOrgCreate): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      expression: "",
+      env: "--env",
+      definitionfile: "--definitionfile",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername",
+      wait: "--wait",
+      definitionjson: "--definitionjson",
+      setalias: "--setalias",
+      setdefaultusername: "--setdefaultusername",
+      clientid: "--clientid",
+      nonamespace: "--nonamespace"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.create,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * mark a scratch org for deletion
-   *
-   * @param {string} targetusername Username for the target org. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {Boolean} noprompt No prompt to confirm deletion. 
    * @returns {(Promise<Object | void>)}
    * @memberof Org
    * @description Marks a scratch org for deletion.
@@ -81,22 +327,24 @@ export class Org {
    * force:org:delete -u <string> [-p] [--json] [--loglevel <string>]
    */
   @apiCommand("delete")
-  public delete(
-    @apiParameter("--targetusername") targetusername: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--noprompt") noprompt?: Boolean
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.delete, arguments)
+  public delete(options: IOrgDelete): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      targetusername: "--targetusername",
+      loglevel: "--loglevel",
+      json: "--json",
+      noprompt: "--noprompt"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.delete,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * get org description
-   *
-   * @param {Boolean} verbose Emit additional command output to stdout. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Org
    * @description Gets the description for the current or target org.
@@ -110,28 +358,24 @@ export class Org {
    * force:org:display [-u <string>] [--json] [--loglevel <string>] [--verbose]
    */
   @apiCommand("display")
-  public display(
-    @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
-  ): Promise<Object | void> {
+  public display(options?: IOrgDisplay): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      verbose: "--verbose",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.display,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * list all active orgs you’ve created or authenticated to
-   *
-   * @param {Boolean} verbose Lists more information about each org. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {Boolean} noprompt Do not prompt for confirmation. 
-   * @param {Boolean} clean Remove all local org authorizations for deleted or expired orgs. 
-   * @param {Boolean} all Lists all authenticated orgs, including expired, deleted, and unknown-status scratch orgs. 
    * @returns {(Promise<Object | void>)}
    * @memberof Org
    * @description Lists all active orgs that the Salesforce CLI has created or authenticated to.
@@ -142,25 +386,26 @@ export class Org {
    * force:org:list [--all] [--clean] [-p] [--json] [--loglevel <string>]
    */
   @apiCommand("list")
-  public list(
-    @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--noprompt") noprompt?: Boolean,
-    @apiParameter("--clean") clean?: Boolean,
-    @apiParameter("--all") all?: Boolean
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.list, arguments)
+  public list(options?: IOrgList): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      verbose: "--verbose",
+      loglevel: "--loglevel",
+      json: "--json",
+      noprompt: "--noprompt",
+      clean: "--clean",
+      all: "--all"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.list,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * open an org in your browser
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
-   * @param {Boolean} urlonly Displays a navigation URL, but doesn’t launch your browser. 
-   * @param {string} path Navigation URL path (not including domain). 
    * @returns {(Promise<Object | void>)}
    * @memberof Org
    * @description Opens an org in your browser.
@@ -179,13 +424,20 @@ export class Org {
    * force:org:open [-p <string>] [-r] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("open")
-  public open(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string,
-    @apiParameter("--urlonly") urlonly?: Boolean,
-    @apiParameter("--path") path?: string
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.open, arguments)
+  public open(options?: IOrgOpen): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      urlonly: "--urlonly",
+      path: "--path"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.open,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 }

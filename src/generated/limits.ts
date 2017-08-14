@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,35 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method apiDisplay of class Limits.
+ *
+ * @export
+ * @interface ILimitsApiDisplay
+ */
+export interface ILimitsApiDisplay {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof ILimitsApiDisplay
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof ILimitsApiDisplay
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof ILimitsApiDisplay
+   */
+  targetusername?: string
+}
 
 /**
  * Limits
@@ -21,10 +50,6 @@ export class Limits {
 
   /**
    * display current org’s limits
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Limits
    * @description Displays remaining and maximum calls and events for your org.
@@ -36,15 +61,18 @@ export class Limits {
    * force:limits:api:display [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("api:display")
-  public apiDisplay(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
-  ): Promise<Object | void> {
+  public apiDisplay(options?: ILimitsApiDisplay): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.apiDisplay,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }

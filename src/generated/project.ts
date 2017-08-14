@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,113 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method create of class Project.
+ *
+ * @export
+ * @interface IProjectCreate
+ */
+export interface IProjectCreate {
+  /**
+   * [Required] The name for the new project. Any valid folder name is accepted.
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  projectname: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IProjectCreate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Formats output as JSON.
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  json?: string
+
+  /**
+   * [Optional] The default package directory name. Metadata items such as classes and Lightning bundles are placed inside this folder.
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  defaultpackagedir?: string
+
+  /**
+   * [Optional] The namespace associated with this project and any connected scratch orgs.
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  namespace?: string
+
+  /**
+   * [Optional] The source API version for the project. The version defaults to the current release and will normally be defaulted.This is used to properly import or export metadata.
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  sourceapiversion?: string
+
+  /**
+   * [Optional] The login URL for the Salesforce instance being used.Normally defaults to https://login.salesforce.com.
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  loginurl?: string
+
+  /**
+   * [Optional] Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  reflect?: string
+
+  /**
+   * [Optional] The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  outputdir?: string
+
+  /**
+   * [Optional] The template to use to create the file. Supplied parameter values or default values are filled into a copy of the template.
+   * @type {string}
+   * @memberof IProjectCreate
+   */
+  template?: string
+}
+
+/**
+ * Options for the method upgrade of class Project.
+ *
+ * @export
+ * @interface IProjectUpgrade
+ */
+export interface IProjectUpgrade {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IProjectUpgrade
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IProjectUpgrade
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Run all upgrades, even if the project definition files have already been upgraded.
+   * @type {Boolean}
+   * @memberof IProjectUpgrade
+   */
+  forceupgrade?: Boolean
+}
 
 /**
  * Project
@@ -21,17 +128,6 @@ export class Project {
 
   /**
    * create a new SFDX project
-   *
-   * @param {string} projectname The name for the new project. Any valid folder name is accepted. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {string} json Formats output as JSON. 
-   * @param {string} defaultpackagedir The default package directory name. Metadata items such as classes and Lightning bundles are placed inside this folder. 
-   * @param {string} namespace The namespace associated with this project and any connected scratch orgs. 
-   * @param {string} sourceapiversion The source API version for the project. The version defaults to the current release and will normally be defaulted.This is used to properly import or export metadata. 
-   * @param {string} loginurl The login URL for the Salesforce instance being used.Normally defaults to https://login.salesforce.com. 
-   * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
-   * @param {string} outputdir The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory. 
-   * @param {string} template The template to use to create the file. Supplied parameter values or default values are filled into a copy of the template. 
    * @returns {(Promise<Object | void>)}
    * @memberof Project
    * @description Creates a Salesforce DX project  in the specified directory or the current working directory. The command creates the necessary configuration files and folders.
@@ -45,27 +141,30 @@ export class Project {
    * force:project:create -n <string> [-t <string>] [-d <string>] [-s <string>] [-p <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("create")
-  public create(
-    @apiParameter("--projectname") projectname: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: string,
-    @apiParameter("--defaultpackagedir") defaultpackagedir?: string,
-    @apiParameter("--namespace") namespace?: string,
-    @apiParameter("--sourceapiversion") sourceapiversion?: string,
-    @apiParameter("--loginurl") loginurl?: string,
-    @apiParameter("--reflect") reflect?: string,
-    @apiParameter("--outputdir") outputdir?: string,
-    @apiParameter("--template") template?: string
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.create, arguments)
+  public create(options: IProjectCreate): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      projectname: "--projectname",
+      loglevel: "--loglevel",
+      json: "--json",
+      defaultpackagedir: "--defaultpackagedir",
+      namespace: "--namespace",
+      sourceapiversion: "--sourceapiversion",
+      loginurl: "--loginurl",
+      reflect: "--reflect",
+      outputdir: "--outputdir",
+      template: "--template"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.create,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * update project config files to the latest format
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {Boolean} forceupgrade Run all upgrades, even if the project definition files have already been upgraded. 
    * @returns {(Promise<Object | void>)}
    * @memberof Project
    * @description Updates project configuration and definition files to the latest format.
@@ -75,15 +174,18 @@ export class Project {
    * force:project:upgrade [-f] [--json] [--loglevel <string>]
    */
   @apiCommand("upgrade")
-  public upgrade(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--forceupgrade") forceupgrade?: Boolean
-  ): Promise<Object | void> {
+  public upgrade(options?: IProjectUpgrade): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      forceupgrade: "--forceupgrade"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.upgrade,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }

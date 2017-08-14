@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,78 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method passwordGenerate of class User.
+ *
+ * @export
+ * @interface IUserPasswordGenerate
+ */
+export interface IUserPasswordGenerate {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IUserPasswordGenerate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IUserPasswordGenerate
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IUserPasswordGenerate
+   */
+  targetdevhubusername?: string
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IUserPasswordGenerate
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method permsetAssign of class User.
+ *
+ * @export
+ * @interface IUserPermsetAssign
+ */
+export interface IUserPermsetAssign {
+  /**
+   * [Required] The name of the permission set to assign.
+   * @type {string}
+   * @memberof IUserPermsetAssign
+   */
+  permsetname: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IUserPermsetAssign
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IUserPermsetAssign
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IUserPermsetAssign
+   */
+  targetusername?: string
+}
 
 /**
  * User
@@ -21,11 +93,6 @@ export class User {
 
   /**
    * generate a password for a scratch org
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof User
    * @description Generates a password for a scratch org.
@@ -38,25 +105,25 @@ export class User {
    */
   @apiCommand("password:generate")
   public passwordGenerate(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
-    @apiParameter("--targetusername") targetusername?: string
+    options?: IUserPasswordGenerate
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.passwordGenerate,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * assign a permission set to the admin user of an org
-   *
-   * @param {string} permsetname The name of the permission set to assign. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof User
    * @description Assigns a named permission set to the admin user of an org.
@@ -67,16 +134,19 @@ export class User {
    * force:user:permset:assign -n <string> [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("permset:assign")
-  public permsetAssign(
-    @apiParameter("--permsetname") permsetname: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
-  ): Promise<Object | void> {
+  public permsetAssign(options: IUserPermsetAssign): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      permsetname: "--permsetname",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.permsetAssign,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }

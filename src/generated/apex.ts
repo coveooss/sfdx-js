@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,330 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method classCreate of class Apex.
+ *
+ * @export
+ * @interface IApexClassCreate
+ */
+export interface IApexClassCreate {
+  /**
+   * [Required] The name of the new Apex class. The name can be up to 40 characters and must start with a letter.
+   * @type {string}
+   * @memberof IApexClassCreate
+   */
+  classname: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IApexClassCreate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Formats output as JSON.
+   * @type {string}
+   * @memberof IApexClassCreate
+   */
+  json?: string
+
+  /**
+   * [Optional] The API version of the created source.
+   * @type {string}
+   * @memberof IApexClassCreate
+   */
+  apiversion?: string
+
+  /**
+   * [Optional] Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command
+   * @type {string}
+   * @memberof IApexClassCreate
+   */
+  reflect?: string
+
+  /**
+   * [Optional] The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.
+   * @type {string}
+   * @memberof IApexClassCreate
+   */
+  outputdir?: string
+
+  /**
+   * [Optional] The template to use to create the file. Supplied parameter values or default values are filled into a copy of the template.
+   * @type {string}
+   * @memberof IApexClassCreate
+   */
+  template?: string
+}
+
+/**
+ * Options for the method execute of class Apex.
+ *
+ * @export
+ * @interface IApexExecute
+ */
+export interface IApexExecute {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IApexExecute
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IApexExecute
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IApexExecute
+   */
+  targetusername?: string
+
+  /**
+   * [Optional] Path to a local file that contains Apex code.
+   * @type {string}
+   * @memberof IApexExecute
+   */
+  apexcodefile?: string
+}
+
+/**
+ * Options for the method logGet of class Apex.
+ *
+ * @export
+ * @interface IApexLogGet
+ */
+export interface IApexLogGet {
+  /**
+   * [Required] ID of the log to display.
+   * @type {string}
+   * @memberof IApexLogGet
+   */
+  logid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IApexLogGet
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IApexLogGet
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IApexLogGet
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method logList of class Apex.
+ *
+ * @export
+ * @interface IApexLogList
+ */
+export interface IApexLogList {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IApexLogList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IApexLogList
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IApexLogList
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method testReport of class Apex.
+ *
+ * @export
+ * @interface IApexTestReport
+ */
+export interface IApexTestReport {
+  /**
+   * [Required] ID of test run.
+   * @type {string}
+   * @memberof IApexTestReport
+   */
+  testrunid: string
+
+  /**
+   * [Optional] Displays Apex test processing details. If json format is specified, processing details aren’t displayed.
+   * @type {Boolean}
+   * @memberof IApexTestReport
+   */
+  verbose?: Boolean
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IApexTestReport
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IApexTestReport
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IApexTestReport
+   */
+  targetusername?: string
+
+  /**
+   * [Optional] Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently.
+   * @type {string}
+   * @memberof IApexTestReport
+   */
+  wait?: string
+
+  /**
+   * [Optional] Format to use when displaying test results. If you also specify the --json flag, --json overrides this parameter.
+   * @type {string}
+   * @memberof IApexTestReport
+   */
+  resultformat?: string
+
+  /**
+   * [Optional] Directory to store test run files.
+   * @type {string}
+   * @memberof IApexTestReport
+   */
+  outputdir?: string
+
+  /**
+   * [Optional] Retrieves code coverage results.
+   * @type {Boolean}
+   * @memberof IApexTestReport
+   */
+  codecoverage?: Boolean
+}
+
+/**
+ * Options for the method testRun of class Apex.
+ *
+ * @export
+ * @interface IApexTestRun
+ */
+export interface IApexTestRun {
+  /**
+   * [Optional] Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently.
+   * @type {string}
+   * @memberof IApexTestRun
+   */
+  wait?: string
+
+  /**
+   * [Optional] Displays Apex test processing details. If json format is specified, processing details aren’t displayed.
+   * @type {Boolean}
+   * @memberof IApexTestRun
+   */
+  verbose?: Boolean
+
+  /**
+   * [Optional] Comma-separated list of Apex test class names to execute. You can’t specify both class names and suite names.
+   * @type {string}
+   * @memberof IApexTestRun
+   */
+  classnames?: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IApexTestRun
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IApexTestRun
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IApexTestRun
+   */
+  targetusername?: string
+
+  /**
+   * [Optional] Specifies how long to wait (in minutes) for Apex pre-compilation to complete before running the tests or timing out.
+   * @type {string}
+   * @memberof IApexTestRun
+   */
+  precompilewait?: string
+
+  /**
+   * [Optional] Comma-separated list of Apex test suite names to execute. You can’t specify both class names and suite names.
+   * @type {string}
+   * @memberof IApexTestRun
+   */
+  suitenames?: string
+
+  /**
+   * [Optional] Format to use when displaying test results. If you also specify the --json flag, --json overrides this parameter.
+   * @type {string}
+   * @memberof IApexTestRun
+   */
+  resultformat?: string
+
+  /**
+   * [Optional] Specifies which tests to run, using one of these TestLevel enum values:
+   * RunSpecifiedTests—Only the tests that you specify are run.
+   * RunLocalTests—All tests in your org are run, except the ones that originate from installed managed packages.
+   * RunAllTestsInOrg—All tests are in your org and in installed managed packages are run.
+   * @type {string}
+   * @memberof IApexTestRun
+   */
+  testlevel?: string
+
+  /**
+   * [Optional] Directory to store test run files.
+   * @type {string}
+   * @memberof IApexTestRun
+   */
+  outputdir?: string
+
+  /**
+   * [Optional] Retrieves code coverage results.
+   * @type {Boolean}
+   * @memberof IApexTestRun
+   */
+  codecoverage?: Boolean
+}
 
 /**
  * Apex
@@ -21,14 +345,6 @@ export class Apex {
 
   /**
    * create an apex class
-   *
-   * @param {string} classname The name of the new Apex class. The name can be up to 40 characters and must start with a letter. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {string} json Formats output as JSON. 
-   * @param {string} apiversion The API version of the created source. 
-   * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
-   * @param {string} outputdir The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory. 
-   * @param {string} template The template to use to create the file. Supplied parameter values or default values are filled into a copy of the template. 
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Creates an Apex class in the specified directory or the current working directory. If you don’t explicitly set the API version, it defaults to the current API version. The .cls file and associated metadata file are created.
@@ -42,29 +358,27 @@ export class Apex {
    * force:apex:class:create -n <string> [-t <string>] [-d <string>] [-a <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("class:create")
-  public classCreate(
-    @apiParameter("--classname") classname: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: string,
-    @apiParameter("--apiversion") apiversion?: string,
-    @apiParameter("--reflect") reflect?: string,
-    @apiParameter("--outputdir") outputdir?: string,
-    @apiParameter("--template") template?: string
-  ): Promise<Object | void> {
+  public classCreate(options: IApexClassCreate): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      classname: "--classname",
+      loglevel: "--loglevel",
+      json: "--json",
+      apiversion: "--apiversion",
+      reflect: "--reflect",
+      outputdir: "--outputdir",
+      template: "--template"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.classCreate,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * execute anonymous apex code
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
-   * @param {string} apexcodefile Path to a local file that contains Apex code. 
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Executes one or more lines of anonymous Apex code, or executes the code in a local file.
@@ -82,26 +396,24 @@ export class Apex {
    * force:apex:execute [-f <file>] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("execute")
-  public execute(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string,
-    @apiParameter("--apexcodefile") apexcodefile?: string
-  ): Promise<Object | void> {
+  public execute(options?: IApexExecute): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      apexcodefile: "--apexcodefile"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.execute,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * fetch a debug log
-   *
-   * @param {string} logid ID of the log to display. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Fetches a specific debug log.
@@ -113,21 +425,24 @@ export class Apex {
    * force:apex:log:get -i <id> [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("log:get")
-  public logGet(
-    @apiParameter("--logid") logid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.logGet, arguments)
+  public logGet(options: IApexLogGet): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      logid: "--logid",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.logGet,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * list debug logs
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Displays a list of debug log IDs, along with general information about the logs.
@@ -139,30 +454,23 @@ export class Apex {
    * force:apex:log:list [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("log:list")
-  public logList(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
-  ): Promise<Object | void> {
+  public logList(options?: IApexLogList): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.logList,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * display test results
-   *
-   * @param {string} testrunid ID of test run. 
-   * @param {Boolean} verbose Displays Apex test processing details. If json format is specified, processing details aren’t displayed. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
-   * @param {string} wait Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently. 
-   * @param {string} resultformat Format to use when displaying test results. If you also specify the --json flag, --json overrides this parameter. 
-   * @param {string} outputdir Directory to store test run files. 
-   * @param {Boolean} codecoverage Retrieves code coverage results. 
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Displays the test results for a specific test run.
@@ -175,42 +483,29 @@ export class Apex {
    * force:apex:test:report -i <id> [-c] [-d <directory>] [-r <string>] [-w <minutes>] [-u <string>] [--json] [--loglevel <string>] [--verbose]
    */
   @apiCommand("test:report")
-  public testReport(
-    @apiParameter("--testrunid") testrunid: string,
-    @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string,
-    @apiParameter("--wait") wait?: string,
-    @apiParameter("--resultformat") resultformat?: string,
-    @apiParameter("--outputdir") outputdir?: string,
-    @apiParameter("--codecoverage") codecoverage?: Boolean
-  ): Promise<Object | void> {
+  public testReport(options: IApexTestReport): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      testrunid: "--testrunid",
+      verbose: "--verbose",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      wait: "--wait",
+      resultformat: "--resultformat",
+      outputdir: "--outputdir",
+      codecoverage: "--codecoverage"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.testReport,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * invoke apex tests
-   *
-   * @param {string} wait Sets the streaming client socket timeout, in minutes.If the streaming client socket has no contact from the server for a number of minutes, the client exits. Specify a longer wait time if timeouts occur frequently. 
-   * @param {Boolean} verbose Displays Apex test processing details. If json format is specified, processing details aren’t displayed. 
-   * @param {string} classnames Comma-separated list of Apex test class names to execute. You can’t specify both class names and suite names. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
-   * @param {string} precompilewait Specifies how long to wait (in minutes) for Apex pre-compilation to complete before running the tests or timing out. 
-   * @param {string} suitenames Comma-separated list of Apex test suite names to execute. You can’t specify both class names and suite names. 
-   * @param {string} resultformat Format to use when displaying test results. If you also specify the --json flag, --json overrides this parameter. 
-   * @param {string} testlevel Specifies which tests to run, using one of these TestLevel enum values:
-   * RunSpecifiedTests—Only the tests that you specify are run.
-   * RunLocalTests—All tests in your org are run, except the ones that originate from installed managed packages.
-   * RunAllTestsInOrg—All tests are in your org and in installed managed packages are run. 
-   * @param {string} outputdir Directory to store test run files. 
-   * @param {Boolean} codecoverage Retrieves code coverage results. 
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Runs Apex tests.
@@ -225,24 +520,27 @@ export class Apex {
    * force:apex:test:run (-n <string>... | -s <string>...) [-c] [-d <directory>] [-l <string>] [-r <string>] [-u <string>] [--json] [--loglevel <string>] [--verbose]
    */
   @apiCommand("test:run")
-  public testRun(
-    @apiParameter("--wait") wait?: string,
-    @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--classnames") classnames?: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string,
-    @apiParameter("--precompilewait") precompilewait?: string,
-    @apiParameter("--suitenames") suitenames?: string,
-    @apiParameter("--resultformat") resultformat?: string,
-    @apiParameter("--testlevel") testlevel?: string,
-    @apiParameter("--outputdir") outputdir?: string,
-    @apiParameter("--codecoverage") codecoverage?: Boolean
-  ): Promise<Object | void> {
+  public testRun(options?: IApexTestRun): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      wait: "--wait",
+      verbose: "--verbose",
+      classnames: "--classnames",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      precompilewait: "--precompilewait",
+      suitenames: "--suitenames",
+      resultformat: "--resultformat",
+      testlevel: "--testlevel",
+      outputdir: "--outputdir",
+      codecoverage: "--codecoverage"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.testRun,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }

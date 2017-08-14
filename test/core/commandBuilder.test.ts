@@ -35,16 +35,21 @@ describe("Can create commands", () => {
   })
 
   it("Can run class create", () => {
-    return apex.classCreate("foo").then(() => {
+    return apex.classCreate({ classname: "foo" }).then(() => {
       expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
         "force:apex:class:create --classname foo"
       )
     })
   })
 
-  it("Can run class create", () => {
+  it("Can run config set wiht expression", () => {
     return config
-      .set([{ key: "key1", value: "value1" }, { key: "key2", value: "value2" }])
+      .set({
+        expression: [
+          { key: "key1", value: "value1" },
+          { key: "key2", value: "value2" }
+        ]
+      })
       .then(() => {
         expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
           "force:config:set key1=value1 key2=value2"
@@ -61,7 +66,7 @@ describe("Can create commands", () => {
   })
 
   it("Can run web login with no parameters", () => {
-    return auth.webLogin(undefined, true).then(() => {
+    return auth.webLogin({ json: true }).then(() => {
       expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
         "force:auth:web:login --json"
       )
@@ -85,7 +90,7 @@ describe("Can create commands", () => {
       json: true
     })
     auth = new Auth(commandExecutioner)
-    return auth.webLogin(undefined, false).then(() => {
+    return auth.webLogin({ json: false }).then(() => {
       expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
         "force:auth:web:login"
       )

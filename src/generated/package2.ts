@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,586 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method create of class Package2.
+ *
+ * @export
+ * @interface IPackage2Create
+ */
+export interface IPackage2Create {
+  /**
+   * [Required] Name of the package2 to create.
+   * @type {string}
+   * @memberof IPackage2Create
+   */
+  name: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2Create
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2Create
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2Create
+   */
+  targetdevhubusername?: string
+
+  /**
+   * [Optional] Global namespace for the package2.
+   * @type {string}
+   * @memberof IPackage2Create
+   */
+  namespace?: string
+
+  /**
+   * [Optional] Description of the package2.
+   * @type {string}
+   * @memberof IPackage2Create
+   */
+  description?: string
+}
+
+/**
+ * Options for the method installedList of class Package2.
+ *
+ * @export
+ * @interface IPackage2InstalledList
+ */
+export interface IPackage2InstalledList {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2InstalledList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2InstalledList
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IPackage2InstalledList
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method list of class Package2.
+ *
+ * @export
+ * @interface IPackage2List
+ */
+export interface IPackage2List {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2List
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2List
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2List
+   */
+  targetdevhubusername?: string
+}
+
+/**
+ * Options for the method manifestCreate of class Package2.
+ *
+ * @export
+ * @interface IPackage2ManifestCreate
+ */
+export interface IPackage2ManifestCreate {
+  /**
+   * [Required] Directory for reading the package2 contents and generating the package2 manifest JSON file.
+   * @type {string}
+   * @memberof IPackage2ManifestCreate
+   */
+  directory: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2ManifestCreate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2ManifestCreate
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2ManifestCreate
+   */
+  targetdevhubusername?: string
+}
+
+/**
+ * Options for the method membersList of class Package2.
+ *
+ * @export
+ * @interface IPackage2MembersList
+ */
+export interface IPackage2MembersList {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2MembersList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2MembersList
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IPackage2MembersList
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method versionCreate of class Package2.
+ *
+ * @export
+ * @interface IPackage2VersionCreate
+ */
+export interface IPackage2VersionCreate {
+  /**
+   * [Required] ID of parent package2 (starts with 0Ho).
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  package2id: string
+
+  /**
+   * [Required] The directory that contains the manifest, descriptor, and contents of the package2 version.
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  directory: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2VersionCreate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2VersionCreate
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  targetdevhubusername?: string
+
+  /**
+   * [Optional] The number of minutes to wait for the package2 version to be created.
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  wait?: string
+
+  /**
+   * [Optional] Preserves temp files that would otherwise be deleted.
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  preserve?: string
+
+  /**
+   * [Optional] The package2 version's tag.
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  tag?: string
+
+  /**
+   * [Optional] The package2 version's branch.
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  branch?: string
+}
+
+/**
+ * Options for the method versionCreateGet of class Package2.
+ *
+ * @export
+ * @interface IPackage2VersionCreateGet
+ */
+export interface IPackage2VersionCreateGet {
+  /**
+   * [Required] The ID of the package2 version creation request you want to display.
+   * @type {string}
+   * @memberof IPackage2VersionCreateGet
+   */
+  package2createrequestid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2VersionCreateGet
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2VersionCreateGet
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2VersionCreateGet
+   */
+  targetdevhubusername?: string
+}
+
+/**
+ * Options for the method versionCreateList of class Package2.
+ *
+ * @export
+ * @interface IPackage2VersionCreateList
+ */
+export interface IPackage2VersionCreateList {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2VersionCreateList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2VersionCreateList
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2VersionCreateList
+   */
+  targetdevhubusername?: string
+
+  /**
+   * [Optional] Filters the list based on the status of version creation requests.
+   * @type {string}
+   * @memberof IPackage2VersionCreateList
+   */
+  status?: string
+
+  /**
+   * [Optional] Lists the requests made in the last specified number of days, starting at 00:00:00 of first day to now. Use 0 for today.
+   * @type {string}
+   * @memberof IPackage2VersionCreateList
+   */
+  createdlastdays?: string
+}
+
+/**
+ * Options for the method versionGet of class Package2.
+ *
+ * @export
+ * @interface IPackage2VersionGet
+ */
+export interface IPackage2VersionGet {
+  /**
+   * [Required] The package2 version ID (starts with 05i).
+   * @type {string}
+   * @memberof IPackage2VersionGet
+   */
+  package2versionid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2VersionGet
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2VersionGet
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2VersionGet
+   */
+  targetdevhubusername?: string
+}
+
+/**
+ * Options for the method versionInstall of class Package2.
+ *
+ * @export
+ * @interface IPackage2VersionInstall
+ */
+export interface IPackage2VersionInstall {
+  /**
+   * [Required] The ID of the subscriber package2 version to install (starts with 04t).
+   * @type {string}
+   * @memberof IPackage2VersionInstall
+   */
+  subscriberpackage2versionid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2VersionInstall
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2VersionInstall
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IPackage2VersionInstall
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method versionList of class Package2.
+ *
+ * @export
+ * @interface IPackage2VersionList
+ */
+export interface IPackage2VersionList {
+  /**
+   * [Optional] Display extended package2 versions detail.
+   * @type {Boolean}
+   * @memberof IPackage2VersionList
+   */
+  verbose?: Boolean
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2VersionList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2VersionList
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Displays limited package2 version details.
+   * @type {Boolean}
+   * @memberof IPackage2VersionList
+   */
+  concise?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2VersionList
+   */
+  targetdevhubusername?: string
+
+  /**
+   * [Optional] Orders the list by the specified package2 version fields.
+   * @type {string}
+   * @memberof IPackage2VersionList
+   */
+  orderby?: string
+
+  /**
+   * [Optional] Displays released versions only (IsBeta=false).
+   * @type {Boolean}
+   * @memberof IPackage2VersionList
+   */
+  released?: Boolean
+
+  /**
+   * [Optional] Filters results on the specified comma-delimited package2 IDs (start with 0Ho).
+   * @type {string}
+   * @memberof IPackage2VersionList
+   */
+  package2ids?: string
+
+  /**
+   * [Optional] Lists the items modified in the last given number of days, starting at 00:00:00 of first day to now. Use 0 for today.
+   * @type {string}
+   * @memberof IPackage2VersionList
+   */
+  modifiedlastdays?: string
+
+  /**
+   * [Optional] Lists the requests made in the last specified number of days, starting at 00:00:00 of first day to now. Use 0 for today.
+   * @type {string}
+   * @memberof IPackage2VersionList
+   */
+  createdlastdays?: string
+}
+
+/**
+ * Options for the method versionUninstall of class Package2.
+ *
+ * @export
+ * @interface IPackage2VersionUninstall
+ */
+export interface IPackage2VersionUninstall {
+  /**
+   * [Required] The ID of the subscriber package2 version to uninstall (starts with 04t).
+   * @type {string}
+   * @memberof IPackage2VersionUninstall
+   */
+  subscriberpackage2versionid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2VersionUninstall
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2VersionUninstall
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IPackage2VersionUninstall
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method versionUpdate of class Package2.
+ *
+ * @export
+ * @interface IPackage2VersionUpdate
+ */
+export interface IPackage2VersionUpdate {
+  /**
+   * [Required] The package2 version ID (starts with 05i).
+   * @type {string}
+   * @memberof IPackage2VersionUpdate
+   */
+  package2versionid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage2VersionUpdate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage2VersionUpdate
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * @type {string}
+   * @memberof IPackage2VersionUpdate
+   */
+  targetdevhubusername?: string
+
+  /**
+   * [Optional] Sets the package2 version as released. Second-generation packages can’t be changed to beta after they've been released.
+   * @type {Boolean}
+   * @memberof IPackage2VersionUpdate
+   */
+  setasreleased?: Boolean
+
+  /**
+   * [Optional] The package2 version tag.
+   * @type {string}
+   * @memberof IPackage2VersionUpdate
+   */
+  tag?: string
+
+  /**
+   * [Optional] The package2 version branch.
+   * @type {string}
+   * @memberof IPackage2VersionUpdate
+   */
+  branch?: string
+
+  /**
+   * [Optional] The package2 version description.
+   * @type {string}
+   * @memberof IPackage2VersionUpdate
+   */
+  description?: string
+
+  /**
+   * [Optional] The package2 version name.
+   * @type {string}
+   * @memberof IPackage2VersionUpdate
+   */
+  name?: string
+}
 
 /**
  * Package2
@@ -21,13 +601,6 @@ export class Package2 {
 
   /**
    * create a package2
-   *
-   * @param {string} name Name of the package2 to create. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
-   * @param {string} namespace Global namespace for the package2. 
-   * @param {string} description Description of the package2. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Creates a second-generation package.
@@ -40,23 +613,26 @@ export class Package2 {
    * force:package2:create -n <string> [-d <string>] [-s <string>] [-v <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("create")
-  public create(
-    @apiParameter("--name") name: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
-    @apiParameter("--namespace") namespace?: string,
-    @apiParameter("--description") description?: string
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.create, arguments)
+  public create(options: IPackage2Create): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      name: "--name",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername",
+      namespace: "--namespace",
+      description: "--description"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.create,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * list the org’s installed subscriber package2 versions
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Lists all subscriber package2 versions installed in the target org.
@@ -65,23 +641,24 @@ export class Package2 {
    */
   @apiCommand("installed:list")
   public installedList(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
+    options?: IPackage2InstalledList
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.installedList,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * list all package2 packages in the dev hub org
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Lists all second-generation packages in the Dev Hub org.
@@ -89,21 +666,23 @@ export class Package2 {
    * force:package2:list [-v <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("list")
-  public list(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.list, arguments)
+  public list(options?: IPackage2List): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.list,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * create a manifest for the package2 from the specified directory
-   *
-   * @param {string} directory Directory for reading the package2 contents and generating the package2 manifest JSON file. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Creates a second-generation package manifest file in JSON format based on the files in the specified package2 source directory.
@@ -112,24 +691,25 @@ export class Package2 {
    */
   @apiCommand("manifest:create")
   public manifestCreate(
-    @apiParameter("--directory") directory: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string
+    options: IPackage2ManifestCreate
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      directory: "--directory",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.manifestCreate,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * list all subscriber package2 members in the org
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Lists all subscriber package2 members in the target org.
@@ -137,30 +717,23 @@ export class Package2 {
    * force:package2:members:list [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("members:list")
-  public membersList(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
-  ): Promise<Object | void> {
+  public membersList(options?: IPackage2MembersList): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.membersList,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * create a package2 version in the dev hub org
-   *
-   * @param {string} package2id ID of parent package2 (starts with 0Ho). 
-   * @param {string} directory The directory that contains the manifest, descriptor, and contents of the package2 version. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
-   * @param {string} wait The number of minutes to wait for the package2 version to be created. 
-   * @param {string} preserve Preserves temp files that would otherwise be deleted. 
-   * @param {string} tag The package2 version's tag. 
-   * @param {string} branch The package2 version's branch. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Creates a second-generation package (package2) version in the Dev Hub org.
@@ -177,30 +750,30 @@ export class Package2 {
    */
   @apiCommand("version:create")
   public versionCreate(
-    @apiParameter("--package2id") package2id: string,
-    @apiParameter("--directory") directory: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
-    @apiParameter("--wait") wait?: string,
-    @apiParameter("--preserve") preserve?: string,
-    @apiParameter("--tag") tag?: string,
-    @apiParameter("--branch") branch?: string
+    options: IPackage2VersionCreate
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      package2id: "--package2id",
+      directory: "--directory",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername",
+      wait: "--wait",
+      preserve: "--preserve",
+      tag: "--tag",
+      branch: "--branch"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionCreate,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * retrieve a package2 version creation request in the dev hub org
-   *
-   * @param {string} package2createrequestid The ID of the package2 version creation request you want to display. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Retrieves a second-generation package version creation request in the Dev Hub org.
@@ -214,26 +787,25 @@ export class Package2 {
    */
   @apiCommand("version:create:get")
   public versionCreateGet(
-    @apiParameter("--package2createrequestid") package2createrequestid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string
+    options: IPackage2VersionCreateGet
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      package2createrequestid: "--package2createrequestid",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionCreateGet,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * list package2 version creation requests in the dev hub org
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
-   * @param {string} status Filters the list based on the status of version creation requests. 
-   * @param {string} createdlastdays Lists the requests made in the last specified number of days, starting at 00:00:00 of first day to now. Use 0 for today. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Lists all requests to create second-generation package (package2) versions in the Dev Hub org.
@@ -253,26 +825,26 @@ export class Package2 {
    */
   @apiCommand("version:create:list")
   public versionCreateList(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
-    @apiParameter("--status") status?: string,
-    @apiParameter("--createdlastdays") createdlastdays?: string
+    options?: IPackage2VersionCreateList
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername",
+      status: "--status",
+      createdlastdays: "--createdlastdays"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionCreateList,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * retrieve a package version in the dev hub org
-   *
-   * @param {string} package2versionid The package2 version ID (starts with 05i). 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Retrieves a package version in the Dev Hub org
@@ -283,26 +855,24 @@ export class Package2 {
    * force:package2:version:get -i <id> [-v <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("version:get")
-  public versionGet(
-    @apiParameter("--package2versionid") package2versionid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string
-  ): Promise<Object | void> {
+  public versionGet(options: IPackage2VersionGet): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      package2versionid: "--package2versionid",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionGet,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * install a subscriber package2 version
-   *
-   * @param {string} subscriberpackage2versionid The ID of the subscriber package2 version to install (starts with 04t). 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Installs a second-generation subscriber package version in the target org.
@@ -318,32 +888,25 @@ export class Package2 {
    */
   @apiCommand("version:install")
   public versionInstall(
-    @apiParameter("--subscriberpackage2versionid")
-    subscriberpackage2versionid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
+    options: IPackage2VersionInstall
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      subscriberpackage2versionid: "--subscriberpackage2versionid",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionInstall,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * list all package2 versions in the dev hub org
-   *
-   * @param {Boolean} verbose Display extended package2 versions detail. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {Boolean} concise Displays limited package2 version details. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
-   * @param {string} orderby Orders the list by the specified package2 version fields. 
-   * @param {Boolean} released Displays released versions only (IsBeta=false). 
-   * @param {string} package2ids Filters results on the specified comma-delimited package2 IDs (start with 0Ho). 
-   * @param {string} modifiedlastdays Lists the items modified in the last given number of days, starting at 00:00:00 of first day to now. Use 0 for today. 
-   * @param {string} createdlastdays Lists the requests made in the last specified number of days, starting at 00:00:00 of first day to now. Use 0 for today. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Lists all package2 versions in the Dev Hub org.
@@ -362,32 +925,30 @@ export class Package2 {
    * force:package2:version:list [-c <number>] [-m <number>] [-i <string>...] [-r] [-o <string>...] [-v <string>] [--concise] [--json] [--loglevel <string>] [--verbose]
    */
   @apiCommand("version:list")
-  public versionList(
-    @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--concise") concise?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
-    @apiParameter("--orderby") orderby?: string,
-    @apiParameter("--released") released?: Boolean,
-    @apiParameter("--package2ids") package2ids?: string,
-    @apiParameter("--modifiedlastdays") modifiedlastdays?: string,
-    @apiParameter("--createdlastdays") createdlastdays?: string
-  ): Promise<Object | void> {
+  public versionList(options?: IPackage2VersionList): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      verbose: "--verbose",
+      loglevel: "--loglevel",
+      json: "--json",
+      concise: "--concise",
+      targetdevhubusername: "--targetdevhubusername",
+      orderby: "--orderby",
+      released: "--released",
+      package2ids: "--package2ids",
+      modifiedlastdays: "--modifiedlastdays",
+      createdlastdays: "--createdlastdays"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionList,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * uninstall a subscriber package2 version
-   *
-   * @param {string} subscriberpackage2versionid The ID of the subscriber package2 version to uninstall (starts with 04t). 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Uninstalls a subscriber package2 version in the target org.
@@ -402,31 +963,25 @@ export class Package2 {
    */
   @apiCommand("version:uninstall")
   public versionUninstall(
-    @apiParameter("--subscriberpackage2versionid")
-    subscriberpackage2versionid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
+    options: IPackage2VersionUninstall
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      subscriberpackage2versionid: "--subscriberpackage2versionid",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionUninstall,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * update a package2 version in the dev hub org
-   *
-   * @param {string} package2versionid The package2 version ID (starts with 05i). 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetdevhubusername A username for the target Dev Hub org. Overrides default Dev Hub org. 
-   * @param {Boolean} setasreleased Sets the package2 version as released. Second-generation packages can’t be changed to beta after they've been released. 
-   * @param {string} tag The package2 version tag. 
-   * @param {string} branch The package2 version branch. 
-   * @param {string} description The package2 version description. 
-   * @param {string} name The package2 version name. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Updates a second-generation package version in the Dev Hub org.
@@ -441,20 +996,25 @@ export class Package2 {
    */
   @apiCommand("version:update")
   public versionUpdate(
-    @apiParameter("--package2versionid") package2versionid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetdevhubusername") targetdevhubusername?: string,
-    @apiParameter("--setasreleased") setasreleased?: Boolean,
-    @apiParameter("--tag") tag?: string,
-    @apiParameter("--branch") branch?: string,
-    @apiParameter("--description") description?: string,
-    @apiParameter("--name") name?: string
+    options: IPackage2VersionUpdate
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      package2versionid: "--package2versionid",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetdevhubusername: "--targetdevhubusername",
+      setasreleased: "--setasreleased",
+      tag: "--tag",
+      branch: "--branch",
+      description: "--description",
+      name: "--name"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionUpdate,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }

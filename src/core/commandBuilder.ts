@@ -7,7 +7,8 @@ export class CommandBuilder {
     private requestClass: Object,
     private requestMethod: Function,
     private requestOptions: any,
-    private defaultOptions?: Object
+    private defaultOptions: Object,
+    private parameterNamesToSwitchNames: Object
   ) {}
 
   public build() {
@@ -38,10 +39,13 @@ export class CommandBuilder {
 
   private buildParameters() {
     let parameters: string[] = []
-    let parameterNames = DecoratorUtil.getParameterNames(this.requestMethod)
-    Object.keys(this.requestOptions)
+    let parameterNames = Object.keys(this.parameterNamesToSwitchNames)
     parameterNames.forEach((parameterName, index) => {
-      let propertyValue = this.requestOptions[index]
+      let propertyValue
+      if (this.requestOptions !== undefined) {
+        propertyValue = this.requestOptions[parameterName]
+      }
+
       // If the value is undefined, let's check for default options.
       if (this.defaultOptions !== undefined && propertyValue === undefined) {
         let defaultOptionValue = (this.defaultOptions as any)[
@@ -71,11 +75,8 @@ export class CommandBuilder {
     value: any,
     requestMethod: Function
   ): string | undefined {
-    const apiParameter = DecoratorUtil.getApiParameter(
-      key,
-      this.getFunctionName(requestMethod),
-      this.requestClass
-    )
+    const apiParameter = (this.parameterNamesToSwitchNames as any)[key]
+
     if (typeof value === "boolean") {
       if (!value) {
         // When false, we simply don't return any commands.

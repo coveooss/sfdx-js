@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,206 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method versionCreate of class Package1.
+ *
+ * @export
+ * @interface IPackage1VersionCreate
+ */
+export interface IPackage1VersionCreate {
+  /**
+   * [Required] ID of the metadata package (starts with 033) of which you’re creating a new version.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  packageid: string
+
+  /**
+   * [Required] Package version name.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  name: string
+
+  /**
+   * [Optional] Post install URL.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  postinstallurl?: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage1VersionCreate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage1VersionCreate
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  targetusername?: string
+
+  /**
+   * [Optional] Minutes to wait for the package version to be created. The default is 2 minutes.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  wait?: string
+
+  /**
+   * [Optional] Installation key for creating the key-protected package. The default is null.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  installationkey?: string
+
+  /**
+   * [Optional] Package version description.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  description?: string
+
+  /**
+   * [Optional] Release notes URL.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  releasenotesurl?: string
+
+  /**
+   * [Optional] Creates a managed package version. To create a beta version, don’t include this parameter.
+   * @type {Boolean}
+   * @memberof IPackage1VersionCreate
+   */
+  managedreleased?: Boolean
+
+  /**
+   * [Optional] Package version in major.minor format, for example, 3.2.
+   * @type {string}
+   * @memberof IPackage1VersionCreate
+   */
+  version?: string
+}
+
+/**
+ * Options for the method versionCreateGet of class Package1.
+ *
+ * @export
+ * @interface IPackage1VersionCreateGet
+ */
+export interface IPackage1VersionCreateGet {
+  /**
+   * [Required] The ID of the PackageUploadRequest.
+   * @type {string}
+   * @memberof IPackage1VersionCreateGet
+   */
+  requestid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage1VersionCreateGet
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage1VersionCreateGet
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IPackage1VersionCreateGet
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method versionDisplay of class Package1.
+ *
+ * @export
+ * @interface IPackage1VersionDisplay
+ */
+export interface IPackage1VersionDisplay {
+  /**
+   * [Required] ID (starts with 04t) of the metadata package version whose details you want to display.
+   * @type {string}
+   * @memberof IPackage1VersionDisplay
+   */
+  packageversionid: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage1VersionDisplay
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage1VersionDisplay
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IPackage1VersionDisplay
+   */
+  targetusername?: string
+}
+
+/**
+ * Options for the method versionList of class Package1.
+ *
+ * @export
+ * @interface IPackage1VersionList
+ */
+export interface IPackage1VersionList {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IPackage1VersionList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IPackage1VersionList
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Username for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IPackage1VersionList
+   */
+  targetusername?: string
+
+  /**
+   * [Optional] Metadata package ID (starts with 033) whose package versions you want to list. If not specified, shows all versions for all packages (managed and unmanaged) in the org.
+   * @type {string}
+   * @memberof IPackage1VersionList
+   */
+  packageid?: string
+}
 
 /**
  * Package1
@@ -21,19 +221,6 @@ export class Package1 {
 
   /**
    * create a new package version in the release org
-   *
-   * @param {string} packageid ID of the metadata package (starts with 033) of which you’re creating a new version. 
-   * @param {string} name Package version name. 
-   * @param {string} postinstallurl Post install URL. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
-   * @param {string} wait Minutes to wait for the package version to be created. The default is 2 minutes. 
-   * @param {string} installationkey Installation key for creating the key-protected package. The default is null. 
-   * @param {string} description Package version description. 
-   * @param {string} releasenotesurl Release notes URL. 
-   * @param {Boolean} managedreleased Creates a managed package version. To create a beta version, don’t include this parameter. 
-   * @param {string} version Package version in major.minor format, for example, 3.2. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package1
    * @description Creates a package version in the release org.
@@ -42,33 +229,33 @@ export class Package1 {
    */
   @apiCommand("version:create")
   public versionCreate(
-    @apiParameter("--packageid") packageid: string,
-    @apiParameter("--name") name: string,
-    @apiParameter("--postinstallurl") postinstallurl?: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string,
-    @apiParameter("--wait") wait?: string,
-    @apiParameter("--installationkey") installationkey?: string,
-    @apiParameter("--description") description?: string,
-    @apiParameter("--releasenotesurl") releasenotesurl?: string,
-    @apiParameter("--managedreleased") managedreleased?: Boolean,
-    @apiParameter("--version") version?: string
+    options: IPackage1VersionCreate
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      packageid: "--packageid",
+      name: "--name",
+      postinstallurl: "--postinstallurl",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      wait: "--wait",
+      installationkey: "--installationkey",
+      description: "--description",
+      releasenotesurl: "--releasenotesurl",
+      managedreleased: "--managedreleased",
+      version: "--version"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionCreate,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * retrieve status of package upload request
-   *
-   * @param {string} requestid The ID of the PackageUploadRequest. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package1
    * @description Retrieves the status of a PackageUploadRequest.
@@ -77,25 +264,25 @@ export class Package1 {
    */
   @apiCommand("version:create:get")
   public versionCreateGet(
-    @apiParameter("--requestid") requestid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
+    options: IPackage1VersionCreateGet
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      requestid: "--requestid",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionCreateGet,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * display details about a package version
-   *
-   * @param {string} packageversionid ID (starts with 04t) of the metadata package version whose details you want to display. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package1
    * @description Displays detailed information about an individual package version.
@@ -104,25 +291,25 @@ export class Package1 {
    */
   @apiCommand("version:display")
   public versionDisplay(
-    @apiParameter("--packageversionid") packageversionid: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string
+    options: IPackage1VersionDisplay
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      packageversionid: "--packageversionid",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionDisplay,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * list package versions for the specified package or for the org
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {string} targetusername Username for the target org. Overrides the default target org. 
-   * @param {string} packageid Metadata package ID (starts with 033) whose package versions you want to list. If not specified, shows all versions for all packages (managed and unmanaged) in the org. 
    * @returns {(Promise<Object | void>)}
    * @memberof Package1
    * @description Lists the versions for the specified package or all packages in the org.
@@ -130,16 +317,19 @@ export class Package1 {
    * force:package1:version:list [-i <id>] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("version:list")
-  public versionList(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--targetusername") targetusername?: string,
-    @apiParameter("--packageid") packageid?: string
-  ): Promise<Object | void> {
+  public versionList(options?: IPackage1VersionList): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      packageid: "--packageid"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.versionList,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }

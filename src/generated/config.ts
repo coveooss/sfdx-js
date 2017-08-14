@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,100 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method get of class Config.
+ *
+ * @export
+ * @interface IConfigGet
+ */
+export interface IConfigGet {
+  /**
+   * [Optional] The key pair expression for the command
+   * @type {IStringKeyPair[] | string[] | string}
+   * @memberof IConfigGet
+   */
+  expression?: IStringKeyPair[] | string[] | string
+
+  /**
+   * [Optional] Emit additional command output to stdout.
+   * @type {Boolean}
+   * @memberof IConfigGet
+   */
+  verbose?: Boolean
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IConfigGet
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IConfigGet
+   */
+  json?: Boolean
+}
+
+/**
+ * Options for the method list of class Config.
+ *
+ * @export
+ * @interface IConfigList
+ */
+export interface IConfigList {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IConfigList
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IConfigList
+   */
+  json?: Boolean
+}
+
+/**
+ * Options for the method set of class Config.
+ *
+ * @export
+ * @interface IConfigSet
+ */
+export interface IConfigSet {
+  /**
+   * [Required] The key pair expression for the command
+   * @type {IStringKeyPair[] | string[] | string}
+   * @memberof IConfigSet
+   */
+  expression: IStringKeyPair[] | string[] | string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IConfigSet
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IConfigSet
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] Sets the configuration variables globally, so they can be used from any directory.
+   * @type {Boolean}
+   * @memberof IConfigSet
+   */
+  global?: Boolean
+}
 
 /**
  * Config
@@ -21,11 +115,6 @@ export class Config {
 
   /**
    * get config var value(s) for given name(s)
-   *
-   * @param {IStringKeyPair[] | string[] | string} expression The key pair expression for the command 
-   * @param {Boolean} verbose Emit additional command output to stdout. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Config
    * @description Gets the Salesforce CLI configuration values for your default scratch org, your default Dev Hub org, your default instance URL, or any combination of the three.
@@ -41,20 +130,24 @@ export class Config {
    * force:config:get name=value... [--json] [--loglevel <string>] [--verbose]
    */
   @apiCommand("get")
-  public get(
-    @apiParameter("") expression?: IStringKeyPair[] | string[] | string,
-    @apiParameter("--verbose") verbose?: Boolean,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.get, arguments)
+  public get(options?: IConfigGet): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      expression: "",
+      verbose: "--verbose",
+      loglevel: "--loglevel",
+      json: "--json"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.get,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * list config vars for sfdx
-   *
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
    * @returns {(Promise<Object | void>)}
    * @memberof Config
    * @description Lists the config variables for sfdx.
@@ -62,20 +155,22 @@ export class Config {
    * force:config:list [--json] [--loglevel <string>]
    */
   @apiCommand("list")
-  public list(
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.list, arguments)
+  public list(options?: IConfigList): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.list,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 
   /**
    * set config vars for sfdx
-   *
-   * @param {IStringKeyPair[] | string[] | string} expression The key pair expression for the command 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {Boolean} json Format output as JSON. 
-   * @param {Boolean} global Sets the configuration variables globally, so they can be used from any directory. 
    * @returns {(Promise<Object | void>)}
    * @memberof Config
    * @description Sets the local and global configuration variables for the Salesforce CLI.
@@ -87,12 +182,19 @@ export class Config {
    * force:config:set name=value... [-g] [--json] [--loglevel <string>]
    */
   @apiCommand("set")
-  public set(
-    @apiParameter("") expression: IStringKeyPair[] | string[] | string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: Boolean,
-    @apiParameter("--global") global?: Boolean
-  ): Promise<Object | void> {
-    return this.requestExecutioner.execute<Object>(this, this.set, arguments)
+  public set(options: IConfigSet): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      expression: "",
+      loglevel: "--loglevel",
+      json: "--json",
+      global: "--global"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.set,
+      options,
+      parameterNamesToSwitchNames
+    )
   }
 }

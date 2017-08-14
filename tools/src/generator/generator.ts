@@ -189,10 +189,22 @@ export class Generator {
   private initializeTemplateHelpers() {
     this.templateHelpers.escapeForComments = this.escapeForComments
     this.templateHelpers.getCurrentFormatedDate = this.getCurrentFormatedDate
+    this.templateHelpers.capitalizeFirstLetter = this.capitalizeFirstLetter
+    this.templateHelpers.isAllOptionalParameters = this.isAllOptionalParameters
   }
 
-  private escapeForComments(element: string) {
-    return element.replace(/\*\//g, "* /").replace(/\n/g, "\n   * ")
+  private isAllOptionalParameters(parameters: IParameterDefinition[]): Boolean {
+    let allOptional: Boolean = true
+    _.each(parameters, param => {
+      allOptional = allOptional && param.optional
+    })
+
+    return allOptional
+  }
+
+  private escapeForComments(element: string, numberOfSpaces: number = 3) {
+    const spaces: string = new Array(numberOfSpaces + 1).join(' ');
+    return element.replace(/\*\//g, "* /").replace(/\n/g, "\n" + spaces +"* ")
   }
 
   private getCurrentFormatedDate(): string {

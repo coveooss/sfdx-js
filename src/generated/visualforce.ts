@@ -1,4 +1,4 @@
-// Generated on August 9th 2017, 10:06:38 pm. DO NOT MODIFY
+// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -7,6 +7,134 @@ import {
 } from "../core/decorators"
 import { loglevel, IStringKeyPair } from "../modules/common"
 import { ICommandExecutioner } from "../core/commandExecutioner"
+
+/**
+ * Options for the method componentCreate of class Visualforce.
+ *
+ * @export
+ * @interface IVisualforceComponentCreate
+ */
+export interface IVisualforceComponentCreate {
+  /**
+   * [Required] The Visualforce component name. The name can be up to 40 characters and must start with a letter.
+   * @type {string}
+   * @memberof IVisualforceComponentCreate
+   */
+  componentname: string
+
+  /**
+   * [Required] The label saved in the metadata for the Visualforce component.
+   * @type {string}
+   * @memberof IVisualforceComponentCreate
+   */
+  label: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IVisualforceComponentCreate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Formats output as JSON.
+   * @type {string}
+   * @memberof IVisualforceComponentCreate
+   */
+  json?: string
+
+  /**
+   * [Optional] The API version of the created source.
+   * @type {string}
+   * @memberof IVisualforceComponentCreate
+   */
+  apiversion?: string
+
+  /**
+   * [Optional] Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command
+   * @type {string}
+   * @memberof IVisualforceComponentCreate
+   */
+  reflect?: string
+
+  /**
+   * [Optional] The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.
+   * @type {string}
+   * @memberof IVisualforceComponentCreate
+   */
+  outputdir?: string
+
+  /**
+   * [Optional] The template to use to create the file. Supplied parameter values or default values are filled into a copy of the template.
+   * @type {string}
+   * @memberof IVisualforceComponentCreate
+   */
+  template?: string
+}
+
+/**
+ * Options for the method pageCreate of class Visualforce.
+ *
+ * @export
+ * @interface IVisualforcePageCreate
+ */
+export interface IVisualforcePageCreate {
+  /**
+   * [Required] The Visualforce page name. The name can be up to 40 characters and must start with a letter.
+   * @type {string}
+   * @memberof IVisualforcePageCreate
+   */
+  pagename: string
+
+  /**
+   * [Required] The label saved in the metadata for the Visualforce page.
+   * @type {string}
+   * @memberof IVisualforcePageCreate
+   */
+  label: string
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IVisualforcePageCreate
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Formats output as JSON.
+   * @type {string}
+   * @memberof IVisualforcePageCreate
+   */
+  json?: string
+
+  /**
+   * [Optional] The API version of the created source.
+   * @type {string}
+   * @memberof IVisualforcePageCreate
+   */
+  apiversion?: string
+
+  /**
+   * [Optional] Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command
+   * @type {string}
+   * @memberof IVisualforcePageCreate
+   */
+  reflect?: string
+
+  /**
+   * [Optional] The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.
+   * @type {string}
+   * @memberof IVisualforcePageCreate
+   */
+  outputdir?: string
+
+  /**
+   * [Optional] The template to use to create the file. Supplied parameter values or default values are filled into a copy of the template.
+   * @type {string}
+   * @memberof IVisualforcePageCreate
+   */
+  template?: string
+}
 
 /**
  * Visualforce
@@ -21,15 +149,6 @@ export class Visualforce {
 
   /**
    * create a visualforce component
-   *
-   * @param {string} componentname The Visualforce component name. The name can be up to 40 characters and must start with a letter. 
-   * @param {string} label The label saved in the metadata for the Visualforce component. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {string} json Formats output as JSON. 
-   * @param {string} apiversion The API version of the created source. 
-   * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
-   * @param {string} outputdir The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory. 
-   * @param {string} template The template to use to create the file. Supplied parameter values or default values are filled into a copy of the template. 
    * @returns {(Promise<Object | void>)}
    * @memberof Visualforce
    * @description Creates a Visualforce component in the specified directory or the current working directory. The command creates the .component file and associated metadata file.
@@ -45,33 +164,29 @@ export class Visualforce {
    */
   @apiCommand("component:create")
   public componentCreate(
-    @apiParameter("--componentname") componentname: string,
-    @apiParameter("--label") label: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: string,
-    @apiParameter("--apiversion") apiversion?: string,
-    @apiParameter("--reflect") reflect?: string,
-    @apiParameter("--outputdir") outputdir?: string,
-    @apiParameter("--template") template?: string
+    options: IVisualforceComponentCreate
   ): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      componentname: "--componentname",
+      label: "--label",
+      loglevel: "--loglevel",
+      json: "--json",
+      apiversion: "--apiversion",
+      reflect: "--reflect",
+      outputdir: "--outputdir",
+      template: "--template"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.componentCreate,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 
   /**
    * create a visualforce page
-   *
-   * @param {string} pagename The Visualforce page name. The name can be up to 40 characters and must start with a letter. 
-   * @param {string} label The label saved in the metadata for the Visualforce page. 
-   * @param {loglevel} loglevel The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log. 
-   * @param {string} json Formats output as JSON. 
-   * @param {string} apiversion The API version of the created source. 
-   * @param {string} reflect Return reflection description of the command, options, and possible values. Allows IDE to tailor to the capabilities of the command 
-   * @param {string} outputdir The directory to store the newly created files. The location can be an absolute path or relative to the current working directory. The default is the current directory. 
-   * @param {string} template The template to use to create the file. Supplied parameter values or default values are filled into a copy of the template. 
    * @returns {(Promise<Object | void>)}
    * @memberof Visualforce
    * @description Creates a Visualforce page in the specified directory or the current working directory. The command creates the .page file and associated metadata file.
@@ -86,20 +201,23 @@ export class Visualforce {
    * force:visualforce:page:create -n <string> -l <string> [-t <string>] [-d <string>] [-a <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("page:create")
-  public pageCreate(
-    @apiParameter("--pagename") pagename: string,
-    @apiParameter("--label") label: string,
-    @apiParameter("--loglevel") loglevel?: loglevel,
-    @apiParameter("--json") json?: string,
-    @apiParameter("--apiversion") apiversion?: string,
-    @apiParameter("--reflect") reflect?: string,
-    @apiParameter("--outputdir") outputdir?: string,
-    @apiParameter("--template") template?: string
-  ): Promise<Object | void> {
+  public pageCreate(options: IVisualforcePageCreate): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      pagename: "--pagename",
+      label: "--label",
+      loglevel: "--loglevel",
+      json: "--json",
+      apiversion: "--apiversion",
+      reflect: "--reflect",
+      outputdir: "--outputdir",
+      template: "--template"
+    }
+
     return this.requestExecutioner.execute<Object>(
       this,
       this.pageCreate,
-      arguments
+      options,
+      parameterNamesToSwitchNames
     )
   }
 }
