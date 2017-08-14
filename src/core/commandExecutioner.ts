@@ -1,6 +1,7 @@
 import { ICommandRunner } from "./commandRunner"
 import { ResponseParser } from "./responseParser"
 import { CommandBuilder } from "./commandBuilder"
+import { ExecOptions } from "child_process"
 
 export interface ICommandExecutioner {
   execute<T>(
@@ -14,7 +15,8 @@ export interface ICommandExecutioner {
 export class CommandExecutioner implements ICommandExecutioner {
   constructor(
     private commandRunner: ICommandRunner,
-    private defaultOptions?: Object
+    private defaultOptions?: Object,
+    private commandOptions?: ExecOptions
   ) {}
 
   public async execute<T>(
@@ -49,6 +51,14 @@ export class CommandExecutioner implements ICommandExecutioner {
     )
     let command = requestBuilder.build()
 
-    return await this.commandRunner.runCommand(command)
+    let commandOptions: ExecOptions = {
+      maxBuffer: 20000 * 1024
+    }
+
+    if (this.commandOptions !== undefined) {
+      commandOptions = Object.assign(commandOptions, this.commandOptions)
+    }
+
+    return await this.commandRunner.runCommand(command, commandOptions)
   }
 }

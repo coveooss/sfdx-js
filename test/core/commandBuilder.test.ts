@@ -37,7 +37,8 @@ describe("Can create commands", () => {
   it("Can run class create", () => {
     return apex.classCreate({ classname: "foo" }).then(() => {
       expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-        "force:apex:class:create --classname foo"
+        "force:apex:class:create --classname foo",
+        expect.anything()
       )
     })
   })
@@ -52,7 +53,8 @@ describe("Can create commands", () => {
       })
       .then(() => {
         expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-          "force:config:set key1=value1 key2=value2"
+          "force:config:set key1=value1 key2=value2",
+          expect.anything()
         )
       })
   })
@@ -60,7 +62,8 @@ describe("Can create commands", () => {
   it("Can run web login with no parameters", () => {
     return auth.webLogin().then(() => {
       expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-        "force:auth:web:login"
+        "force:auth:web:login",
+        expect.anything()
       )
     })
   })
@@ -68,7 +71,8 @@ describe("Can create commands", () => {
   it("Can run web login with no parameters", () => {
     return auth.webLogin({ json: true }).then(() => {
       expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-        "force:auth:web:login --json"
+        "force:auth:web:login --json",
+        expect.anything()
       )
     })
   })
@@ -80,7 +84,8 @@ describe("Can create commands", () => {
     auth = new Auth(commandExecutioner)
     return auth.webLogin().then(() => {
       expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-        "force:auth:web:login --json"
+        "force:auth:web:login --json",
+        expect.anything()
       )
     })
   })
@@ -92,7 +97,8 @@ describe("Can create commands", () => {
     auth = new Auth(commandExecutioner)
     return auth.webLogin({ json: false }).then(() => {
       expect(commandRunnerMockImpl.runCommand).toBeCalledWith(
-        "force:auth:web:login"
+        "force:auth:web:login",
+        expect.anything()
       )
     })
   })
