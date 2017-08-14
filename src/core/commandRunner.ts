@@ -15,11 +15,26 @@ export class CommandRunner implements ICommandRunner {
     let executePromise = new Promise<string>((resolve, reject) => {
       const fullCommand = this.SFDXPath + " " + command
 
+      let actualOptions: ExecSyncOptions = {
+        stdio: "pipe"
+      }
+
+      if (options !== undefined) {
+        actualOptions = Object.assign(actualOptions, options)
+      }
+
       try {
-        let buffer = execSync(fullCommand, options)
+        let buffer = execSync(fullCommand, actualOptions)
         resolve((buffer as Buffer).toString("utf8"))
       } catch (e) {
-        reject(e)
+        let message: string
+        if (e !== undefined && e.stderr !== undefined) {
+          message = e["stderr"].toString("utf8")
+        } else {
+          message = e
+        }
+
+        reject(message)
       }
     })
     return executePromise
