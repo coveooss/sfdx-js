@@ -16,7 +16,8 @@ export class CommandRunner implements ICommandRunner {
       const fullCommand = this.SFDXPath + " " + command
 
       let actualOptions: ExecSyncOptions = {
-        stdio: "pipe"
+        stdio: "pipe",
+        env: this.getCommandEnv()
       }
 
       if (options !== undefined) {
@@ -38,5 +39,21 @@ export class CommandRunner implements ICommandRunner {
       }
     })
     return executePromise
+  }
+
+  private getCommandEnv(): NodeJS.ProcessEnv {
+    const env = process.env
+    // https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_env_variables.htm
+
+    // Return everything has JSON.
+    env["SFDX_CONTENT_TYPE"] = "JSON"
+
+    //  Specify this variable when using the CLI with ssh or "headless" in a CI environment.
+    env["SFDX_USE_GENERIC_UNIX_KEYCHAIN"] = "true"
+
+    // Disable updates.
+    env["SFDX_AUTOUPDATE_DISABLE"] = "true"
+
+    return env
   }
 }
