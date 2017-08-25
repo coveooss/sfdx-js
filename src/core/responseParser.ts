@@ -26,6 +26,12 @@ export class ResponseParser {
       return response
     }
 
+    // Remove non json message when installing plugin.
+    response = response.replace(
+      "Installing required plugins for force... done",
+      ""
+    )
+
     // Remove leading blank spaces, space character and new lines.
     return response.replace(/^([\s\r\n]+)/, "")
   }
