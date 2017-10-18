@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -52,11 +52,11 @@ export interface IMdapiConvert {
  */
 export interface IMdapiDeploy {
   /**
-   * [Optional] Indicates whether any failure causes a complete rollback of the deploy operation. The default is true. If set to false, the operation performs actions that don’t have errors and returns errors for the remaining actions. You must set this parameter to true if you are deploying to a production org.
-   * @type {string}
+   * [Optional] Ignores the deploy errors, and continues with the deploy operation. The default is false. Keep this parameter set to false when deploying to a production org. If set to true, components without errors are deployed, and components with errors are skipped.
+   * @type {Boolean}
    * @memberof IMdapiDeploy
    */
-  rollbackonerror?: string
+  ignoreerrors?: Boolean
 
   /**
    * [Optional] Indicates that you want verbose output from the deploy operation.
@@ -66,11 +66,26 @@ export interface IMdapiDeploy {
   verbose?: Boolean
 
   /**
+   * [Optional] If a warning occurs and ignoreWarnings is set to true, the success field in DeployMessage is true. When ignoreWarnings is set to false, success is set to false, and the warning is treated like an error.
+   * This field is available in API version 18.0 and later. Prior to version 18.0, there was no distinction between warnings and errors. All problems were treated as errors and prevented a successful deployment.
+   * @type {Boolean}
+   * @memberof IMdapiDeploy
+   */
+  ignorewarnings?: Boolean
+
+  /**
    * [Optional] Validates the deployed metadata and runs all Apex tests, but prevents the deployment from being saved to the org.
    * @type {string}
    * @memberof IMdapiDeploy
    */
   checkonly?: string
+
+  /**
+   * [Optional] The number of minutes to wait for the command to complete. The default is –1 (no limit). 0
+   * @type {string}
+   * @memberof IMdapiDeploy
+   */
+  wait?: string
 
   /**
    * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
@@ -87,18 +102,25 @@ export interface IMdapiDeploy {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IMdapiDeploy
    */
   targetusername?: string
 
   /**
-   * [Optional] The path to the .zip file of metadata files to deploy. Required to initiate a deployment if you do not use --deploydir. If you specify both --zipfile and --deploydir, a zip file of the contents of the --deploydir directory is written to the location specified by --zipfile.
+   * [Optional] The path to the .zip file of metadata files to deploy. You must indicate this option or --deploydir.If you specify both --zipfile and --deploydir, a .zip file of the contents of the deploy directory is created at the path specified for the .zip file.
    * @type {string}
    * @memberof IMdapiDeploy
    */
   zipfile?: string
+
+  /**
+   * [Optional] The job ID (asyncId) of the deployment you want to check. Use with -w to resume waiting.
+   * @type {string}
+   * @memberof IMdapiDeploy
+   */
+  jobid?: string
 
   /**
    * [Optional] The root of the directory tree that contains the files to deploy. The root must contain a valid package.xml file describing the entities in the directory structure. Required to initiate a deployment if you don’t use --zipfile. If you specify both --zipfile and --deploydir, a zip file of the contents of the --deploydir directory is written to the location specified by --zipfile.
@@ -106,6 +128,13 @@ export interface IMdapiDeploy {
    * @memberof IMdapiDeploy
    */
   deploydir?: string
+
+  /**
+   * [Optional] Indicates whether any failure causes a complete rollback of the deploy operation. The default is true. If set to false, the operation performs actions that don’t have errors and returns errors for the remaining actions. You must set this parameter to true if you are deploying to a production org.
+   * @type {string}
+   * @memberof IMdapiDeploy
+   */
+  rollbackonerror?: string
 
   /**
    * [Optional] Lists the Apex classes containing the deployment tests to run. Use this parameter when you set --testlevel to RunSpecifiedTests.
@@ -120,23 +149,59 @@ export interface IMdapiDeploy {
    * RunSpecifiedTests—Runs only the tests that you specify in the --runtests option. Code coverage requirements differ from the default coverage requirements when using this test level. Executed tests must comprise a minimum of 75% code coverage for each class and trigger in the deployment package. This coverage is computed for each class and trigger individually and is different than the overall coverage percentage.
    * RunLocalTests—All tests in your org are run, except the ones that originate from installed managed packages. This test level is the default for production deployments that include Apex classes or triggers.
    * RunAllTestsInOrg—All tests in your org are run, including tests of managed packages.
-   * If you don’t specify a test level, the default behavior depends on the contents of your deployment package. For more information, see “Running Tests in a Deployment” in the Metadata API Guide.
+   * If you don’t specify a test level, the default behavior depends on the contents of your deployment package. For more information, see “Running Tests in a Deployment” in the Metadata API Developer Guide.
    * @type {string}
    * @memberof IMdapiDeploy
    */
   testlevel?: string
+}
+
+/**
+ * Options for the method deployReport of class Mdapi.
+ *
+ * @export
+ * @interface IMdapiDeployReport
+ */
+export interface IMdapiDeployReport {
+  /**
+   * [Required] The job ID (asyncId) of the deployment you want to check. Use with -w to resume waiting.
+   * @type {string}
+   * @memberof IMdapiDeployReport
+   */
+  jobid: string
 
   /**
-   * [Optional] The job ID (asyncId) of the deployment you want to check. Use with -w to resume waiting.
-   * @type {string}
-   * @memberof IMdapiDeploy
+   * [Optional] Indicates that you want verbose output for deploy results.
+   * @type {Boolean}
+   * @memberof IMdapiDeployReport
    */
-  jobid?: string
+  verbose?: Boolean
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IMdapiDeployReport
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IMdapiDeployReport
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username or alias for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IMdapiDeployReport
+   */
+  targetusername?: string
 
   /**
    * [Optional] The number of minutes to wait for the command to complete. The default is –1 (no limit). 0
    * @type {string}
-   * @memberof IMdapiDeploy
+   * @memberof IMdapiDeployReport
    */
   wait?: string
 }
@@ -191,7 +256,7 @@ export interface IMdapiRetrieve {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IMdapiRetrieve
    */
@@ -234,18 +299,75 @@ export interface IMdapiRetrieve {
 }
 
 /**
+ * Options for the method retrieveReport of class Mdapi.
+ *
+ * @export
+ * @interface IMdapiRetrieveReport
+ */
+export interface IMdapiRetrieveReport {
+  /**
+   * [Required] The root of the directory structure where the retrieved zip or metadata files are put.
+   * @type {string}
+   * @memberof IMdapiRetrieveReport
+   */
+  retrievetargetdir: string
+
+  /**
+   * [Required] The job ID (asyncId) of the retrieve you want to check. You must specify a --retrievetargetdir. Use with --wait to resume waiting.
+   * @type {string}
+   * @memberof IMdapiRetrieveReport
+   */
+  jobid: string
+
+  /**
+   * [Optional] Indicates that you want verbose output from the retrieve operation.
+   * @type {Boolean}
+   * @memberof IMdapiRetrieveReport
+   */
+  verbose?: Boolean
+
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof IMdapiRetrieveReport
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof IMdapiRetrieveReport
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username or alias for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof IMdapiRetrieveReport
+   */
+  targetusername?: string
+
+  /**
+   * [Optional] The number of minutes to wait for the command to complete. -1
+   * @type {string}
+   * @memberof IMdapiRetrieveReport
+   */
+  wait?: string
+}
+
+/**
  * Mdapi
  *
  * @export
  * @class Mdapi
  */
 @apiNamespace("force")
-@apiCommandClass("mdapi")
+@apiCommandClass("force:mdapi")
 export class Mdapi {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * convert metadata api source into the sfdx source format
+   * convert Metadata API source into the Salesforce DX source format
    * @returns {(Promise<Object | void>)}
    * @memberof Mdapi
    * @description Converts source retrieved from Metadata API into the format used in Salesforce DX projects.
@@ -276,30 +398,32 @@ export class Mdapi {
   }
 
   /**
-   * deploys metadata to an org using metadata api
+   * deploy metadata to an org using Metadata API
    * @returns {(Promise<Object | void>)}
    * @memberof Mdapi
    * @description Deploys file representations of components into an org by creating or updating the components they represent. You can deploy and retrieve up to 10,000 files or 400 MB (39 MB compressed) at one time. The default target username is the admin user for the default scratch org.
    * @example Specify the location of the files to deploy as a .zip file or by the root of the directory tree containing the files. To check the status of a deployment, specify its job ID.
    * 
    * The default value of --rollbackonerror is true, but the corresponding parameter in the Metadata API deploy() call defaults to false.
-   * force:mdapi:deploy (-c | -i <id>) (-d <directory> | -f <filepath>) [-w <minutes>] [-l <string>] [-r <string>...] [-e <boolean>] [-u <string>] [--json] [--loglevel <string>] [--verbose]
+   * force:mdapi:deploy (-c | -i <id>) (-d <directory> | -f <filepath>) [-w <minutes>] [-l <string>] [-r <string>...] [-e <boolean>] [-o] [-g] [-u <string>] [--json] [--loglevel <string>] [--verbose]
    */
   @apiCommand("deploy")
   public deploy(options?: IMdapiDeploy): Promise<Object | void> {
     const parameterNamesToSwitchNames = {
-      rollbackonerror: "--rollbackonerror",
+      ignoreerrors: "--ignoreerrors",
       verbose: "--verbose",
+      ignorewarnings: "--ignorewarnings",
       checkonly: "--checkonly",
+      wait: "--wait",
       loglevel: "--loglevel",
       json: "--json",
       targetusername: "--targetusername",
       zipfile: "--zipfile",
-      deploydir: "--deploydir",
-      runtests: "--runtests",
-      testlevel: "--testlevel",
       jobid: "--jobid",
-      wait: "--wait"
+      deploydir: "--deploydir",
+      rollbackonerror: "--rollbackonerror",
+      runtests: "--runtests",
+      testlevel: "--testlevel"
     }
 
     return this.requestExecutioner.execute<Object>(
@@ -311,7 +435,34 @@ export class Mdapi {
   }
 
   /**
-   * retrieves metadata from an org using metadata api
+   * check the status of a metadata deployment
+   * @returns {(Promise<Object | void>)}
+   * @memberof Mdapi
+   * @description Checks the current status of an asynchronous metadata deployment.
+   * @example Specify the job ID for the deploy you want to check. You can also specify a wait time (minutes) to check for updates to the deploy status.
+   * force:mdapi:deploy:report -i <id> [-w <minutes>] [-u <string>] [--json] [--loglevel <string>] [--verbose]
+   */
+  @apiCommand("deploy:report")
+  public deployReport(options: IMdapiDeployReport): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      jobid: "--jobid",
+      verbose: "--verbose",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      wait: "--wait"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.deployReport,
+      options,
+      parameterNamesToSwitchNames
+    )
+  }
+
+  /**
+   * retrieve metadata from an org using Metadata API
    * @returns {(Promise<Object | void>)}
    * @memberof Mdapi
    * @description Uses Metadata API to retrieve a .zip of XML files that represent metadata from the targeted org. The default target username is the admin user for the default scratch org. You can retrieve and deploy up to 10,000 files or 400 MB (39 MB compressed) at one time.
@@ -338,6 +489,34 @@ export class Mdapi {
     return this.requestExecutioner.execute<Object>(
       this,
       this.retrieve,
+      options,
+      parameterNamesToSwitchNames
+    )
+  }
+
+  /**
+   * check the status of a metadata retrieval
+   * @returns {(Promise<Object | void>)}
+   * @memberof Mdapi
+   * @description Check the status of an asynchronous metadata retrieval.
+   * @example Specify the job ID and a target directory for the retrieve you want to check. You can also specify a wait time (minutes) to check for updates to the deploy status. If the retrieve was successful, the resulting zip file will be saved to the location passed in with the retrieve target parameter.
+   * force:mdapi:retrieve:report -r <directory> -i <id> [-w <minutes>] [-u <string>] [--json] [--loglevel <string>] [--verbose]
+   */
+  @apiCommand("retrieve:report")
+  public retrieveReport(options: IMdapiRetrieveReport): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      retrievetargetdir: "--retrievetargetdir",
+      jobid: "--jobid",
+      verbose: "--verbose",
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      wait: "--wait"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.retrieveReport,
       options,
       parameterNamesToSwitchNames
     )

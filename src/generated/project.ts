@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -122,7 +122,7 @@ export interface IProjectUpgrade {
  * @class Project
  */
 @apiNamespace("force")
-@apiCommandClass("project")
+@apiCommandClass("force:project")
 export class Project {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 

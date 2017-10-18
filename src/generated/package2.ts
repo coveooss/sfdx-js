@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -16,7 +16,7 @@ import { ICommandExecutioner } from "../core/commandExecutioner"
  */
 export interface IPackage2Create {
   /**
-   * [Required] Name of the package2 to create.
+   * [Required] Name of the second-generation package to create.
    * @type {string}
    * @memberof IPackage2Create
    */
@@ -37,54 +37,34 @@ export interface IPackage2Create {
   json?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
    * @memberof IPackage2Create
    */
   targetdevhubusername?: string
 
   /**
-   * [Optional] Global namespace for the package2.
-   * @type {string}
+   * [Optional] Creates the package with no namespace. Available only for developer-controlled packages. Useful when migrating an existing org to packages, but new metadata should use a namespaced package.
+   * @type {Boolean}
    * @memberof IPackage2Create
    */
-  namespace?: string
+  nonamespace?: Boolean
 
   /**
-   * [Optional] Description of the package2.
+   * [Optional] Description of the second-generation package.
    * @type {string}
    * @memberof IPackage2Create
    */
   description?: string
-}
-
-/**
- * Options for the method installedList of class Package2.
- *
- * @export
- * @interface IPackage2InstalledList
- */
-export interface IPackage2InstalledList {
-  /**
-   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
-   * @type {loglevel}
-   * @memberof IPackage2InstalledList
-   */
-  loglevel?: loglevel
 
   /**
-   * [Optional] Format output as JSON.
-   * @type {Boolean}
-   * @memberof IPackage2InstalledList
-   */
-  json?: Boolean
-
-  /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] Container options for the second-generation package. 
+   * Managed is default. Other options include Unlocked and Locked. (Managed=DeveloperManagedSubscriberManaged, Unlocked=DeveloperControlledSubscriberEditable, Locked=DeveloperControlledSubscriberLocked). 
+   * These options determine the upgrade and editability rules.
    * @type {string}
-   * @memberof IPackage2InstalledList
+   * @memberof IPackage2Create
    */
-  targetusername?: string
+  containeroptions?: string
 }
 
 /**
@@ -109,7 +89,7 @@ export interface IPackage2List {
   json?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
    * @memberof IPackage2List
    */
@@ -117,68 +97,53 @@ export interface IPackage2List {
 }
 
 /**
- * Options for the method manifestCreate of class Package2.
+ * Options for the method update of class Package2.
  *
  * @export
- * @interface IPackage2ManifestCreate
+ * @interface IPackage2Update
  */
-export interface IPackage2ManifestCreate {
+export interface IPackage2Update {
   /**
-   * [Required] Directory for reading the package2 contents and generating the package2 manifest JSON file.
+   * [Required] ID of package (starts with 0Ho).
    * @type {string}
-   * @memberof IPackage2ManifestCreate
+   * @memberof IPackage2Update
    */
-  directory: string
+  package2id: string
 
   /**
    * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
    * @type {loglevel}
-   * @memberof IPackage2ManifestCreate
+   * @memberof IPackage2Update
    */
   loglevel?: loglevel
 
   /**
    * [Optional] Format output as JSON.
    * @type {Boolean}
-   * @memberof IPackage2ManifestCreate
+   * @memberof IPackage2Update
    */
   json?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
-   * @memberof IPackage2ManifestCreate
+   * @memberof IPackage2Update
    */
   targetdevhubusername?: string
-}
-
-/**
- * Options for the method membersList of class Package2.
- *
- * @export
- * @interface IPackage2MembersList
- */
-export interface IPackage2MembersList {
-  /**
-   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
-   * @type {loglevel}
-   * @memberof IPackage2MembersList
-   */
-  loglevel?: loglevel
 
   /**
-   * [Optional] Format output as JSON.
-   * @type {Boolean}
-   * @memberof IPackage2MembersList
-   */
-  json?: Boolean
-
-  /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] Description of the package.
    * @type {string}
-   * @memberof IPackage2MembersList
+   * @memberof IPackage2Update
    */
-  targetusername?: string
+  description?: string
+
+  /**
+   * [Optional] Name of the package to update.
+   * @type {string}
+   * @memberof IPackage2Update
+   */
+  name?: string
 }
 
 /**
@@ -189,20 +154,6 @@ export interface IPackage2MembersList {
  */
 export interface IPackage2VersionCreate {
   /**
-   * [Required] ID of parent package2 (starts with 0Ho).
-   * @type {string}
-   * @memberof IPackage2VersionCreate
-   */
-  package2id: string
-
-  /**
-   * [Required] The directory that contains the manifest, descriptor, and contents of the package2 version.
-   * @type {string}
-   * @memberof IPackage2VersionCreate
-   */
-  directory: string
-
-  /**
    * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
    * @type {loglevel}
    * @memberof IPackage2VersionCreate
@@ -217,39 +168,60 @@ export interface IPackage2VersionCreate {
   json?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
    * @memberof IPackage2VersionCreate
    */
   targetdevhubusername?: string
 
   /**
-   * [Optional] The number of minutes to wait for the package2 version to be created.
+   * [Optional] The number of minutes to wait for the package version to be created.
    * @type {string}
    * @memberof IPackage2VersionCreate
    */
   wait?: string
 
   /**
-   * [Optional] Preserves temp files that would otherwise be deleted.
+   * [Optional] Specifies that the temp files are preserved that would otherwise be deleted
    * @type {string}
    * @memberof IPackage2VersionCreate
    */
   preserve?: string
 
   /**
-   * [Optional] The package2 version's tag.
+   * [Optional] Installation key for creating the key-protected package. The default is null.
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  installationkey?: string
+
+  /**
+   * [Optional] The package version’s tag.
    * @type {string}
    * @memberof IPackage2VersionCreate
    */
   tag?: string
 
   /**
-   * [Optional] The package2 version's branch.
+   * [Optional] The package version’s branch.
    * @type {string}
    * @memberof IPackage2VersionCreate
    */
   branch?: string
+
+  /**
+   * [Optional] The path to the directory that contains the contents of the package version.
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  directory?: string
+
+  /**
+   * [Optional] ID of parent package (starts with 0Ho).
+   * @type {string}
+   * @memberof IPackage2VersionCreate
+   */
+  package2id?: string
 }
 
 /**
@@ -281,7 +253,7 @@ export interface IPackage2VersionCreateGet {
   json?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
    * @memberof IPackage2VersionCreateGet
    */
@@ -310,7 +282,7 @@ export interface IPackage2VersionCreateList {
   json?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
    * @memberof IPackage2VersionCreateList
    */
@@ -324,7 +296,7 @@ export interface IPackage2VersionCreateList {
   status?: string
 
   /**
-   * [Optional] Lists the requests made in the last specified number of days, starting at 00:00:00 of first day to now. Use 0 for today.
+   * [Optional] Filters the list based on the specified maximum number of days since the request was created (starting at 00:00:00 of first day to now; 0 for today).
    * @type {string}
    * @memberof IPackage2VersionCreateList
    */
@@ -339,7 +311,7 @@ export interface IPackage2VersionCreateList {
  */
 export interface IPackage2VersionGet {
   /**
-   * [Required] The package2 version ID (starts with 05i).
+   * [Required] The package version ID (starts with 05i).
    * @type {string}
    * @memberof IPackage2VersionGet
    */
@@ -360,47 +332,11 @@ export interface IPackage2VersionGet {
   json?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
    * @memberof IPackage2VersionGet
    */
   targetdevhubusername?: string
-}
-
-/**
- * Options for the method versionInstall of class Package2.
- *
- * @export
- * @interface IPackage2VersionInstall
- */
-export interface IPackage2VersionInstall {
-  /**
-   * [Required] The ID of the subscriber package2 version to install (starts with 04t).
-   * @type {string}
-   * @memberof IPackage2VersionInstall
-   */
-  subscriberpackage2versionid: string
-
-  /**
-   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
-   * @type {loglevel}
-   * @memberof IPackage2VersionInstall
-   */
-  loglevel?: loglevel
-
-  /**
-   * [Optional] Format output as JSON.
-   * @type {Boolean}
-   * @memberof IPackage2VersionInstall
-   */
-  json?: Boolean
-
-  /**
-   * [Optional] Username for the target org. Overrides the default target org.
-   * @type {string}
-   * @memberof IPackage2VersionInstall
-   */
-  targetusername?: string
 }
 
 /**
@@ -439,7 +375,7 @@ export interface IPackage2VersionList {
   concise?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
    * @memberof IPackage2VersionList
    */
@@ -467,54 +403,18 @@ export interface IPackage2VersionList {
   package2ids?: string
 
   /**
-   * [Optional] Lists the items modified in the last given number of days, starting at 00:00:00 of first day to now. Use 0 for today.
+   * [Optional] Lists the items modified in the specified last number of days, starting at 00:00:00 of first day to now. Use 0 for today.
    * @type {string}
    * @memberof IPackage2VersionList
    */
   modifiedlastdays?: string
 
   /**
-   * [Optional] Lists the requests made in the last specified number of days, starting at 00:00:00 of first day to now. Use 0 for today.
+   * [Optional] Filters the list based on the specified maximum number of days since the request was created (starting at 00:00:00 of first day to now; 0 for today).
    * @type {string}
    * @memberof IPackage2VersionList
    */
   createdlastdays?: string
-}
-
-/**
- * Options for the method versionUninstall of class Package2.
- *
- * @export
- * @interface IPackage2VersionUninstall
- */
-export interface IPackage2VersionUninstall {
-  /**
-   * [Required] The ID of the subscriber package2 version to uninstall (starts with 04t).
-   * @type {string}
-   * @memberof IPackage2VersionUninstall
-   */
-  subscriberpackage2versionid: string
-
-  /**
-   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
-   * @type {loglevel}
-   * @memberof IPackage2VersionUninstall
-   */
-  loglevel?: loglevel
-
-  /**
-   * [Optional] Format output as JSON.
-   * @type {Boolean}
-   * @memberof IPackage2VersionUninstall
-   */
-  json?: Boolean
-
-  /**
-   * [Optional] Username for the target org. Overrides the default target org.
-   * @type {string}
-   * @memberof IPackage2VersionUninstall
-   */
-  targetusername?: string
 }
 
 /**
@@ -525,7 +425,7 @@ export interface IPackage2VersionUninstall {
  */
 export interface IPackage2VersionUpdate {
   /**
-   * [Required] The package2 version ID (starts with 05i).
+   * [Required] The package version ID (starts with 05i).
    * @type {string}
    * @memberof IPackage2VersionUpdate
    */
@@ -546,42 +446,49 @@ export interface IPackage2VersionUpdate {
   json?: Boolean
 
   /**
-   * [Optional] A username for the target Dev Hub org. Overrides default Dev Hub org.
+   * [Optional] A username or alias for the target Dev Hub org. Overrides the default Dev Hub org.
    * @type {string}
    * @memberof IPackage2VersionUpdate
    */
   targetdevhubusername?: string
 
   /**
-   * [Optional] Sets the package2 version as released. Second-generation packages can’t be changed to beta after they've been released.
+   * [Optional] Sets the second-generation package version as released. Second-generation packages can’t be changed to beta after they’ve been released.
    * @type {Boolean}
    * @memberof IPackage2VersionUpdate
    */
   setasreleased?: Boolean
 
   /**
-   * [Optional] The package2 version tag.
+   * [Optional] Installation key for creating the key-protected package. The default is null.
+   * @type {string}
+   * @memberof IPackage2VersionUpdate
+   */
+  installationkey?: string
+
+  /**
+   * [Optional] The second-generation package version tag.
    * @type {string}
    * @memberof IPackage2VersionUpdate
    */
   tag?: string
 
   /**
-   * [Optional] The package2 version branch.
+   * [Optional] The second-generation package version branch.
    * @type {string}
    * @memberof IPackage2VersionUpdate
    */
   branch?: string
 
   /**
-   * [Optional] The package2 version description.
+   * [Optional] The second-generation package version description.
    * @type {string}
    * @memberof IPackage2VersionUpdate
    */
   description?: string
 
   /**
-   * [Optional] The package2 version name.
+   * [Optional] The package version name.
    * @type {string}
    * @memberof IPackage2VersionUpdate
    */
@@ -595,22 +502,22 @@ export interface IPackage2VersionUpdate {
  * @class Package2
  */
 @apiNamespace("force")
-@apiCommandClass("package2")
+@apiCommandClass("force:package2")
 export class Package2 {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * create a package2
+   * create a second-generation package
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Creates a second-generation package.
-   * @example First, use this command to create a package2. Then create a package2 version.
+   * @example First, use this command to create a second-generation package. Then create a package version.
    * 
    * Examples:
-   *    $ sfdx force:package2:create --name PackageName --namespace MyNamespace --description 'My New Package'
+   *    $ sfdx force:package2:create -n PackageName -d 'My New Package' -o Locked
    * 
-   * Run 'sfdx force:package2:list' to list all package2 packages in the dev hub org.
-   * force:package2:create -n <string> [-d <string>] [-s <string>] [-v <string>] [--json] [--loglevel <string>]
+   * Run 'sfdx force:package2:list' to list all second-generation packages in the Dev Hub org.
+   * force:package2:create -n <string> [-o <string>] [-d <string>] [-e] [-v <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("create")
   public create(options: IPackage2Create): Promise<Object | void> {
@@ -619,8 +526,9 @@ export class Package2 {
       loglevel: "--loglevel",
       json: "--json",
       targetdevhubusername: "--targetdevhubusername",
-      namespace: "--namespace",
-      description: "--description"
+      nonamespace: "--nonamespace",
+      description: "--description",
+      containeroptions: "--containeroptions"
     }
 
     return this.requestExecutioner.execute<Object>(
@@ -632,37 +540,11 @@ export class Package2 {
   }
 
   /**
-   * list the org’s installed subscriber package2 versions
-   * @returns {(Promise<Object | void>)}
-   * @memberof Package2
-   * @description Lists all subscriber package2 versions installed in the target org.
-   * @example Lists all subscriber package2 versions installed in the target org.
-   * force:package2:installed:list [-u <string>] [--json] [--loglevel <string>]
-   */
-  @apiCommand("installed:list")
-  public installedList(
-    options?: IPackage2InstalledList
-  ): Promise<Object | void> {
-    const parameterNamesToSwitchNames = {
-      loglevel: "--loglevel",
-      json: "--json",
-      targetusername: "--targetusername"
-    }
-
-    return this.requestExecutioner.execute<Object>(
-      this,
-      this.installedList,
-      options,
-      parameterNamesToSwitchNames
-    )
-  }
-
-  /**
-   * list all package2 packages in the dev hub org
+   * list all second-generation packages in the Dev Hub org
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Lists all second-generation packages in the Dev Hub org.
-   * @example You can view the namespace, ID, and subscriber package2 ID for each package2.
+   * @example You can view the namespace, IDs, and other details for each package.
    * force:package2:list [-v <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("list")
@@ -682,86 +564,69 @@ export class Package2 {
   }
 
   /**
-   * create a manifest for the package2 from the specified directory
+   * update a second-generation package
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
-   * @description Creates a second-generation package manifest file in JSON format based on the files in the specified package2 source directory.
-   * @example The manifest must be in the directory specified when you create a package2 version.
-   * force:package2:manifest:create -d <directory> [-v <string>] [--json] [--loglevel <string>]
+   * @description Updates a second-generation package.
+   * @example Specify a new value for each option you want to update.
+   * 
+   * Examples:
+   *    $ sfdx force:package2:update --package2id 0Ho... --name 'AAnalytics'
+   *    $ sfdx force:package2:update -i 0Ho... -d 'Advanced Analytics'
+   * 
+   * Run 'sfdx force:package2:list' to list all second-generation packages in the Dev Hub org.
+   * force:package2:update -i <id> [-n <string>] [-d <string>] [-v <string>] [--json] [--loglevel <string>]
    */
-  @apiCommand("manifest:create")
-  public manifestCreate(
-    options: IPackage2ManifestCreate
-  ): Promise<Object | void> {
+  @apiCommand("update")
+  public update(options: IPackage2Update): Promise<Object | void> {
     const parameterNamesToSwitchNames = {
-      directory: "--directory",
+      package2id: "--package2id",
       loglevel: "--loglevel",
       json: "--json",
-      targetdevhubusername: "--targetdevhubusername"
+      targetdevhubusername: "--targetdevhubusername",
+      description: "--description",
+      name: "--name"
     }
 
     return this.requestExecutioner.execute<Object>(
       this,
-      this.manifestCreate,
+      this.update,
       options,
       parameterNamesToSwitchNames
     )
   }
 
   /**
-   * list all subscriber package2 members in the org
-   * @returns {(Promise<Object | void>)}
-   * @memberof Package2
-   * @description Lists all subscriber package2 members in the target org.
-   * @example Lists the history of each package2 member: the package2 version when a member was first added (minimum), the latest package version that contains the member (current), and the latest version that contained any deleted members (maximum). The Subject Manageable State shows the state of the object referenced by the package2 member: beta, deleted, deprecated, installed, released, or unmanaged.
-   * force:package2:members:list [-u <string>] [--json] [--loglevel <string>]
-   */
-  @apiCommand("members:list")
-  public membersList(options?: IPackage2MembersList): Promise<Object | void> {
-    const parameterNamesToSwitchNames = {
-      loglevel: "--loglevel",
-      json: "--json",
-      targetusername: "--targetusername"
-    }
-
-    return this.requestExecutioner.execute<Object>(
-      this,
-      this.membersList,
-      options,
-      parameterNamesToSwitchNames
-    )
-  }
-
-  /**
-   * create a package2 version in the dev hub org
+   * create a second-generation package version
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Creates a second-generation package (package2) version in the Dev Hub org.
-   * @example The package2 version is based on the manifest, descriptor, and package2 contents in the specified directory.
+   * @example The package version is based on the package contents in the specified directory.
    * 
-   * To retrieve details about a package2 version create request, including status and package2 version id (05i), run "sfdx force:package2:version:create:get -i 08c...".
+   * To retrieve details about a package version create request, including status and package2 version ID (05i), run "sfdx force:package2:version:create:get -i 08c...".
    * 
-   * To list package2 version creation requests in the org, run "sfdx force:package2:version:create:list".
+   * To list package version creation requests in the org, run "sfdx force:package2:version:create:list".
    * 
    * Examples:
-   *    $ sfdx force:package2:version:create --package2id 0Ho... --directory common --tag 'Release 1.0.0' --branch master
+   *    $ sfdx force:package2:version:create -d common
    *    $ sfdx force:package2:version:create -i 0Ho... -d common
-   * force:package2:version:create -i <id> -d <directory> [-b <string>] [-t <string>] [-w <minutes>] [-v <string>] [--json] [--loglevel <string>]
+   * force:package2:version:create [-i <id>] [-d <directory>] [-b <string>] [-t <string>] [-k <string>] [-w <minutes>] [-v <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("version:create")
   public versionCreate(
-    options: IPackage2VersionCreate
+    options?: IPackage2VersionCreate
   ): Promise<Object | void> {
     const parameterNamesToSwitchNames = {
-      package2id: "--package2id",
-      directory: "--directory",
       loglevel: "--loglevel",
       json: "--json",
       targetdevhubusername: "--targetdevhubusername",
       wait: "--wait",
       preserve: "--preserve",
+      installationkey: "--installationkey",
       tag: "--tag",
-      branch: "--branch"
+      branch: "--branch",
+      directory: "--directory",
+      package2id: "--package2id"
     }
 
     return this.requestExecutioner.execute<Object>(
@@ -773,7 +638,7 @@ export class Package2 {
   }
 
   /**
-   * retrieve a package2 version creation request in the dev hub org
+   * retrieve a package version creation request
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Retrieves a second-generation package version creation request in the Dev Hub org.
@@ -805,7 +670,7 @@ export class Package2 {
   }
 
   /**
-   * list package2 version creation requests in the dev hub org
+   * list package version creation requests
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Lists all requests to create second-generation package (package2) versions in the Dev Hub org.
@@ -844,10 +709,10 @@ export class Package2 {
   }
 
   /**
-   * retrieve a package version in the dev hub org
+   * retrieve a package version in the Dev Hub org
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
-   * @description Retrieves a package version in the Dev Hub org
+   * @description Retrieves a package version in the Dev Hub org.
    * @example Examples:
    *    $ sfdx force:package2:version:get --package2versionid 05i...
    * 
@@ -872,41 +737,7 @@ export class Package2 {
   }
 
   /**
-   * install a subscriber package2 version
-   * @returns {(Promise<Object | void>)}
-   * @memberof Package2
-   * @description Installs a second-generation subscriber package version in the target org.
-   * @example Installs a second-generation subscriber package version in the target org. To view the error messages, open the Dev Hub org, select the Setup menu, enter Deployment in the Quick Find box, and select Deployment Status.
-   * 
-   * Examples:
-   *    $ sfdx force:package2:version:install --subscriberpackage2versionid 04t...
-   *    $ sfdx force:package2:version:install -i 04t... -u <username of target org>
-   * 
-   * To find the ID for the subscriber package2 version, run "sfdx package2:version:list".
-   * To list the org’s installed subscriber package2 versions, run "package2:installed:list".
-   * force:package2:version:install -i <id> [-u <string>] [--json] [--loglevel <string>]
-   */
-  @apiCommand("version:install")
-  public versionInstall(
-    options: IPackage2VersionInstall
-  ): Promise<Object | void> {
-    const parameterNamesToSwitchNames = {
-      subscriberpackage2versionid: "--subscriberpackage2versionid",
-      loglevel: "--loglevel",
-      json: "--json",
-      targetusername: "--targetusername"
-    }
-
-    return this.requestExecutioner.execute<Object>(
-      this,
-      this.versionInstall,
-      options,
-      parameterNamesToSwitchNames
-    )
-  }
-
-  /**
-   * list all package2 versions in the dev hub org
+   * list all package versions in the Dev Hub org
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Lists all package2 versions in the Dev Hub org.
@@ -948,40 +779,7 @@ export class Package2 {
   }
 
   /**
-   * uninstall a subscriber package2 version
-   * @returns {(Promise<Object | void>)}
-   * @memberof Package2
-   * @description Uninstalls a subscriber package2 version in the target org.
-   * @example Specify the subscriber package2 version ID.
-   * 
-   * Examples:
-   *    $ sfdx force:package2:version:uninstall --subscriberpackage2versionid 04t...
-   *    $ sfdx force:package2:version:uninstall -i 04t... -u <username of target org>
-   * 
-   * To list the org’s installed subscriber package2 versions, run "package2:installed:list".
-   * force:package2:version:uninstall -i <id> [-u <string>] [--json] [--loglevel <string>]
-   */
-  @apiCommand("version:uninstall")
-  public versionUninstall(
-    options: IPackage2VersionUninstall
-  ): Promise<Object | void> {
-    const parameterNamesToSwitchNames = {
-      subscriberpackage2versionid: "--subscriberpackage2versionid",
-      loglevel: "--loglevel",
-      json: "--json",
-      targetusername: "--targetusername"
-    }
-
-    return this.requestExecutioner.execute<Object>(
-      this,
-      this.versionUninstall,
-      options,
-      parameterNamesToSwitchNames
-    )
-  }
-
-  /**
-   * update a package2 version in the dev hub org
+   * update a second-generation package version
    * @returns {(Promise<Object | void>)}
    * @memberof Package2
    * @description Updates a second-generation package version in the Dev Hub org.
@@ -989,10 +787,10 @@ export class Package2 {
    * 
    * Examples:
    *    $ sfdx force:package2:version:update --package2versionid 05i... --setasreleased
-   *    $ sfdx force:package2:version:update --i 05i... -b master -t 'Release 1.0.7'
+   *    $ sfdx force:package2:version:update -i 05i... -b master -t 'Release 1.0.7'
    * 
    * To display details about a package2 version, run "sfdx package2:version:get".
-   * force:package2:version:update -i <id> [-n <string>] [-d <string>] [-b <string>] [-t <string>] [-s] [-v <string>] [--json] [--loglevel <string>]
+   * force:package2:version:update -i <id> [-n <string>] [-d <string>] [-b <string>] [-t <string>] [-k <string>] [-s] [-v <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("version:update")
   public versionUpdate(
@@ -1004,6 +802,7 @@ export class Package2 {
       json: "--json",
       targetdevhubusername: "--targetdevhubusername",
       setasreleased: "--setasreleased",
+      installationkey: "--installationkey",
       tag: "--tag",
       branch: "--branch",
       description: "--description",

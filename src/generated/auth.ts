@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -200,20 +200,20 @@ export interface IAuthWebLogin {
  * @class Auth
  */
 @apiNamespace("force")
-@apiCommandClass("auth")
+@apiCommandClass("force:auth")
 export class Auth {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * authorize an org using the jwt flow
+   * authorize an org using the JWT flow
    * @returns {(Promise<Object | void>)}
    * @memberof Auth
    * @description Authorizes a Salesforce org using the JWT flow.
    * @example Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app.
    * 
    * Examples:
-   *    $ sfdx force:auth:jwt:grant -u me@my.org -f <path to jwt key file> -i <oauth client id>
-   *    $ sfdx force:auth:jwt:grant -u me@my.org -f <path to jwt key file> -i <oauth client id> -s -a MyDefaultOrg
+   *    $ sfdx force:auth:jwt:grant -u me@my.org -f <path to jwt key file> -i <OAuth client id>
+   *    $ sfdx force:auth:jwt:grant -u me@my.org -f <path to jwt key file> -i <OAuth client id> -s -a MyDefaultOrg
    * force:auth:jwt:grant -u <string> -f <filepath> -i <string> [-r <url>] [-d] [-s] [-a <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("jwt:grant")
@@ -239,12 +239,12 @@ export class Auth {
   }
 
   /**
-   * authorize an org using an sfdx auth url
+   * authorize an org using an SFDX auth URL
    * @returns {(Promise<Object | void>)}
    * @memberof Auth
    * @description Authorizes a Salesforce org using an SFDX auth URL.
    * @example Authorize a Salesforce org using an SFDX auth URL stored within a file.
-   * The file must have use format "force://(<clientId>:<clientSecret>:)?<refreshToken>@<instanceUrl>", where "?" denotes an option value.
+   * The file must have the format "force://<refreshToken>@<instanceUrl>" or "force://<clientId>:<clientSecret>:<refreshToken>@<instanceUrl>".
    * The file must contain only the URL or be a JSON file that has a top-level property named sfdxAuthUrl.
    * 
    * Examples:
@@ -280,7 +280,7 @@ export class Auth {
    * 
    * Examples:
    *    $ sfdx force:auth:web:login -a TestOrg1
-   *    $ sfdx force:auth:web:login -i <oauth client id>
+   *    $ sfdx force:auth:web:login -i <OAuth client id>
    *    $ sfdx force:auth:web:login -r https://test.salesforce.com
    * force:auth:web:login [-i <string>] [-r <url>] [-d] [-s] [-a <string>] [--json] [--loglevel <string>]
    */

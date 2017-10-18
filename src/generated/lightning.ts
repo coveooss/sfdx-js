@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -237,6 +237,56 @@ export interface ILightningInterfaceCreate {
 }
 
 /**
+ * Options for the method lint of class Lightning.
+ *
+ * @export
+ * @interface ILightningLint
+ */
+export interface ILightningLint {
+  /**
+   * [Optional] Exit with error code 1 if there are lint issues. The default exits without an error code.
+   * @type {string}
+   * @memberof ILightningLint
+   */
+  exit?: string
+
+  /**
+   * [Optional] Report both warnings and errors. The default is to report only errors.
+   * @type {string}
+   * @memberof ILightningLint
+   */
+  verbose?: string
+
+  /**
+   * [Optional] Path to a custom ESLint configuration file. Only code style rules are used, while the rest are ignored. For example: --config path/to/.eslintrc.
+   * @type {string}
+   * @memberof ILightningLint
+   */
+  config?: string
+
+  /**
+   * [Optional] Format output as JSON, usually for integration with other tools. The default is standard text output format.
+   * @type {string}
+   * @memberof ILightningLint
+   */
+  json?: string
+
+  /**
+   * [Optional] A “glob” pattern used to add specific files to the analysis. For example, to only analyse your controller files, use --files ** /*Controller.js. When specified, this value overrides the --ignore flag. The default is all .js files.
+   * @type {string}
+   * @memberof ILightningLint
+   */
+  files?: string
+
+  /**
+   * [Optional] A “glob” pattern used to filter folders (and their contents) out of the analysis. For example: --ignore ** /foo/**.
+   * @type {string}
+   * @memberof ILightningLint
+   */
+  ignore?: string
+}
+
+/**
  * Options for the method testCreate of class Lightning.
  *
  * @export
@@ -287,6 +337,56 @@ export interface ILightningTestCreate {
 }
 
 /**
+ * Options for the method testInstall of class Lightning.
+ *
+ * @export
+ * @interface ILightningTestInstall
+ */
+export interface ILightningTestInstall {
+  /**
+   * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
+   * @type {loglevel}
+   * @memberof ILightningTestInstall
+   */
+  loglevel?: loglevel
+
+  /**
+   * [Optional] Format output as JSON.
+   * @type {Boolean}
+   * @memberof ILightningTestInstall
+   */
+  json?: Boolean
+
+  /**
+   * [Optional] A username or alias for the target org. Overrides the default target org.
+   * @type {string}
+   * @memberof ILightningTestInstall
+   */
+  targetusername?: string
+
+  /**
+   * [Optional] Type of LTS unmanaged package to install. 'jasmine' and 'mocha' contains the essentials for development, 'full' contains both, and adds sample components and tests in the package. 'full' is best for 'kicking the tires' of LTS.
+   * @type {string}
+   * @memberof ILightningTestInstall
+   */
+  packagetype?: string
+
+  /**
+   * [Optional] The release version of LTS unmanaged package you want to install.
+   * @type {string}
+   * @memberof ILightningTestInstall
+   */
+  releaseversion?: string
+
+  /**
+   * [Optional] Maximum number of minutes to wait for installation status.
+   * @type {string}
+   * @memberof ILightningTestInstall
+   */
+  wait?: string
+}
+
+/**
  * Options for the method testRun of class Lightning.
  *
  * @export
@@ -308,7 +408,7 @@ export interface ILightningTestRun {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof ILightningTestRun
    */
@@ -343,7 +443,7 @@ export interface ILightningTestRun {
   resultformat?: string
 
   /**
-   * [Optional] Directory path to store test run artifacts: log files, test results, etc.
+   * [Optional] Directory path to store test run artifacts: log files, test results, and so on.
    * @type {string}
    * @memberof ILightningTestRun
    */
@@ -365,12 +465,12 @@ export interface ILightningTestRun {
  * @class Lightning
  */
 @apiNamespace("force")
-@apiCommandClass("lightning")
+@apiCommandClass("force:lightning")
 export class Lightning {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * create a lightning app
+   * create a Lightning app
    * @returns {(Promise<Object | void>)}
    * @memberof Lightning
    * @description Creates a Lightning app bundle in the specified directory or the current working directory. The bundle consists of multiple files in a folder with the designated name.
@@ -404,7 +504,7 @@ export class Lightning {
   }
 
   /**
-   * create a lightning component
+   * create a Lightning component
    * @returns {(Promise<Object | void>)}
    * @memberof Lightning
    * @description Creates a Lightning component bundle in the specified directory or the current working directory. The bundle consists of multiple files in a folder with the designated name.
@@ -440,7 +540,7 @@ export class Lightning {
   }
 
   /**
-   * create a lightning event
+   * create a Lightning event
    * @returns {(Promise<Object | void>)}
    * @memberof Lightning
    * @description Creates a Lightning event bundle in the specified directory or the current working directory. The bundle consists of multiple files in a folder with the designated name.
@@ -474,7 +574,7 @@ export class Lightning {
   }
 
   /**
-   * create a lightning interface
+   * create a Lightning interface
    * @returns {(Promise<Object | void>)}
    * @memberof Lightning
    * @description Creates a Lightning interface bundle in the specified directory or the current working directory. The bundle consists of multiple files in a folder with the designated name.
@@ -510,7 +610,36 @@ export class Lightning {
   }
 
   /**
-   * create a lightning test
+   * analyse (lint) Lightning component code
+   * @returns {(Promise<Object | void>)}
+   * @memberof Lightning
+   * @description Runs a static analysis, or “lint,” tool on your Lightning component code. The default rules include recommended best practices and LockerService requirements. For details, including how to customize the rules for your org, see the Lightning Components Developer Guide.
+   * @example Examples: 
+   *    $ sfdx force:lightning:lint ./path/to/be/linted/
+   *    $ heroku lightning:lint ./path/to/be/linted/
+   * 
+   */
+  @apiCommand("lint")
+  public lint(options?: ILightningLint): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      exit: "--exit",
+      verbose: "--verbose",
+      config: "--config",
+      json: "--json",
+      files: "--files",
+      ignore: "--ignore"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.lint,
+      options,
+      parameterNamesToSwitchNames
+    )
+  }
+
+  /**
+   * create a Lightning test
    * @returns {(Promise<Object | void>)}
    * @memberof Lightning
    * @description Creates a Lightning test in the specified directory or the current working directory. The .resource file and associated metadata file are created.
@@ -542,7 +671,37 @@ export class Lightning {
   }
 
   /**
-   * invoke lightning component tests
+   * install Lightning Testing Service unmanaged package in your org
+   * @returns {(Promise<Object | void>)}
+   * @memberof Lightning
+   * @description Installs a Lightning Testing Service (LTS) unmanaged package into your org.
+   * @example Examples:
+   *    $ sfdx force:lightning:test:install
+   *    $ sfdx force:lightning:test:install -w 0 -r v1.0
+   *    $ sfdx force:lightning:test:install -t jasmine
+   * force:lightning:test:install [-w <minutes>] [-r <string>] [-t <string>] [-u <string>] [--json] [--loglevel <string>]
+   */
+  @apiCommand("test:install")
+  public testInstall(options?: ILightningTestInstall): Promise<Object | void> {
+    const parameterNamesToSwitchNames = {
+      loglevel: "--loglevel",
+      json: "--json",
+      targetusername: "--targetusername",
+      packagetype: "--packagetype",
+      releaseversion: "--releaseversion",
+      wait: "--wait"
+    }
+
+    return this.requestExecutioner.execute<Object>(
+      this,
+      this.testInstall,
+      options,
+      parameterNamesToSwitchNames
+    )
+  }
+
+  /**
+   * invoke Lightning component tests
    * @returns {(Promise<Object | void>)}
    * @memberof Lightning
    * @description Runs Lightning component tests. The Lightning Testing Service (LTS) unmanaged package must be installed in your org. For details, see the LTS documentation.

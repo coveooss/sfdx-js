@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -30,7 +30,7 @@ export interface ILimitsApiDisplay {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof ILimitsApiDisplay
    */
@@ -44,7 +44,7 @@ export interface ILimitsApiDisplay {
  * @class Limits
  */
 @apiNamespace("force")
-@apiCommandClass("limits")
+@apiCommandClass("force:limits")
 export class Limits {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 

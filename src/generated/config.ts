@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -109,12 +109,12 @@ export interface IConfigSet {
  * @class Config
  */
 @apiNamespace("force")
-@apiCommandClass("config")
+@apiCommandClass("force:config")
 export class Config {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * get config var value(s) for given name(s)
+   * get config var values for given names
    * @returns {(Promise<Object | void>)}
    * @memberof Config
    * @description Gets the Salesforce CLI configuration values for your default scratch org, your default Dev Hub org, your default instance URL, or any combination of the three.
@@ -147,10 +147,10 @@ export class Config {
   }
 
   /**
-   * list config vars for sfdx
+   * list config vars for the Salesforce CLI
    * @returns {(Promise<Object | void>)}
    * @memberof Config
-   * @description Lists the config variables for sfdx.
+   * @description Lists the configuration variables for the Salesforce CLI.
    * @example Lists the config variables that the Salesforce CLI uses for various commands and tasks.
    * force:config:list [--json] [--loglevel <string>]
    */
@@ -170,7 +170,7 @@ export class Config {
   }
 
   /**
-   * set config vars for sfdx
+   * set config vars for the Salesforce CLI
    * @returns {(Promise<Object | void>)}
    * @memberof Config
    * @description Sets the local and global configuration variables for the Salesforce CLI.

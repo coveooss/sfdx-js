@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -80,7 +80,7 @@ export interface ISourceOpen {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof ISourceOpen
    */
@@ -116,7 +116,7 @@ export interface ISourcePull {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof ISourcePull
    */
@@ -159,18 +159,18 @@ export interface ISourcePush {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof ISourcePush
    */
   targetusername?: string
 
   /**
-   * [Optional] Runs the push command even if conflicts exist. Changes in the project overwrite changes in the scratch org.
-   * @type {Boolean}
+   * [Optional] Number of minutes to wait for the command to complete and display results to the terminal window. If the command continues to run after the wait period, the CLI returns control of the terminal window to you. The default is 33 minutes.
+   * @type {string}
    * @memberof ISourcePush
    */
-  forceoverwrite?: Boolean
+  wait?: string
 
   /**
    * [Optional] Completes the deployment even if warnings are generated.
@@ -180,11 +180,11 @@ export interface ISourcePush {
   ignorewarnings?: Boolean
 
   /**
-   * [Optional] Number of minutes to wait for the command to complete and display results to the terminal window. If the command continues to run after the wait period, the CLI returns control of the terminal window to you. The default is 33 minutes.
-   * @type {string}
+   * [Optional] Runs the push command even if conflicts exist. Changes in the project overwrite changes in the scratch org.
+   * @type {Boolean}
    * @memberof ISourcePush
    */
-  wait?: string
+  forceoverwrite?: Boolean
 }
 
 /**
@@ -209,7 +209,7 @@ export interface ISourceStatus {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof ISourceStatus
    */
@@ -244,12 +244,12 @@ export interface ISourceStatus {
  * @class Source
  */
 @apiNamespace("force")
-@apiCommandClass("source")
+@apiCommandClass("force:source")
 export class Source {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * convert sfdx source into the metadata api source format
+   * convert Salesforce DX source into the Metadata API source format
    * @returns {(Promise<Object | void>)}
    * @memberof Source
    * @description Converts source in a Salesforce DX project into source that you can deploy using Metadata API.
@@ -281,7 +281,7 @@ export class Source {
   }
 
   /**
-   * edit a lightning page with lightning app builder
+   * edit a Lightning Page with Lightning App Builder
    * @returns {(Promise<Object | void>)}
    * @memberof Source
    * @description Opens the specified Lightning Page in Lightning App Builder. Lightning Page files have the suffix .flexipage-meta.xml, and are stored in the flexipages directory. If you specify a different type of file, this command opens your org’s home page.
@@ -344,7 +344,7 @@ export class Source {
    * @memberof Source
    * @description Pushes changed source from your project to the scratch org to keep them in sync.
    * @example If the command detects a conflict, it displays the conflicts but does not complete the process. After reviewing the conflict, rerun the command with the --forceoverwrite parameter.
-   * force:source:push [-w <minutes>] [-g] [-f] [-u <string>] [--json] [--loglevel <string>]
+   * force:source:push [-f] [-g] [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("push")
   public push(options?: ISourcePush): Promise<Object | void> {
@@ -352,9 +352,9 @@ export class Source {
       loglevel: "--loglevel",
       json: "--json",
       targetusername: "--targetusername",
-      forceoverwrite: "--forceoverwrite",
+      wait: "--wait",
       ignorewarnings: "--ignorewarnings",
-      wait: "--wait"
+      forceoverwrite: "--forceoverwrite"
     }
 
     return this.requestExecutioner.execute<Object>(

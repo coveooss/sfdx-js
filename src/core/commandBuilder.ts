@@ -22,8 +22,6 @@ export class CommandBuilder {
 
   private buildCommand() {
     return (
-      DecoratorUtil.getApiNamespace(this.requestClass) +
-      ":" +
       DecoratorUtil.getApiCommandClass(this.requestClass) +
       ":" +
       DecoratorUtil.getApiCommand(

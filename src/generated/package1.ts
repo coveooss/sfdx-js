@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -51,7 +51,7 @@ export interface IPackage1VersionCreate {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IPackage1VersionCreate
    */
@@ -129,7 +129,7 @@ export interface IPackage1VersionCreateGet {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IPackage1VersionCreateGet
    */
@@ -165,7 +165,7 @@ export interface IPackage1VersionDisplay {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IPackage1VersionDisplay
    */
@@ -194,7 +194,7 @@ export interface IPackage1VersionList {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IPackage1VersionList
    */
@@ -215,15 +215,15 @@ export interface IPackage1VersionList {
  * @class Package1
  */
 @apiNamespace("force")
-@apiCommandClass("package1")
+@apiCommandClass("force:package1")
 export class Package1 {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * create a new package version in the release org
+   * create a first-generation package version in the release org
    * @returns {(Promise<Object | void>)}
    * @memberof Package1
-   * @description Creates a package version in the release org.
+   * @description Creates a first-generation package version in the release org.
    * @example The package version is based on the contents of the specified metadata package. Omit -m if you want to create an unmanaged package version.
    * force:package1:version:create -i <id> -n <string> [-d <string>] [-v <string>] [-m] [-r <url>] [-p <url>] [-k <string>] [-w <number>] [-u <string>] [--json] [--loglevel <string>]
    */
@@ -255,10 +255,10 @@ export class Package1 {
   }
 
   /**
-   * retrieve status of package upload request
+   * retrieve the status of a package version creation request
    * @returns {(Promise<Object | void>)}
    * @memberof Package1
-   * @description Retrieves the status of a PackageUploadRequest.
+   * @description Retrieves the status of a package version creation request.
    * @example Displays the status of a package upload request.
    * force:package1:version:create:get -i <id> [-u <string>] [--json] [--loglevel <string>]
    */
@@ -282,11 +282,11 @@ export class Package1 {
   }
 
   /**
-   * display details about a package version
+   * display details about a first-generation package version
    * @returns {(Promise<Object | void>)}
    * @memberof Package1
-   * @description Displays detailed information about an individual package version.
-   * @example You can view the metadata package ID, name, release state, and build number.
+   * @description Displays detailed information about an individual first-generation package version.
+   * @example Display detailed information about an individual package version, including metadata package ID, name, the release state, and build number.
    * force:package1:version:display -i <id> [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("version:display")
@@ -309,10 +309,10 @@ export class Package1 {
   }
 
   /**
-   * list package versions for the specified package or for the org
+   * list package versions for the specified first-generation package or for the org
    * @returns {(Promise<Object | void>)}
    * @memberof Package1
-   * @description Lists the versions for the specified package or all packages in the org.
+   * @description Lists the versions for the specified package or all first-generation packages in the org.
    * @example If a metadata package ID is specified, lists all versions of the specified package. Otherwise, lists all package versions for the org. For each package version, the list includes the package version ID, metadata package ID, name, version number, and release state.
    * force:package1:version:list [-i <id>] [-u <string>] [--json] [--loglevel <string>]
    */

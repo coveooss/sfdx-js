@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -143,12 +143,12 @@ export interface IVisualforcePageCreate {
  * @class Visualforce
  */
 @apiNamespace("force")
-@apiCommandClass("visualforce")
+@apiCommandClass("force:visualforce")
 export class Visualforce {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * create a visualforce component
+   * create a Visualforce component
    * @returns {(Promise<Object | void>)}
    * @memberof Visualforce
    * @description Creates a Visualforce component in the specified directory or the current working directory. The command creates the .component file and associated metadata file.
@@ -186,7 +186,7 @@ export class Visualforce {
   }
 
   /**
-   * create a visualforce page
+   * create a Visualforce page
    * @returns {(Promise<Object | void>)}
    * @memberof Visualforce
    * @description Creates a Visualforce page in the specified directory or the current working directory. The command creates the .page file and associated metadata file.

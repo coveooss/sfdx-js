@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -87,7 +87,7 @@ export interface IApexExecute {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IApexExecute
    */
@@ -130,7 +130,7 @@ export interface IApexLogGet {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IApexLogGet
    */
@@ -159,7 +159,7 @@ export interface IApexLogList {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IApexLogList
    */
@@ -174,14 +174,14 @@ export interface IApexLogList {
  */
 export interface IApexTestReport {
   /**
-   * [Required] ID of test run.
+   * [Required] The ID of test run.
    * @type {string}
    * @memberof IApexTestReport
    */
   testrunid: string
 
   /**
-   * [Optional] Displays Apex test processing details. If json format is specified, processing details aren’t displayed.
+   * [Optional] Displays Apex test processing details. If JSON format is specified, processing details aren’t displayed.
    * @type {Boolean}
    * @memberof IApexTestReport
    */
@@ -202,7 +202,7 @@ export interface IApexTestReport {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IApexTestReport
    */
@@ -252,7 +252,7 @@ export interface IApexTestRun {
   wait?: string
 
   /**
-   * [Optional] Displays Apex test processing details. If json format is specified, processing details aren’t displayed.
+   * [Optional] Displays Apex test processing details. If JSON format is specified, processing details aren’t displayed.
    * @type {Boolean}
    * @memberof IApexTestRun
    */
@@ -280,7 +280,7 @@ export interface IApexTestRun {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IApexTestRun
    */
@@ -339,12 +339,12 @@ export interface IApexTestRun {
  * @class Apex
  */
 @apiNamespace("force")
-@apiCommandClass("apex")
+@apiCommandClass("force:apex")
 export class Apex {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * create an apex class
+   * create an Apex class
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Creates an Apex class in the specified directory or the current working directory. If you don’t explicitly set the API version, it defaults to the current API version. The .cls file and associated metadata file are created.
@@ -378,7 +378,7 @@ export class Apex {
   }
 
   /**
-   * execute anonymous apex code
+   * execute anonymous Apex code
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Executes one or more lines of anonymous Apex code, or executes the code in a local file.
@@ -505,7 +505,7 @@ export class Apex {
   }
 
   /**
-   * invoke apex tests
+   * invoke Apex tests
    * @returns {(Promise<Object | void>)}
    * @memberof Apex
    * @description Runs Apex tests.

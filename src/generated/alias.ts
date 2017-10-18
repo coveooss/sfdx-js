@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -38,11 +38,11 @@ export interface IAliasList {
  */
 export interface IAliasSet {
   /**
-   * [Optional] The key pair expression for the command
+   * [Required] The key pair expression for the command
    * @type {IStringKeyPair[] | string[] | string}
    * @memberof IAliasSet
    */
-  expression?: IStringKeyPair[] | string[] | string
+  expression: IStringKeyPair[] | string[] | string
 
   /**
    * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
@@ -66,15 +66,15 @@ export interface IAliasSet {
  * @class Alias
  */
 @apiNamespace("force")
-@apiCommandClass("alias")
+@apiCommandClass("force:alias")
 export class Alias {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
   /**
-   * list username aliases for sfdx
+   * list username aliases for the Salesforce CLI
    * @returns {(Promise<Object | void>)}
    * @memberof Alias
-   * @description Lists the aliases that sfdx can use for various commands and tasks.
+   * @description Lists the aliases that the Salesforce CLI can use for various commands and tasks.
    * @example Example: 
    *    $ sfdx force:alias:list
    * force:alias:list [--json] [--loglevel <string>]
@@ -95,10 +95,10 @@ export class Alias {
   }
 
   /**
-   * set username aliases for sfdx
+   * set username aliases for the Salesforce CLI
    * @returns {(Promise<Object | void>)}
    * @memberof Alias
-   * @description Sets an alias that sfdx can use for various commands and tasks.
+   * @description Sets an alias that the Salesforce CLI can use for various commands and tasks.
    * @example You can associate an alias with only one username at a time. If you’ve set an alias multiple times, the alias points to the most recent username.
    * 
    * To delete an alias, run "sfdx force:alias:set" with no username.
@@ -110,7 +110,7 @@ export class Alias {
    * force:alias:set name=value... [--json] [--loglevel <string>]
    */
   @apiCommand("set")
-  public set(options?: IAliasSet): Promise<Object | void> {
+  public set(options: IAliasSet): Promise<Object | void> {
     const parameterNamesToSwitchNames = {
       expression: "",
       loglevel: "--loglevel",

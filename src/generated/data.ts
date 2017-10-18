@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -44,7 +44,7 @@ export interface IDataBulkDelete {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataBulkDelete
    */
@@ -87,7 +87,7 @@ export interface IDataBulkStatus {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataBulkStatus
    */
@@ -137,7 +137,7 @@ export interface IDataBulkUpsert {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataBulkUpsert
    */
@@ -194,11 +194,18 @@ export interface IDataRecordCreate {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataRecordCreate
    */
   targetusername?: string
+
+  /**
+   * [Optional] Create the record using Tooling API.
+   * @type {Boolean}
+   * @memberof IDataRecordCreate
+   */
+  usetoolingapi?: Boolean
 }
 
 /**
@@ -230,11 +237,18 @@ export interface IDataRecordDelete {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataRecordDelete
    */
   targetusername?: string
+
+  /**
+   * [Optional] Delete the record using Tooling API.
+   * @type {Boolean}
+   * @memberof IDataRecordDelete
+   */
+  usetoolingapi?: Boolean
 
   /**
    * [Optional] A list of <fieldName>=<value> pairs to search for.
@@ -280,11 +294,18 @@ export interface IDataRecordGet {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataRecordGet
    */
   targetusername?: string
+
+  /**
+   * [Optional] Retrieve the record using Tooling API.
+   * @type {Boolean}
+   * @memberof IDataRecordGet
+   */
+  usetoolingapi?: Boolean
 
   /**
    * [Optional] A list of <fieldName>=<value> pairs to search for.
@@ -337,11 +358,18 @@ export interface IDataRecordUpdate {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataRecordUpdate
    */
   targetusername?: string
+
+  /**
+   * [Optional] Update the record using Tooling API.
+   * @type {Boolean}
+   * @memberof IDataRecordUpdate
+   */
+  usetoolingapi?: Boolean
 
   /**
    * [Optional] A list of <fieldName>=<value> pairs to search for.
@@ -387,7 +415,7 @@ export interface IDataSoqlQuery {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataSoqlQuery
    */
@@ -409,7 +437,7 @@ export interface IDataSoqlQuery {
  */
 export interface IDataTreeExport {
   /**
-   * [Required] SOQL query statement or the path of the file containing a SOQL query statement to retrieve the records to export.
+   * [Required] A SOQL query statement or the path of a file containing a SOQL query statement to retrieve the records to export.
    * @type {string}
    * @memberof IDataTreeExport
    */
@@ -430,7 +458,7 @@ export interface IDataTreeExport {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataTreeExport
    */
@@ -451,7 +479,7 @@ export interface IDataTreeExport {
   prefix?: string
 
   /**
-   * [Optional] Generates mulitple sObject tree files and a plan definition file for aggregated import.
+   * [Optional] Generates multiple sObject tree files and a plan definition file for aggregated import.
    * @type {Boolean}
    * @memberof IDataTreeExport
    */
@@ -480,7 +508,7 @@ export interface IDataTreeImport {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof IDataTreeImport
    */
@@ -508,7 +536,7 @@ export interface IDataTreeImport {
   plan?: string
 
   /**
-   * [Optional] Ordered paths of JSON files containing a collection of record trees to insert. Either --sobjecttreefiles or --plan is required.
+   * [Optional] Comma-delimited, ordered paths of JSON files containing a collection of record trees to insert. Either --sobjecttreefiles or --plan is required.
    * @type {string}
    * @memberof IDataTreeImport
    */
@@ -522,7 +550,7 @@ export interface IDataTreeImport {
  * @class Data
  */
 @apiNamespace("force")
-@apiCommandClass("data")
+@apiCommandClass("force:data")
 export class Data {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
@@ -588,7 +616,7 @@ export class Data {
   }
 
   /**
-   * bulk upsert records from a csv file
+   * bulk upsert records from a CSV file
    * @returns {(Promise<Object | void>)}
    * @memberof Data
    * @description Creates a job and one or more batches for inserting new rows and updating existing rows by accessing the Bulk API.
@@ -629,14 +657,14 @@ export class Data {
    * @memberof Data
    * @description Creates and inserts a record.
    * @example The format of a field-value pair is <fieldName>=<value>.
-   * Enclose all field-value pairs in one set of double quotation marks.
+   * Enclose all field-value pairs in one set of double quotation marks, delimited by spaces.
    * Enclose values that contain spaces in single quotes.
    * 
    * Examples:
    *    $ sfdx force:data:record:create -s Account -v "Name=Acme"
    *    $ sfdx force:data:record:create -s Account -v "Name='Universal Containers'"
    *    $ sfdx force:data:record:create -s Account -v "Name='Universal Containers' Website=www.example.com"
-   * force:data:record:create -s <string> -v <string> [-u <string>] [--json] [--loglevel <string>]
+   * force:data:record:create -s <string> -v <string> [-t] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("record:create")
   public recordCreate(options: IDataRecordCreate): Promise<Object | void> {
@@ -645,7 +673,8 @@ export class Data {
       values: "--values",
       loglevel: "--loglevel",
       json: "--json",
-      targetusername: "--targetusername"
+      targetusername: "--targetusername",
+      usetoolingapi: "--usetoolingapi"
     }
 
     return this.requestExecutioner.execute<Object>(
@@ -663,7 +692,7 @@ export class Data {
    * @description Deletes a single record.
    * @example Specify an sObject type and either an ID or a list of <fieldName>=<value> pairs.
    * The format of a field-value pair is <fieldName>=<value>.
-   * Enclose all field-value pairs in one set of double quotation marks.
+   * Enclose all field-value pairs in one set of double quotation marks, delimited by spaces.
    * Enclose values that contain spaces in single quotes.
    * 
    * Examples:
@@ -671,7 +700,7 @@ export class Data {
    *    $ sfdx force:data:record:delete -s Account -w "Name=Acme"
    *    $ sfdx force:data:record:delete -s Account -w "Name='Universal Containers'"
    *    $ sfdx force:data:record:delete -s Account -w "Name='Universal Containers' Phone='(123) 456-7890'"
-   * force:data:record:delete -s <string> [-i <id>] [-w <string>] [-u <string>] [--json] [--loglevel <string>]
+   * force:data:record:delete -s <string> [-i <id>] [-w <string>] [-t] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("record:delete")
   public recordDelete(options: IDataRecordDelete): Promise<Object | void> {
@@ -680,6 +709,7 @@ export class Data {
       loglevel: "--loglevel",
       json: "--json",
       targetusername: "--targetusername",
+      usetoolingapi: "--usetoolingapi",
       where: "--where",
       sobjectid: "--sobjectid"
     }
@@ -699,7 +729,7 @@ export class Data {
    * @description Displays a single record.
    * @example Specify an sObject type and either an ID or a list of <fieldName>=<value> pairs.
    * The format of a field-value pair is <fieldName>=<value>.
-   * Enclose all field-value pairs in one set of double quotation marks.
+   * Enclose all field-value pairs in one set of double quotation marks, delimited by spaces.
    * Enclose values that contain spaces in single quotes.
    * 
    * Examples:
@@ -707,7 +737,7 @@ export class Data {
    *    $ sfdx force:data:record:get -s Account -w "Name=Acme"
    *    $ sfdx force:data:record:get -s Account -w "Name='Universal Containers'"
    *    $ sfdx force:data:record:get -s Account -w "Name='Universal Containers' Phone='(123) 456-7890'"
-   * force:data:record:get -s <string> [-i <id>] [-w <string>] [-u <string>] [--json] [--loglevel <string>]
+   * force:data:record:get -s <string> [-i <id>] [-w <string>] [-t] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("record:get")
   public recordGet(options: IDataRecordGet): Promise<Object | void> {
@@ -716,6 +746,7 @@ export class Data {
       loglevel: "--loglevel",
       json: "--json",
       targetusername: "--targetusername",
+      usetoolingapi: "--usetoolingapi",
       where: "--where",
       sobjectid: "--sobjectid"
     }
@@ -734,14 +765,14 @@ export class Data {
    * @memberof Data
    * @description Updates a single record.
    * @example The format of a field-value pair is <fieldName>=<value>.
-   * Enclose all field-value pairs in one set of double quotation marks.
+   * Enclose all field-value pairs in one set of double quotation marks, delimited by spaces.
    * Enclose values that contain spaces in single quotes.
    * 
    * Examples:
    *   $ sfdx force:data:record:update -s Account -i 001D000000Kv3dl -v "Name=NewAcme"
    *   $ sfdx force:data:record:update -s Account -w "Name='Old Acme'" -v "Name='New Acme'"
    *   $ sfdx force:data:record:update -s Account -i 001D000000Kv3dl -v "Name='Acme III' Website=www.example.com"
-   * force:data:record:update -s <string> -v <string> [-i <id>] [-w <string>] [-u <string>] [--json] [--loglevel <string>]
+   * force:data:record:update -s <string> -v <string> [-i <id>] [-w <string>] [-t] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("record:update")
   public recordUpdate(options: IDataRecordUpdate): Promise<Object | void> {
@@ -751,6 +782,7 @@ export class Data {
       loglevel: "--loglevel",
       json: "--json",
       targetusername: "--targetusername",
+      usetoolingapi: "--usetoolingapi",
       where: "--where",
       sobjectid: "--sobjectid"
     }
@@ -764,7 +796,7 @@ export class Data {
   }
 
   /**
-   * execute a soql query
+   * execute a SOQL query
    * @returns {(Promise<Object | void>)}
    * @memberof Data
    * @description Executes a SOQL query.
@@ -795,15 +827,17 @@ export class Data {
   }
 
   /**
-   * export data from an org into sobject tree format for force:data:tree:import consumption
+   * export data from an org into sObject tree format for force:data:tree:import consumption
    * @returns {(Promise<Object | void>)}
    * @memberof Data
-   * @description Exports data from an org into sObject Tree format for force:data:import consumption.
+   * @description Exports data from an org into sObject tree format for force:data:tree:import consumption.
    * @example Generates JSON files for use with the force:data:tree:import command.
    * 
    * Examples:
    *    $ sfdx force:data:tree:export -q "SELECT Id, Name, (SELECT Name, Address__c FROM Properties__r) FROM Broker__c"
    *    $ sfdx force:data:tree:export -q <path to file containing soql query> -x export-demo -d /tmp/sfdx-out -p
+   * 
+   * For more information and examples, run "sfdx force:data:tree:import -h".
    * force:data:tree:export -q <string> [-p] [-x <string>] [-d <directory>] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("tree:export")
@@ -827,16 +861,23 @@ export class Data {
   }
 
   /**
-   * import data into an org using sobject tree api
+   * import data into an org using SObject Tree Save API
    * @returns {(Promise<Object | void>)}
    * @memberof Data
    * @description Imports data into an org using the SObject Tree Save API. This data can include master-detail relationships.
    * @example To generate JSON files for use with force:data:tree:import, run "sfdx force:data:tree:export".
    * 
    * Examples:
-   *    $ sfdx force:data:tree:import -p data/accounts-contacts-plan.json -u me@my.org
-   *    $ sfdx force:data:tree:import -f data/accounts-only.json data/contacts-only-1.json
-   *    $ sfdx force:data:tree:import -p ./test/data/accounts-contacts-plan.json
+   * To import records as individual files, first run the export commands:
+   *    $ sfdx force:data:tree:export -q "SELECT Id, Name FROM Account"
+   *    $ sfdx force:data:tree:export -q "SELECT Id, LastName, FirstName FROM Contact"
+   * Then run the import command:
+   *    $ sfdx force:data:tree:import -f Contact.json,Account.json -u me@my.org
+   * 
+   * To import multiple data files as part of a plan, first run the export command with the -p | --plan flag:
+   *    $ sfdx force:data:tree:export -p -q "SELECT Id, Name, (SELECT Id, LastName, FirstName FROM Contacts) FROM Account"
+   * Then run the import command, supplying a filepath value for the -p | --plan parameter:
+   *    $ sfdx force:data:tree:import -p Account-Contact-plan.json -u me@my.org
    * force:data:tree:import (-f <filepath>... | -p <filepath>) [-c <string>] [--confighelp] [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("tree:import")

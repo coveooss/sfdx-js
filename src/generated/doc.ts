@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -59,7 +59,7 @@ export interface IDocCommandsList {
  * @class Doc
  */
 @apiNamespace("force")
-@apiCommandClass("doc")
+@apiCommandClass("force:doc")
 export class Doc {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
@@ -67,8 +67,9 @@ export class Doc {
    * display help for force commands
    * @returns {(Promise<Object | void>)}
    * @memberof Doc
-   * @description Displays help for force commands.
-   * @example Displays help for force commands.
+   * @description Displays help for commands in the force namespace.
+   * @example Displays --help output for commands in the force namespace.
+   * To display more details about the commands’ parameters, include the --json flag.
    * force:doc:commands:display [--json] [--loglevel <string>]
    */
   @apiCommand("commands:display")
@@ -92,8 +93,8 @@ export class Doc {
    * list the force commands
    * @returns {(Promise<Object | void>)}
    * @memberof Doc
-   * @description Displays a list of force commands.
-   * @example Displays a list of force commands and their descriptions.
+   * @description Lists the commands in the force namespace.
+   * @example Displays a list of commands in the force namespace and their descriptions.
    * force:doc:commands:list [--json] [--loglevel <string>]
    */
   @apiCommand("commands:list")

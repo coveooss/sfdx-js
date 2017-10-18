@@ -1,4 +1,4 @@
-// Generated on August 13th 2017, 10:03:34 pm. DO NOT MODIFY
+// Generated on October 18th 2017, 10:16:43 am. DO NOT MODIFY
 import {
   apiParameter,
   apiNamespace,
@@ -16,6 +16,13 @@ import { ICommandExecutioner } from "../core/commandExecutioner"
  */
 export interface ISchemaSobjectDescribe {
   /**
+   * [Required] The API name of the object to describe.
+   * @type {string}
+   * @memberof ISchemaSobjectDescribe
+   */
+  sobjecttype: string
+
+  /**
    * [Optional] The logging level for this command invocation. Logs are stored in $HOME/.sfdx/sfdx.log.
    * @type {loglevel}
    * @memberof ISchemaSobjectDescribe
@@ -30,18 +37,11 @@ export interface ISchemaSobjectDescribe {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof ISchemaSobjectDescribe
    */
   targetusername?: string
-
-  /**
-   * [Optional] The API name of the object to describe.
-   * @type {string}
-   * @memberof ISchemaSobjectDescribe
-   */
-  sobjecttype?: string
 }
 
 /**
@@ -73,7 +73,7 @@ export interface ISchemaSobjectList {
   json?: Boolean
 
   /**
-   * [Optional] Username for the target org. Overrides the default target org.
+   * [Optional] A username or alias for the target org. Overrides the default target org.
    * @type {string}
    * @memberof ISchemaSobjectList
    */
@@ -87,7 +87,7 @@ export interface ISchemaSobjectList {
  * @class Schema
  */
 @apiNamespace("force")
-@apiCommandClass("schema")
+@apiCommandClass("force:schema")
 export class Schema {
   constructor(private requestExecutioner: ICommandExecutioner) {}
 
@@ -99,17 +99,17 @@ export class Schema {
    * @example Examples:
    *    $ sfdx force:schema:sobject:describe -s Account
    *    $ sfdx force:schema:sobject:describe -s MyObject__c
-   * force:schema:sobject:describe [-s <string>] [-u <string>] [--json] [--loglevel <string>]
+   * force:schema:sobject:describe -s <string> [-u <string>] [--json] [--loglevel <string>]
    */
   @apiCommand("sobject:describe")
   public sobjectDescribe(
-    options?: ISchemaSobjectDescribe
+    options: ISchemaSobjectDescribe
   ): Promise<Object | void> {
     const parameterNamesToSwitchNames = {
+      sobjecttype: "--sobjecttype",
       loglevel: "--loglevel",
       json: "--json",
-      targetusername: "--targetusername",
-      sobjecttype: "--sobjecttype"
+      targetusername: "--targetusername"
     }
 
     return this.requestExecutioner.execute<Object>(
@@ -121,11 +121,13 @@ export class Schema {
   }
 
   /**
-   * list all objects of a type
+   * list all objects of a specified category
    * @returns {(Promise<Object | void>)}
    * @memberof Schema
-   * @description Lists all objects, custom objects, or standard objects in the org.
-   * @example Examples:
+   * @description Lists all objects of a specified sObject category.
+   * @example Lists all objects, custom objects, or standard objects in the org.
+   * 
+   * Examples:
    *    $ sfdx force:schema:sobject:list -c all
    *    $ sfdx force:schema:sobject:list -c custom
    *    $ sfdx force:schema:sobject:list -c standard

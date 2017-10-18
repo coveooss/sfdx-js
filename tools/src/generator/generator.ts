@@ -37,14 +37,14 @@ export class Generator {
         return
       }
 
-      let className = this.capitalizeFirstLetter(result.topic)
+      let className = this.capitalizeFirstLetter(this.extractClassNameFromTopic(result.topic))
 
       // Check if existing, else creates it.
       if (!classDefinitions[className]) {
         classDefinitions[className] = {
           apiCommandClass: result.topic,
           className: className,
-          fileName: result.topic,
+          fileName: this.extractClassNameFromTopic(result.topic),
           functionDefinitions: []
         }
       }
@@ -168,6 +168,11 @@ export class Generator {
     return splitElements.slice(1, splitElements.length).join(":")
   }
 
+  private extractClassNameFromTopic(topic: string): string {
+    const topicParts = topic.split(":")
+    return topicParts[1]
+  }
+
   private extractFunctionNameFromCommand(command: string): string {
     const commandParts = command.split(":")
     return _.union(
@@ -203,6 +208,9 @@ export class Generator {
   }
 
   private escapeForComments(element: string, numberOfSpaces: number = 3) {
+    if(element === undefined) {
+      return element;
+    }
     const spaces: string = new Array(numberOfSpaces + 1).join(' ');
     return element.replace(/\*\//g, "* /").replace(/\n/g, "\n" + spaces +"* ")
   }
