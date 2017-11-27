@@ -3,6 +3,14 @@ import { ResponseParser } from "./responseParser"
 import { CommandBuilder } from "./commandBuilder"
 import { ExecSyncOptions } from "child_process"
 
+export enum LogLevel {
+  none = 0,
+  error = 1,
+  warning = 2,
+  log = 4,
+  trace = 5
+}
+
 export interface ICommandExecutioner {
   execute<T>(
     requestClass: Object,
@@ -16,7 +24,8 @@ export class CommandExecutioner implements ICommandExecutioner {
   constructor(
     private commandRunner: ICommandRunner,
     private defaultOptions?: Object,
-    private commandOptions?: ExecSyncOptions
+    private commandOptions?: ExecSyncOptions,
+    private logLevel = LogLevel.none
   ) {}
 
   public async execute<T>(
