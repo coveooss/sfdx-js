@@ -7,14 +7,14 @@ const camelCase = require('lodash.camelcase')
 const libraryName = 'sfdx-js'
 
 export default {
-  entry: `compiled/${libraryName}.js`,
-  targets: [
-	  { dest: pkg.main, moduleName: camelCase(libraryName), format: 'umd' },
+  input: `compiled/${libraryName}.js`,
+  output: [
+	  { file: pkg.main, name: camelCase(libraryName), format: 'umd' },
     { dest: pkg.module, format: 'cjs' }
   ],
   // To make "this is undefined" warning shut up.
   context: 'window',
-  sourceMap: true,
+  sourcemap: true,
   exports: 'named',
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: ['child_process', 'reflect-metadata', 'underscore', 'fs-extra', 'path', 'moment'],
