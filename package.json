@@ -37,11 +37,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
-    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "prepare-doc": "ts-node tools/gh-pages-prepare",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "commit": "git-cz",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
     "run-generator": "tsc --project ./tools && node tools/generate-files.js",
     "generate": "sfdx force:doc:commands:display --json > commands.json && npm run run-generator"

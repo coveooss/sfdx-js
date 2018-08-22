@@ -15,9 +15,10 @@ script:
   - npm run test:prod
   - npm run build
 after_success:
-  - npm run report-coverage
-  - npm run deploy-docs
   - npm run semantic-release
+  - npm run report-coverage
+before_deploy:
+  - npm run prepare-doc
 deploy:
   - provider: pages
     skip-cleanup: true
