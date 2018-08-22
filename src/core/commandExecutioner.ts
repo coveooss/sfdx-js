@@ -68,6 +68,6 @@ export class CommandExecutioner implements ICommandExecutioner {
       commandOptions = Object.assign(commandOptions, this.commandOptions)
     }
 
-    return await this.commandRunner.runCommand(command, commandOptions)
+    return this.commandRunner.runCommand(command, commandOptions)
   }
 }
