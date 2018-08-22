@@ -3,14 +3,11 @@ branches:
   only:
     - master
     - /^greenkeeper/.*$/
-cache:
-  yarn: true
-  directories:
-    - node_modules
+cache: yarn
 notifications:
   email: false
 node_js:
-  - '6.11'
+  - 'lts/*'
 before_script:
   - npm prune && npm cache clean
 script:
