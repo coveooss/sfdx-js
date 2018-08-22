@@ -5,17 +5,27 @@ const pkg = require('./package.json')
 const camelCase = require('lodash.camelcase')
 
 const libraryName = 'sfdx-js'
+const baseOutput = {
+  exports: 'named',
+  sourcemap: true,
+  globals: {
+    'child_process': 'child_process',
+    'underscore': '_',
+    'fs-extra': 'fs-extra',
+    'path': 'path',
+    'moment': 'moment',
+    'reflect-metadata': 'reflect-metadata'
+  }
+};
 
 export default {
   input: `compiled/${libraryName}.js`,
   output: [
-	  { file: pkg.main, name: camelCase(libraryName), format: 'umd' },
-    { dest: pkg.module, format: 'cjs' }
+    { ...baseOutput, file: pkg.main, name: camelCase(libraryName), format: 'umd' },
+    { ...baseOutput, file: pkg.module, format: 'cjs' }
   ],
   // To make "this is undefined" warning shut up.
   context: 'window',
-  sourcemap: true,
-  exports: 'named',
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: ['child_process', 'reflect-metadata', 'underscore', 'fs-extra', 'path', 'moment'],
   plugins: [
@@ -28,16 +38,7 @@ export default {
       browser: false,
       jail: '/src'
     }),
-
     // Resolve source maps to the original source
     sourceMaps()
-  ],
-  globals: {
-    'child_process': 'child_process',
-    'underscore': '_',
-    'fs-extra': 'fs-extra',
-    'path': 'path',
-    'moment': 'moment',
-    'reflect-metadata': 'reflect-metadata'
-  }
+  ]
 }
