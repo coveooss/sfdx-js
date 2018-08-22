@@ -8,10 +8,11 @@ notifications:
   email: false
 node_js:
   - 'lts/*'
-before-script:
+before_script:
   - npm run generate
 script:
-  - npm run test:prod && npm run build
+  - npm run test:prod
+  - npm run build
 after_success:
   - npm run report-coverage
   - npm run deploy-docs
