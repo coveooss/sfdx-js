@@ -9,11 +9,14 @@ notifications:
   email: false
 node_js:
   - 'lts/*'
+before_install: yarn global add greenkeeper-lockfile@1
 before_script:
+  - greenkeeper-lockfile-update
   - npm run generate
 script:
   - npm run test:prod
   - npm run build
+after_script: greenkeeper-lockfile-upload
 after_success:
   - npm run semantic-release
   - npm run report-coverage
