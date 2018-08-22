@@ -16,9 +16,8 @@ before_script:
 script:
   - npm run test:prod
   - npm run build
-after_script: greenkeeper-lockfile-upload
 after_success:
-  - npm run semantic-release
+  - greenkeeper-lockfile-upload
   - npm run report-coverage
 before_deploy:
   - npm run prepare-doc
