@@ -75,15 +75,7 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/test/"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 50,
-        "functions": 50,
-        "lines": 50,
-        "statements": 50
-      }
-    }
+    ]
   },
   "dependencies": {
     "reflect-metadata": "^0.1.12",
