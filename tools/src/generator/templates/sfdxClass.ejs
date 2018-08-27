@@ -5,9 +5,9 @@ import {<%= classDefinition.className %>} from "./<%= classDefinition.fileName %
 
 export abstract class GeneratedClient {
   <% _.each(classDefinitions, function(classDefinition) { %>
-  public <%= classDefinition.fileName %>: <%= classDefinition.className %>;<% }) %>
+  public <%= classDefinition.fileName %>!: <%= classDefinition.className %>;<% }) %>
 
-  protected requestExecutioner: ICommandExecutioner
+  protected requestExecutioner!: ICommandExecutioner
 
   protected initializeModules(){<%
      _.each(classDefinitions, function(classDefinition) { %>

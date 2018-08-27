@@ -1,21 +1,37 @@
 language: node_js
+sudo: required
 branches:
   only:
     - master
     - /^greenkeeper/.*$/
-cache:
-  yarn: true
-  directories:
-    - node_modules
+cache: yarn
 notifications:
   email: false
 node_js:
-  - '6.11'
+  - 'lts/*'
+before_install: yarn global add greenkeeper-lockfile@1
 before_script:
-  - npm prune && npm cache clean
+  - greenkeeper-lockfile-update
+  - npm run generate
 script:
-  - npm run test:prod && npm run build
+  - npm run test:prod
+  - npm run build
 after_success:
+  - greenkeeper-lockfile-upload
   - npm run report-coverage
-  - npm run deploy-docs
-  - npm run semantic-release
+before_deploy:
+  - npm run prepare-doc
+deploy:
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
+    keep-history: true
+    local-dir: dist/docs
+    on:
+      branch: master
+  - provider: script
+    skip_cleanup: true
+    script:
+      - npx semantic-release
+    on:
+      branch: master
