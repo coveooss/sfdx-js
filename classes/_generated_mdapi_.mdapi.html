@@ -1017,7 +1017,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L366">generated/mdapi.ts:366</a></li>
+								<li>Defined in generated/mdapi.ts:378</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1039,7 +1039,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L367">generated/mdapi.ts:367</a></li>
+						<li>Defined in generated/mdapi.ts:379</li>
 					</ul>
 				</aside>
 			</section>
@@ -1056,22 +1056,23 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L384">generated/mdapi.ts:384</a></li>
+								<li>Defined in generated/mdapi.ts:398</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>convert Metadata API source into the Salesforce DX source format</p>
+								<p>convert metadata from the Metadata API format into the Salesforce DX format</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
 								<dd><p>Mdapi</p>
 								</dd>
 								<dt>description</dt>
-								<dd><p>Converts source retrieved from Metadata API into the format used in Salesforce DX projects.</p>
+								<dd><p>Converts metadata retrieved via Metadata API into the source format used in Salesforce DX projects.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>To work with source that you retrieved via Metadata API using the Salesforce DX tools, convert the source to the Salesforce DX format using &quot;sfdx force:mdapi:convert&quot;.</p>
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>To work with metadata that you retrieved via Metadata API using the Salesforce DX tools, convert the metadata to the Salesforce DX source format using &quot;sfdx force:mdapi:convert&quot;.</p>
 									<p>To convert the source back to the Metadata API format, so that you can deploy it using &quot;sfdx force:mdapi:deploy&quot;, run &quot;sfdx force:source:convert&quot;.</p>
 									<p>Examples:
 										$ sfdx force:mdapi:convert -r <path to source>
@@ -1100,7 +1101,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L411">generated/mdapi.ts:411</a></li>
+								<li>Defined in generated/mdapi.ts:422</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1116,7 +1117,8 @@ img { max-width: 100%; }
 								</dd>
 								<dt>example</dt>
 								<dd><p>Specify the location of the files to deploy as a .zip file or by the root of the directory tree containing the files. To check the status of a deployment, specify its job ID.</p>
-									<p>The default value of --rollbackonerror is true, but the corresponding parameter in the Metadata API deploy() call defaults to false.
+									<p>The default value of --rollbackonerror is true, but the corresponding parameter in the Metadata API deploy() call defaults to false.</p>
+									<p>To wait for the command to finish running no matter how long the deployment takes, set --wait to -1: &quot;sfdx force mdapi:deploy -w -1 ...&quot;.
 									force:mdapi:deploy (-c | -i <id>) (-d <directory> | -f <filepath>) [-w <minutes>] [-l <string>] [-r <string>...] [-e <boolean>] [-o] [-g] [-u <string>] [--json] [--loglevel <string>] [--verbose]</p>
 								</dd>
 							</dl>
@@ -1135,13 +1137,13 @@ img { max-width: 100%; }
 				<a name="deployreport" class="tsd-anchor"></a>
 				<h3>deploy<wbr>Report</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">deploy<wbr>Report<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_generated_mdapi_.imdapideployreport.html" class="tsd-signature-type">IMdapiDeployReport</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">deploy<wbr>Report<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_generated_mdapi_.imdapideployreport.html" class="tsd-signature-type">IMdapiDeployReport</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L446">generated/mdapi.ts:446</a></li>
+								<li>Defined in generated/mdapi.ts:452</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1157,14 +1159,14 @@ img { max-width: 100%; }
 								</dd>
 								<dt>example</dt>
 								<dd><p>Specify the job ID for the deploy you want to check. You can also specify a wait time (minutes) to check for updates to the deploy status.
-									force:mdapi:deploy:report -i <id> [-w <minutes>] [-u <string>] [--json] [--loglevel <string>] [--verbose]</p>
+									force:mdapi:deploy:report [-w <minutes>] [-i <id>] [-u <string>] [--json] [--loglevel <string>] [--verbose]</p>
 								</dd>
 							</dl>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>options: <a href="../interfaces/_generated_mdapi_.imdapideployreport.html" class="tsd-signature-type">IMdapiDeployReport</a></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_mdapi_.imdapideployreport.html" class="tsd-signature-type">IMdapiDeployReport</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1181,7 +1183,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L473">generated/mdapi.ts:473</a></li>
+								<li>Defined in generated/mdapi.ts:474</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1215,13 +1217,13 @@ img { max-width: 100%; }
 				<a name="retrievereport" class="tsd-anchor"></a>
 				<h3>retrieve<wbr>Report</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">retrieve<wbr>Report<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_generated_mdapi_.imdapiretrievereport.html" class="tsd-signature-type">IMdapiRetrieveReport</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">retrieve<wbr>Report<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_generated_mdapi_.imdapiretrievereport.html" class="tsd-signature-type">IMdapiRetrieveReport</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L506">generated/mdapi.ts:506</a></li>
+								<li>Defined in generated/mdapi.ts:502</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1237,14 +1239,14 @@ img { max-width: 100%; }
 								</dd>
 								<dt>example</dt>
 								<dd><p>Specify the job ID and a target directory for the retrieve you want to check. You can also specify a wait time (minutes) to check for updates to the deploy status. If the retrieve was successful, the resulting zip file will be saved to the location passed in with the retrieve target parameter.
-									force:mdapi:retrieve:report -r <directory> -i <id> [-w <minutes>] [-u <string>] [--json] [--loglevel <string>] [--verbose]</p>
+									force:mdapi:retrieve:report [-w <minutes>] [-r <directory>] [-i <id>] [-u <string>] [--json] [--loglevel <string>] [--verbose]</p>
 								</dd>
 							</dl>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>options: <a href="../interfaces/_generated_mdapi_.imdapiretrievereport.html" class="tsd-signature-type">IMdapiRetrieveReport</a></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_mdapi_.imdapiretrievereport.html" class="tsd-signature-type">IMdapiRetrieveReport</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>

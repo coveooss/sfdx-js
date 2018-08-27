@@ -922,6 +922,9 @@ img { max-width: 100%; }
 					<a href="_generated_auth_.auth.html#jwtgrant" class="tsd-kind-icon">jwt<wbr>Grant</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_generated_auth_.auth.html#logout" class="tsd-kind-icon">logout</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_generated_auth_.auth.html#sfdxurlstore" class="tsd-kind-icon">sfdxurl<wbr>Store</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -931,6 +934,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_generated_auth_.iauthjwtgrant.html" class="tsd-kind-icon">IAuth<wbr>Jwt<wbr>Grant</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_generated_auth_.iauthlogout.html" class="tsd-kind-icon">IAuth<wbr>Logout</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_generated_auth_.iauthsfdxurlstore.html" class="tsd-kind-icon">IAuth<wbr>Sfdxurl<wbr>Store</a>
@@ -984,6 +990,7 @@ img { max-width: 100%; }
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_auth_.auth.html#jwtgrant" class="tsd-kind-icon">jwt<wbr>Grant</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_auth_.auth.html#logout" class="tsd-kind-icon">logout</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_auth_.auth.html#sfdxurlstore" class="tsd-kind-icon">sfdxurl<wbr>Store</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_auth_.auth.html#weblogin" class="tsd-kind-icon">web<wbr>Login</a></li>
 						</ul>
@@ -1003,7 +1010,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L204">generated/auth.ts:204</a></li>
+								<li>Defined in generated/auth.ts:274</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1025,7 +1032,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L205">generated/auth.ts:205</a></li>
+						<li>Defined in generated/auth.ts:275</li>
 					</ul>
 				</aside>
 			</section>
@@ -1042,7 +1049,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L220">generated/auth.ts:220</a></li>
+								<li>Defined in generated/auth.ts:293</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1058,9 +1065,11 @@ img { max-width: 100%; }
 								</dd>
 								<dt>example</dt>
 								<dd><p>Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app.</p>
+									<p>If you specify an --instanceurl value, this value overrides the sfdcLoginUrl value in your sfdx-project.json file. To specify a My Domain URL, use the format <yourdomain>.my.salesforce.com (not <yourdomain>.lightning.force.com).</p>
 									<p>Examples:
-										$ sfdx force:auth:jwt:grant -u me@my.org -f <path to jwt key file> -i <OAuth client id>
-												$ sfdx force:auth:jwt:grant -u me@my.org -f <path to jwt key file> -i <OAuth client id> -s -a MyDefaultOrg
+										$ sfdx force:auth:jwt:grant -u <a href="mailto:me@my.org">me@my.org</a> -f <path to jwt key file> -i <OAuth client id>
+												$ sfdx force:auth:jwt:grant -u <a href="mailto:me@my.org">me@my.org</a> -f <path to jwt key file> -i <OAuth client id> -s -a MyDefaultOrg
+														$ sfdx force:auth:jwt:grant -u <a href="mailto:me@acme.org">me@acme.org</a> -f <path to jwt key file> -i <OAuth client id> -r <a href="https://acme.my.salesforce.com">https://acme.my.salesforce.com</a>
 									force:auth:jwt:grant -u <string> -f <filepath> -i <string> [-r <url>] [-d] [-s] [-a <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1069,6 +1078,50 @@ img { max-width: 100%; }
 						<ul class="tsd-parameters">
 							<li>
 								<h5>options: <a href="../interfaces/_generated_auth_.iauthjwtgrant.html" class="tsd-signature-type">IAuthJwtGrant</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="logout" class="tsd-anchor"></a>
+				<h3>logout</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">logout<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_generated_auth_.iauthlogout.html" class="tsd-signature-type">IAuthLogout</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in generated/auth.ts:323</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>log out from authorized orgs</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>memberof</dt>
+								<dd><p>Auth</p>
+								</dd>
+								<dt>description</dt>
+								<dd><p>Logs you out from one or all of your authorized Salesforce orgs.</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>By default, this command logs you out from your default scratch org.
+										Examples:
+										$ sfdx force:auth:logout -u <a href="mailto:me@my.org">me@my.org</a>
+										$ sfdx force:auth:logout -a
+										$ sfdx force:auth:logout -p
+									force:auth:logout [-a] [-p] [-u <string>] [--json] [--loglevel <string>]</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_auth_.iauthlogout.html" class="tsd-signature-type">IAuthLogout</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1085,7 +1138,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L256">generated/auth.ts:256</a></li>
+								<li>Defined in generated/auth.ts:350</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1130,7 +1183,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L288">generated/auth.ts:288</a></li>
+								<li>Defined in generated/auth.ts:378</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

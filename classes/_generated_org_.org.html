@@ -1038,7 +1038,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L391">generated/org.ts:391</a></li>
+								<li>Defined in generated/org.ts:401</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1060,7 +1060,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L392">generated/org.ts:392</a></li>
+						<li>Defined in generated/org.ts:402</li>
 					</ul>
 				</aside>
 			</section>
@@ -1077,7 +1077,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L408">generated/org.ts:408</a></li>
+								<li>Defined in generated/org.ts:418</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1095,8 +1095,8 @@ img { max-width: 100%; }
 								<dd><p>To set up a connected app for your new scratch org, specify the value that was returned when you created a connected app in your Dev Hub org as --clientid.</p>
 									<p>Examples:
 										$ sfdx force:org:create -f config/enterprise-scratch-def.json -a TestOrg1
-										$ sfdx force:org:create -a MyDevOrg -s -v me@myhub.org edition=Developer
-										$ sfdx force:org:create -f config/enterprise-scratch-def.json -a OrgWithOverrides username=testuser1@mycompany.org
+										$ sfdx force:org:create -a MyDevOrg -s -v <a href="mailto:me@myhub.org">me@myhub.org</a> edition=Developer
+										$ sfdx force:org:create -f config/enterprise-scratch-def.json -a OrgWithOverrides <a href="mailto:username=testuser1@mycompany.org">username=testuser1@mycompany.org</a>
 									force:org:create name=value... [-f <filepath>] [-n] [-c] [-i <string>] [-s] [-a <string>] [-w <minutes>] [-d <number>] [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1121,7 +1121,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L447">generated/org.ts:447</a></li>
+								<li>Defined in generated/org.ts:452</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1138,7 +1138,7 @@ img { max-width: 100%; }
 								<dt>example</dt>
 								<dd><p>To mark the org for deletion without being prompted to confirm, specify --noprompt.</p>
 									<p>Examples:
-										$ sfdx force:org:delete -u me@my.org
+										$ sfdx force:org:delete -u <a href="mailto:me@my.org">me@my.org</a>
 										$ sfdx force:org:delete -u MyOrgAlias -p
 									force:org:delete -u <string> [-p] [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
@@ -1164,7 +1164,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L479">generated/org.ts:479</a></li>
+								<li>Defined in generated/org.ts:481</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1179,10 +1179,11 @@ img { max-width: 100%; }
 								<dd><p>Gets the description for the current or target org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Output includes your access token, client ID, connected status, org ID, instance URL, username, and alias, if applicable. Use --verbose to include the SFDX auth URL.</p>
+								<dd><p>Output includes your access token, client ID, connected status, org ID, instance URL, username, and alias, if applicable.</p>
+									<p>Use --verbose to include the SFDX auth URL. Including --verbose displays the sfdxAuthUrl property only if you authenticated to the org using force:auth:web:login (not force:auth:jwt:grant).</p>
 									<p>Examples:
 										$ sfdx force:org:display
-										$ sfdx force:org:display -u me@my.org
+										$ sfdx force:org:display -u <a href="mailto:me@my.org">me@my.org</a>
 										$ sfdx force:org:display -u TestOrg1 --json
 										$ sfdx force:org:display -u TestOrg1 --json &gt; tmp/MyOrgDesc.json
 									force:org:display [-u <string>] [--json] [--loglevel <string>] [--verbose]</p>
@@ -1209,7 +1210,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L507">generated/org.ts:507</a></li>
+								<li>Defined in generated/org.ts:504</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1252,7 +1253,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L545">generated/org.ts:545</a></li>
+								<li>Defined in generated/org.ts:537</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1269,13 +1270,13 @@ img { max-width: 100%; }
 								<dt>example</dt>
 								<dd><p>Opens your default scratch org, or another org that you specify.</p>
 									<p>To open a specific page, specify the portion of the URL after &quot;yourInstance.salesforce.com/&quot; as --path.
-									For example, specify &quot;--path one/one.app&quot; to open Lightning Experience, or specify &quot;--path /apex/YourPage&quot; to open a Visualforce page.</p>
+									For example, specify &quot;--path lightning&quot; to open Lightning Experience, or specify &quot;--path /apex/YourPage&quot; to open a Visualforce page.</p>
 									<p>To generate a URL but not launch your browser, specify --urlonly.</p>
 									<p>Examples:
 										$ sfdx force:org:open
-										$ sfdx force:org:open -u me@my.org
+										$ sfdx force:org:open -u <a href="mailto:me@my.org">me@my.org</a>
 										$ sfdx force:org:open -u MyTestOrg1
-										$ sfdx force:org:open -r -p one/one.app
+										$ sfdx force:org:open -r -p lightning
 									force:org:open [-p <string>] [-r] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1300,7 +1301,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L573">generated/org.ts:573</a></li>
+								<li>Defined in generated/org.ts:560</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1316,8 +1317,8 @@ img { max-width: 100%; }
 								</dd>
 								<dt>example</dt>
 								<dd><p>Examples:
-										$ sfdx force:org:shape:create -u me@my.org
-										$ sfdx force:org:shape:create -u me@my.org --json --loglevel debug
+										$ sfdx force:org:shape:create -u <a href="mailto:me@my.org">me@my.org</a>
+										$ sfdx force:org:shape:create -u <a href="mailto:me@my.org">me@my.org</a> --json --loglevel debug
 									force:org:shape:create [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1342,7 +1343,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L601">generated/org.ts:601</a></li>
+								<li>Defined in generated/org.ts:583</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1358,10 +1359,10 @@ img { max-width: 100%; }
 								</dd>
 								<dt>example</dt>
 								<dd><p>Examples:
-										$ sfdx force:org:shape:delete -u me@my.org
+										$ sfdx force:org:shape:delete -u <a href="mailto:me@my.org">me@my.org</a>
 										$ sfdx force:org:shape:delete -u MyOrgAlias -p
-										$ sfdx force:org:shape:delete -u me@my.org --json
-										$ sfdx force:org:shape:delete -u me@my.org -p --json &gt; tmp/MyOrgShapeDelete.json
+										$ sfdx force:org:shape:delete -u <a href="mailto:me@my.org">me@my.org</a> --json
+										$ sfdx force:org:shape:delete -u <a href="mailto:me@my.org">me@my.org</a> -p --json &gt; tmp/MyOrgShapeDelete.json
 									force:org:shape:delete -u <string> [-p] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1386,7 +1387,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/org.ts#L629">generated/org.ts:629</a></li>
+								<li>Defined in generated/org.ts:606</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

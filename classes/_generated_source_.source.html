@@ -1017,7 +1017,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/source.ts#L248">generated/source.ts:248</a></li>
+								<li>Defined in generated/source.ts:262</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1039,7 +1039,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/source.ts#L249">generated/source.ts:249</a></li>
+						<li>Defined in generated/source.ts:263</li>
 					</ul>
 				</aside>
 			</section>
@@ -1056,26 +1056,28 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/source.ts#L266">generated/source.ts:266</a></li>
+								<li>Defined in generated/source.ts:284</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>convert Salesforce DX source into the Metadata API source format</p>
+								<p>convert Salesforce DX source into Metadata API format</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
 								<dd><p>Source</p>
 								</dd>
 								<dt>description</dt>
-								<dd><p>Converts source in a Salesforce DX project into source that you can deploy using Metadata API.</p>
+								<dd><p>Converts source in a Salesforce DX project into metadata that you can deploy using Metadata API.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>To convert Salesforce DX–formatted source into a format that you can deploy using Metadata API, run &quot;sfdx force:source:convert&quot;. Then deploy the source using &quot;sfdx force:mdapi:deploy&quot;.</p>
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>To convert Salesforce DX–formatted source into a format that you can deploy using Metadata API, run &quot;sfdx force:source:convert&quot;. Then deploy the metadata using &quot;sfdx force:mdapi:deploy&quot;.</p>
 									<p>To convert Metadata API–formatted source into the Salesforce DX format, run &quot;sfdx force:mdapi:convert&quot;.</p>
+									<p>To specify a package name that includes spaces, enclose the name in single quotes.</p>
 									<p>Examples:
 										$ sfdx force:source:convert -r <path to source>
-											$ sfdx force:source:convert -r <path to source> -d <path to output dir>
+											$ sfdx force:source:convert -r <path to source> -d <path to output dir> -n &#39;My Package&#39;
 									force:source:convert [-r <directory>] [-d <directory>] [-n <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1100,7 +1102,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/source.ts#L298">generated/source.ts:298</a></li>
+								<li>Defined in generated/source.ts:313</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1115,13 +1117,14 @@ img { max-width: 100%; }
 								<dd><p>Opens the specified Lightning Page in Lightning App Builder. Lightning Page files have the suffix .flexipage-meta.xml, and are stored in the flexipages directory. If you specify a different type of file, this command opens your org’s home page.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>If Force.com IDE 2 is installed, the file opens in an embedded browser within the IDE. If Force.com IDE 2 isn’t installed, the file opens in your default browser.
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>The file opens in your default browser.
 										If no browser-based editor is available for the selected file, this command opens your org’s home page.
 									To generate a URL for the browser-based editor but not open the editor, use --urlonly.</p>
 									<p>Examples:
 										$ sfdx force:source:open -f Property_Record_Page.flexipage-meta.xml
 										$ sfdx force:source:open -f Property_Record_Page.flexipage-meta.xml -r
-									force:source:open -f <file> [-r] [-u <string>] [--json] [--loglevel <string>]</p>
+									force:source:open -f <filepath> [-r] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1145,7 +1148,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/source.ts#L324">generated/source.ts:324</a></li>
+								<li>Defined in generated/source.ts:336</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1160,7 +1163,8 @@ img { max-width: 100%; }
 								<dd><p>Pulls changed source from the scratch org to your project to keep them in sync.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>If the command detects a conflict, it displays the conflicts but does not complete the process. After reviewing the conflict, rerun the command with the --forceoverwrite parameter.
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>If the command detects a conflict, it displays the conflicts but does not complete the process. After reviewing the conflict, rerun the command with the --forceoverwrite parameter.
 									force:source:pull [-w <minutes>] [-f] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1185,7 +1189,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/source.ts#L350">generated/source.ts:350</a></li>
+								<li>Defined in generated/source.ts:359</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1200,7 +1204,8 @@ img { max-width: 100%; }
 								<dd><p>Pushes changed source from your project to the scratch org to keep them in sync.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>If the command detects a conflict, it displays the conflicts but does not complete the process. After reviewing the conflict, rerun the command with the --forceoverwrite parameter.
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>If the command detects a conflict, it displays the conflicts but does not complete the process. After reviewing the conflict, rerun the command with the --forceoverwrite parameter.
 									force:source:push [-f] [-g] [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1225,7 +1230,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/source.ts#L381">generated/source.ts:381</a></li>
+								<li>Defined in generated/source.ts:388</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1240,11 +1245,12 @@ img { max-width: 100%; }
 								<dd><p>Lists changes that have been made locally, in a scratch org, or both.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Examples:
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>Examples:
 										$ sfdx force:source:status -l
 										$ sfdx force:source:status -r
 										$ sfdx force:source:status -a
-										$ sfdx force:source:status -a -u me@my.org --json
+										$ sfdx force:source:status -a -u <a href="mailto:me@my.org">me@my.org</a> --json
 									force:source:status [-a] [-l] [-r] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>

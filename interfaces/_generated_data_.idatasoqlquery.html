@@ -943,7 +943,13 @@ img { max-width: 100%; }
 					<a href="_generated_data_.idatasoqlquery.html#loglevel" class="tsd-kind-icon">loglevel</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="_generated_data_.idatasoqlquery.html#perflog" class="tsd-kind-icon">perflog</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_generated_data_.idatasoqlquery.html#query" class="tsd-kind-icon">query</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="_generated_data_.idatasoqlquery.html#resultformat" class="tsd-kind-icon">resultformat</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_generated_data_.idatasoqlquery.html#targetusername" class="tsd-kind-icon">targetusername</a>
@@ -994,7 +1000,9 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_data_.idatasoqlquery.html#json" class="tsd-kind-icon">json</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_data_.idatasoqlquery.html#loglevel" class="tsd-kind-icon">loglevel</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_data_.idatasoqlquery.html#perflog" class="tsd-kind-icon">perflog</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_data_.idatasoqlquery.html#query" class="tsd-kind-icon">query</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_data_.idatasoqlquery.html#resultformat" class="tsd-kind-icon">resultformat</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_data_.idatasoqlquery.html#targetusername" class="tsd-kind-icon">targetusername</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_data_.idatasoqlquery.html#usetoolingapi" class="tsd-kind-icon">usetoolingapi</a></li>
 						</ul>
@@ -1010,7 +1018,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">json<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L415">generated/data.ts:415</a></li>
+						<li>Defined in generated/data.ts:452</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1033,7 +1041,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">loglevel<span class="tsd-signature-symbol">:</span> <a href="_generated_data_.idatasoqlquery.html#loglevel" class="tsd-signature-type">loglevel</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L408">generated/data.ts:408</a></li>
+						<li>Defined in generated/data.ts:445</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1051,12 +1059,35 @@ img { max-width: 100%; }
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="perflog" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> perflog</h3>
+				<div class="tsd-signature tsd-kind-icon">perflog<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in generated/data.ts:466</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>[Optional] Gets data on API performance metrics from the server. The data is stored in $HOME/.sfdx/apiPerformanceLog.json</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>type</dt>
+						<dd><p>{Boolean}</p>
+						</dd>
+						<dt>memberof</dt>
+						<dd><p>IDataSoqlQuery</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="query" class="tsd-anchor"></a>
 				<h3>query</h3>
 				<div class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L401">generated/data.ts:401</a></li>
+						<li>Defined in generated/data.ts:438</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1074,12 +1105,35 @@ img { max-width: 100%; }
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="resultformat" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> resultformat</h3>
+				<div class="tsd-signature tsd-kind-icon">resultformat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in generated/data.ts:473</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>[Optional] Format to use when displaying query results. If you also specify the --json flag, --json overrides this parameter.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>type</dt>
+						<dd><p>{string}</p>
+						</dd>
+						<dt>memberof</dt>
+						<dd><p>IDataSoqlQuery</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="targetusername" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagOptional">Optional</span> targetusername</h3>
 				<div class="tsd-signature tsd-kind-icon">targetusername<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L422">generated/data.ts:422</a></li>
+						<li>Defined in generated/data.ts:459</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1102,7 +1156,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">usetoolingapi<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L429">generated/data.ts:429</a></li>
+						<li>Defined in generated/data.ts:480</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

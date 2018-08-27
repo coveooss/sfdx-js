@@ -1010,7 +1010,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package1.ts#L219">generated/package1.ts:219</a></li>
+								<li>Defined in generated/package1.ts:225</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1032,7 +1032,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package1.ts#L220">generated/package1.ts:220</a></li>
+						<li>Defined in generated/package1.ts:226</li>
 					</ul>
 				</aside>
 			</section>
@@ -1049,7 +1049,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package1.ts#L231">generated/package1.ts:231</a></li>
+								<li>Defined in generated/package1.ts:239</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1064,7 +1064,8 @@ img { max-width: 100%; }
 								<dd><p>Creates a first-generation package version in the release org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>The package version is based on the contents of the specified metadata package. Omit -m if you want to create an unmanaged package version.
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>The package version is based on the contents of the specified metadata package. Omit -m if you want to create an unmanaged package version.
 									force:package1:version:create -i <id> -n <string> [-d <string>] [-v <string>] [-m] [-r <url>] [-p <url>] [-k <string>] [-w <number>] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1089,7 +1090,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package1.ts#L266">generated/package1.ts:266</a></li>
+								<li>Defined in generated/package1.ts:269</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1104,7 +1105,9 @@ img { max-width: 100%; }
 								<dd><p>Retrieves the status of a package version creation request.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Displays the status of a package upload request.
+								<dd><p>Examples:
+										$ sfdx force:package:version:create:report -i 08c...
+										$ sfdx force:package:version:create:report -i 08c... -v <a href="mailto:devhub@example.com">devhub@example.com</a>
 									force:package1:version:create:get -i <id> [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1129,7 +1132,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package1.ts#L293">generated/package1.ts:293</a></li>
+								<li>Defined in generated/package1.ts:291</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1144,7 +1147,8 @@ img { max-width: 100%; }
 								<dd><p>Displays detailed information about an individual first-generation package version.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Display detailed information about an individual package version, including metadata package ID, name, the release state, and build number.
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>Display detailed information about an individual package version, including metadata package ID, name, the release state, and build number.
 									force:package1:version:display -i <id> [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1169,7 +1173,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package1.ts#L320">generated/package1.ts:320</a></li>
+								<li>Defined in generated/package1.ts:313</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1184,7 +1188,8 @@ img { max-width: 100%; }
 								<dd><p>Lists the versions for the specified package or all first-generation packages in the org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>If a metadata package ID is specified, lists all versions of the specified package. Otherwise, lists all package versions for the org. For each package version, the list includes the package version ID, metadata package ID, name, version number, and release state.
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>If a metadata package ID is specified, lists all versions of the specified package. Otherwise, lists all package versions for the org. For each package version, the list includes the package version ID, metadata package ID, name, version number, and release state.
 									force:package1:version:list [-i <id>] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>

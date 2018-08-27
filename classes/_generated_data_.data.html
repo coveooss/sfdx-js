@@ -1052,7 +1052,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L554">generated/data.ts:554</a></li>
+								<li>Defined in generated/data.ts:608</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1074,7 +1074,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L555">generated/data.ts:555</a></li>
+						<li>Defined in generated/data.ts:609</li>
 					</ul>
 				</aside>
 			</section>
@@ -1091,7 +1091,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L572">generated/data.ts:572</a></li>
+								<li>Defined in generated/data.ts:626</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1112,7 +1112,7 @@ img { max-width: 100%; }
 									<p>Examples:
 										$ sfdx force:data:bulk:delete -s Account -f ./path/to/file.csv
 										$ sfdx force:data:bulk:delete -s MyObject__c -f ./path/to/file.csv
-									force:data:bulk:delete -s <string> -f <file> [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]</p>
+									force:data:bulk:delete -s <string> -f <filepath> [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1136,7 +1136,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L601">generated/data.ts:601</a></li>
+								<li>Defined in generated/data.ts:650</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1178,7 +1178,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L635">generated/data.ts:635</a></li>
+								<li>Defined in generated/data.ts:679</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1198,9 +1198,9 @@ img { max-width: 100%; }
 									Returns a job ID and a batch ID. Use these IDs to check job status with data:bulk:status.</p>
 									<p>For information about formatting your CSV file, see &quot;Prepare CSV Files&quot; in the Bulk API Developer Guide.</p>
 									<p>Examples:
-										$ sfdx force:data:bulk:upsert -s MyObject<strong>c -f ./path/to/file.csv -i MyField</strong>c
+										$ sfdx force:data:bulk:upsert -s MyObject__c -f ./path/to/file.csv -i MyField__c
 										$ sfdx force:data:bulk:upsert -s MyObject__c -f ./path/to/file.csv -i Id -w 2
-									force:data:bulk:upsert -s <string> -f <file> [-i <id>] [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]</p>
+									force:data:bulk:upsert -s <string> -f <filepath> -i <id> [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1224,7 +1224,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L670">generated/data.ts:670</a></li>
+								<li>Defined in generated/data.ts:713</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1242,11 +1242,14 @@ img { max-width: 100%; }
 								<dd><p>The format of a field-value pair is <fieldName>=<value>.
 												Enclose all field-value pairs in one set of double quotation marks, delimited by spaces.
 									Enclose values that contain spaces in single quotes.</p>
+									<p>To get data on API performance metrics, specify both --perflog and --json.</p>
 									<p>Examples:
 										$ sfdx force:data:record:create -s Account -v &quot;Name=Acme&quot;
 										$ sfdx force:data:record:create -s Account -v &quot;Name=&#39;Universal Containers&#39;&quot;
-										$ sfdx force:data:record:create -s Account -v &quot;Name=&#39;Universal Containers&#39; Website=www.example.com&quot;
-									force:data:record:create -s <string> -v <string> [-t] [-u <string>] [--json] [--loglevel <string>]</p>
+										$ sfdx force:data:record:create -s Account -v &quot;Name=&#39;Universal Containers&#39; Website=<a href="http://www.example.com&quot;">www.example.com&quot;</a>
+										$ sfdx force:data:record:create -t -s TraceFlag -v &quot;DebugLevelId=7dl170000008U36AAE StartDate=2017-12-01T00:26:04.000+0000 ExpirationDate=2017-12-01T00:56:04.000+0000 LogType=CLASS_TRACING TracedEntityId=01p17000000R6bLAAS&quot;
+										$ sfdx force:data:record:create -s Account -v &quot;Name=Acme&quot; --perflog --json
+									force:data:record:create -s <string> -v <string> [-t] [--perflog] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1270,7 +1273,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L706">generated/data.ts:706</a></li>
+								<li>Defined in generated/data.ts:748</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1289,12 +1292,14 @@ img { max-width: 100%; }
 												The format of a field-value pair is <fieldName>=<value>.
 														Enclose all field-value pairs in one set of double quotation marks, delimited by spaces.
 									Enclose values that contain spaces in single quotes.</p>
+									<p>To get data on API performance metrics, specify both --perflog and --json.</p>
 									<p>Examples:
 										$ sfdx force:data:record:delete -s Account -i 001D000000Kv3dl
 										$ sfdx force:data:record:delete -s Account -w &quot;Name=Acme&quot;
 										$ sfdx force:data:record:delete -s Account -w &quot;Name=&#39;Universal Containers&#39;&quot;
 										$ sfdx force:data:record:delete -s Account -w &quot;Name=&#39;Universal Containers&#39; Phone=&#39;(123) 456-7890&#39;&quot;
-									force:data:record:delete -s <string> [-i <id>] [-w <string>] [-t] [-u <string>] [--json] [--loglevel <string>]</p>
+										$ sfdx force:data:record:delete -t -s TraceFlag -i 7tf170000009cU6AAI --perflog --json
+									force:data:record:delete -s <string> [-i <id>] [-w <string>] [-t] [--perflog] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1318,7 +1323,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L743">generated/data.ts:743</a></li>
+								<li>Defined in generated/data.ts:784</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1337,12 +1342,14 @@ img { max-width: 100%; }
 												The format of a field-value pair is <fieldName>=<value>.
 														Enclose all field-value pairs in one set of double quotation marks, delimited by spaces.
 									Enclose values that contain spaces in single quotes.</p>
+									<p>To get data on API performance metrics, specify both --perflog and --json.</p>
 									<p>Examples:
 										$ sfdx force:data:record:get -s Account -i 001D000000Kv3dl
 										$ sfdx force:data:record:get -s Account -w &quot;Name=Acme&quot;
 										$ sfdx force:data:record:get -s Account -w &quot;Name=&#39;Universal Containers&#39;&quot;
 										$ sfdx force:data:record:get -s Account -w &quot;Name=&#39;Universal Containers&#39; Phone=&#39;(123) 456-7890&#39;&quot;
-									force:data:record:get -s <string> [-i <id>] [-w <string>] [-t] [-u <string>] [--json] [--loglevel <string>]</p>
+										$ sfdx force:data:record:get -t -s TraceFlag -i 7tf170000009cUBAAY --perflog --json
+									force:data:record:get -s <string> [-i <id>] [-w <string>] [-t] [--perflog] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1366,7 +1373,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L778">generated/data.ts:778</a></li>
+								<li>Defined in generated/data.ts:819</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1384,11 +1391,14 @@ img { max-width: 100%; }
 								<dd><p>The format of a field-value pair is <fieldName>=<value>.
 												Enclose all field-value pairs in one set of double quotation marks, delimited by spaces.
 									Enclose values that contain spaces in single quotes.</p>
+									<p>To get data on API performance metrics, specify both --perflog and --json.</p>
 									<p>Examples:
 										$ sfdx force:data:record:update -s Account -i 001D000000Kv3dl -v &quot;Name=NewAcme&quot;
 										$ sfdx force:data:record:update -s Account -w &quot;Name=&#39;Old Acme&#39;&quot; -v &quot;Name=&#39;New Acme&#39;&quot;
-										$ sfdx force:data:record:update -s Account -i 001D000000Kv3dl -v &quot;Name=&#39;Acme III&#39; Website=www.example.com&quot;
-									force:data:record:update -s <string> -v <string> [-i <id>] [-w <string>] [-t] [-u <string>] [--json] [--loglevel <string>]</p>
+										$ sfdx force:data:record:update -s Account -i 001D000000Kv3dl -v &quot;Name=&#39;Acme III&#39; Website=<a href="http://www.example.com&quot;">www.example.com&quot;</a>
+										$ sfdx force:data:record:update -t -s TraceFlag -i 7tf170000009cUBAAY -v &quot;ExpirationDate=2017-12-01T00:58:04.000+0000&quot;
+										$ sfdx force:data:record:update -s Account -i 001D000000Kv3dl -v &quot;Name=NewAcme&quot; --perflog --json
+									force:data:record:update -s <string> -v <string> [-i <id>] [-w <string>] [-t] [--perflog] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1412,7 +1422,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L812">generated/data.ts:812</a></li>
+								<li>Defined in generated/data.ts:852</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1428,11 +1438,13 @@ img { max-width: 100%; }
 								</dd>
 								<dt>example</dt>
 								<dd><p>When you execute this command in a project, it executes the query against the data in your default scratch org.</p>
+									<p>To get data on API performance metrics, specify both --perflog and --json.</p>
 									<p>Examples:
 										$ sfdx force:data:soql:query -q &quot;SELECT Id, Name, Account.Name FROM Contact&quot;
 										$ sfdx force:data:soql:query -q &quot;SELECT Id, Name FROM Account WHERE ShippingState IN (&#39;CA&#39;, &#39;NY&#39;)&quot;
 										$ sfdx force:data:soql:query -q &quot;SELECT Name FROM ApexTrigger&quot; -t
-									force:data:soql:query -q <string> [-t] [-u <string>] [--json] [--loglevel <string>]</p>
+										$ sfdx force:data:soql:query -q &quot;SELECT Name FROM ApexTrigger&quot; --perflog --json
+									force:data:soql:query -q <string> [-t] [-r <string>] [--perflog] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1456,7 +1468,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L844">generated/data.ts:844</a></li>
+								<li>Defined in generated/data.ts:883</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1473,9 +1485,10 @@ img { max-width: 100%; }
 								<dt>example</dt>
 								<dd><p>Generates JSON files for use with the force:data:tree:import command.</p>
 									<p>Examples:
-										$ sfdx force:data:tree:export -q &quot;SELECT Id, Name, (SELECT Name, Address<strong>c FROM Properties</strong>r) FROM Broker__c&quot;
+										$ sfdx force:data:tree:export -q &quot;SELECT Id, Name, (SELECT Name, Address__c FROM Properties__r) FROM Broker__c&quot;
 									$ sfdx force:data:tree:export -q <path to file containing soql query> -x export-demo -d /tmp/sfdx-out -p</p>
-									<p>For more information and examples, run &quot;sfdx force:data:tree:import -h&quot;.
+									<p>For more information and examples, run &quot;sfdx force:data:tree:import -h&quot;.</p>
+									<p>The query for export can return a maximum of 2,000 records. For more information, see the REST API Developer Guide: <a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_sobject_tree.htm">https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_sobject_tree.htm</a>
 									force:data:tree:export -q <string> [-p] [-x <string>] [-d <directory>] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1500,7 +1513,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/data.ts#L884">generated/data.ts:884</a></li>
+								<li>Defined in generated/data.ts:920</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1521,11 +1534,12 @@ img { max-width: 100%; }
 										$ sfdx force:data:tree:export -q &quot;SELECT Id, Name FROM Account&quot;
 										$ sfdx force:data:tree:export -q &quot;SELECT Id, LastName, FirstName FROM Contact&quot;
 										Then run the import command:
-									$ sfdx force:data:tree:import -f Contact.json,Account.json -u me@my.org</p>
+									$ sfdx force:data:tree:import -f Contact.json,Account.json -u <a href="mailto:me@my.org">me@my.org</a></p>
 									<p>To import multiple data files as part of a plan, first run the export command with the -p | --plan flag:
 										$ sfdx force:data:tree:export -p -q &quot;SELECT Id, Name, (SELECT Id, LastName, FirstName FROM Contacts) FROM Account&quot;
 										Then run the import command, supplying a filepath value for the -p | --plan parameter:
-										$ sfdx force:data:tree:import -p Account-Contact-plan.json -u me@my.org
+									$ sfdx force:data:tree:import -p Account-Contact-plan.json -u <a href="mailto:me@my.org">me@my.org</a></p>
+									<p>The SObject Tree API supports requests that contain up to 200 records. For more information, see the REST API Developer Guide: <a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_sobject_tree.htm">https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_sobject_tree.htm</a>
 									force:data:tree:import (-f <filepath>... | -p <filepath>) [-c <string>] [--confighelp] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>

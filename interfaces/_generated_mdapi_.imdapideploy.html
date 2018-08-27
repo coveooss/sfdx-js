@@ -1031,12 +1031,19 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">checkonly<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L81">generated/mdapi.ts:81</a></li>
+						<li>Defined in generated/mdapi.ts:89</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>[Optional] Validates the deployed metadata and runs all Apex tests, but prevents the deployment from being saved to the org.</p>
+						<p>[Optional] Validates the deployed metadata and runs all Apex tests, but prevents the deployment from being saved to the org.
+							If you change a field type from Master-Detail to Lookup or vice versa, that change isn’t supported when using the --checkonly parameter to test a deployment (validation). This kind of change isn’t supported for test deployments to avoid the risk of data loss or corruption. If a change that isn’t supported for test deployments is included in a deployment package, the test deployment fails and issues an error.
+							If your deployment package changes a field type from Master-Detail to Lookup or vice versa, you can still validate the changes prior to deploying to Production by performing a full deployment to another test Sandbox. A full deployment includes a validation of the changes as part of the deployment process.
+						Note: A Metadata API deployment that includes Master-Detail relationships deletes all detail records in the Recycle Bin in the following cases.</p>
+						<ol>
+							<li>For a deployment with a new Master-Detail field, soft delete (send to the Recycle Bin) all detail records before proceeding to deploy the Master-Detail field, or the deployment fails. During the deployment, detail records are permanently deleted from the Recycle Bin and cannot be recovered.</li>
+							<li>For a deployment that converts a Lookup field relationship to a Master-Detail relationship, detail records must reference a master record or be soft-deleted (sent to the Recycle Bin) for the deployment to succeed. However, a successful deployment permanently deletes any detail records in the Recycle Bin.</li>
+						</ol>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>type</dt>
@@ -1054,7 +1061,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">deploydir<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L130">generated/mdapi.ts:130</a></li>
+						<li>Defined in generated/mdapi.ts:138</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1077,7 +1084,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">ignoreerrors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L59">generated/mdapi.ts:59</a></li>
+						<li>Defined in generated/mdapi.ts:62</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1100,7 +1107,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">ignorewarnings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L74">generated/mdapi.ts:74</a></li>
+						<li>Defined in generated/mdapi.ts:77</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1124,7 +1131,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">jobid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L123">generated/mdapi.ts:123</a></li>
+						<li>Defined in generated/mdapi.ts:131</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1147,7 +1154,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">json<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L102">generated/mdapi.ts:102</a></li>
+						<li>Defined in generated/mdapi.ts:110</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1170,7 +1177,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">loglevel<span class="tsd-signature-symbol">:</span> <a href="_generated_mdapi_.imdapideploy.html#loglevel" class="tsd-signature-type">loglevel</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L95">generated/mdapi.ts:95</a></li>
+						<li>Defined in generated/mdapi.ts:103</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1193,7 +1200,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">rollbackonerror<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L137">generated/mdapi.ts:137</a></li>
+						<li>Defined in generated/mdapi.ts:145</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1216,7 +1223,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">runtests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L144">generated/mdapi.ts:144</a></li>
+						<li>Defined in generated/mdapi.ts:152</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1239,7 +1246,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">targetusername<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L109">generated/mdapi.ts:109</a></li>
+						<li>Defined in generated/mdapi.ts:117</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1262,7 +1269,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">testlevel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L156">generated/mdapi.ts:156</a></li>
+						<li>Defined in generated/mdapi.ts:164</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1290,7 +1297,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">verbose<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L66">generated/mdapi.ts:66</a></li>
+						<li>Defined in generated/mdapi.ts:69</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1313,7 +1320,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">wait<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L88">generated/mdapi.ts:88</a></li>
+						<li>Defined in generated/mdapi.ts:96</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1336,7 +1343,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">zipfile<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/mdapi.ts#L116">generated/mdapi.ts:116</a></li>
+						<li>Defined in generated/mdapi.ts:124</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

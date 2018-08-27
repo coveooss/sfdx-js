@@ -1045,7 +1045,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L506">generated/package2.ts:506</a></li>
+								<li>Defined in generated/package2.ts:545</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1067,7 +1067,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L507">generated/package2.ts:507</a></li>
+						<li>Defined in generated/package2.ts:546</li>
 					</ul>
 				</aside>
 			</section>
@@ -1084,12 +1084,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L523">generated/package2.ts:523</a></li>
+								<li>Defined in generated/package2.ts:568</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>create a second-generation package</p>
+								<p>(deprecated) create a second-generation package</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1099,9 +1099,12 @@ img { max-width: 100%; }
 								<dd><p>Creates a second-generation package.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>First, use this command to create a second-generation package. Then create a package version.</p>
+								<dd><p>WARNING: The command &quot;create&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:create&quot; instead.</p>
+									<p>NOTE: This command must be run from within a project.</p>
+									<p>First, use this command to create a second-generation package. Then create a package version.</p>
+									<p>Your --name value must be unique within your namespace.</p>
 									<p>Examples:
-									$ sfdx force:package2:create -n PackageName -d &#39;My New Package&#39; -o Locked</p>
+									$ sfdx force:package2:create -n PackageName -d &#39;My New Package&#39; -o Unlocked</p>
 									<p>Run &#39;sfdx force:package2:list&#39; to list all second-generation packages in the Dev Hub org.
 									force:package2:create -n <string> [-o <string>] [-d <string>] [-e] [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
@@ -1127,12 +1130,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L551">generated/package2.ts:551</a></li>
+								<li>Defined in generated/package2.ts:593</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>list all second-generation packages in the Dev Hub org</p>
+								<p>(deprecated) list all second-generation packages in the Dev Hub org</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1142,7 +1145,8 @@ img { max-width: 100%; }
 								<dd><p>Lists all second-generation packages in the Dev Hub org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>You can view the namespace, IDs, and other details for each package.
+								<dd><p>WARNING: The command &quot;list&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:list&quot; instead.</p>
+									<p>You can view the namespace, IDs, and other details for each package.
 									force:package2:list [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1167,12 +1171,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L581">generated/package2.ts:581</a></li>
+								<li>Defined in generated/package2.ts:622</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>update a second-generation package</p>
+								<p>(deprecated) update a second-generation package</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1182,7 +1186,9 @@ img { max-width: 100%; }
 								<dd><p>Updates a second-generation package.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Specify a new value for each option you want to update.</p>
+								<dd><p>WARNING: The command &quot;update&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:update&quot; instead.</p>
+									<p>NOTE: This command must be run from within a project.</p>
+									<p>Specify a new value for each option you want to update.</p>
 									<p>Examples:
 										$ sfdx force:package2:update --package2id 0Ho... --name &#39;AAnalytics&#39;
 									$ sfdx force:package2:update -i 0Ho... -d &#39;Advanced Analytics&#39;</p>
@@ -1211,12 +1217,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L616">generated/package2.ts:616</a></li>
+								<li>Defined in generated/package2.ts:656</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>create a second-generation package version</p>
+								<p>(deprecated) create a second-generation package version</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1226,7 +1232,9 @@ img { max-width: 100%; }
 								<dd><p>Creates a second-generation package (package2) version in the Dev Hub org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>The package version is based on the package contents in the specified directory.</p>
+								<dd><p>WARNING: The command &quot;version:create&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:version:create&quot; instead.</p>
+									<p>NOTE: This command must be run from within a project.</p>
+									<p>The package version is based on the package contents in the specified directory.</p>
 									<p>To retrieve details about a package version create request, including status and package2 version ID (05i), run &quot;sfdx force:package2:version:create:get -i 08c...&quot;.</p>
 									<p>To list package version creation requests in the org, run &quot;sfdx force:package2:version:create:list&quot;.</p>
 									<p>Examples:
@@ -1256,12 +1264,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L654">generated/package2.ts:654</a></li>
+								<li>Defined in generated/package2.ts:692</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>retrieve a package version creation request</p>
+								<p>(deprecated) retrieve a package version creation request</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1271,10 +1279,11 @@ img { max-width: 100%; }
 								<dd><p>Retrieves a second-generation package version creation request in the Dev Hub org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Specify the request ID for which you want to view details. If applicable, the command displays errors related to the request.</p>
+								<dd><p>WARNING: The command &quot;version:create:get&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:version:create:report&quot; instead.</p>
+									<p>Specify the request ID for which you want to view details. If applicable, the command displays errors related to the request.</p>
 									<p>Examples:
 									$ sfdx force:package2:version:create:get --package2createrequestid 08c...</p>
-									<p>To show all requests in the org, run &quot;sfdx package2:version:create:list&quot;.
+									<p>To show all requests in the org, run &quot;sfdx force:package2:version:create:list&quot;.
 									force:package2:version:create:get -i <id> [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1299,12 +1308,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L692">generated/package2.ts:692</a></li>
+								<li>Defined in generated/package2.ts:725</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>list package version creation requests</p>
+								<p>(deprecated) list package version creation requests</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1314,7 +1323,8 @@ img { max-width: 100%; }
 								<dd><p>Lists all requests to create second-generation package (package2) versions in the Dev Hub org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Shows the details of each request to create a package2 version that&#39;s run in the Dev Hub org.</p>
+								<dd><p>WARNING: The command &quot;version:create:list&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:version:create:list&quot; instead.</p>
+									<p>Shows the details of each request to create a package2 version that&#39;s run in the Dev Hub org.</p>
 									<p>All filter parameters are applied using the AND logical operator (not OR).</p>
 									<p>To get information about a specific request, run &quot;sfdx force:package2:version:create:get&quot; and supply the request ID.</p>
 									<p>Examples:
@@ -1347,12 +1357,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L723">generated/package2.ts:723</a></li>
+								<li>Defined in generated/package2.ts:753</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>retrieve a package version in the Dev Hub org</p>
+								<p>(deprecated) retrieve a package version in the Dev Hub org</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1362,7 +1372,9 @@ img { max-width: 100%; }
 								<dd><p>Retrieves a package version in the Dev Hub org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Examples:
+								<dd><p>WARNING: The command &quot;version:get&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:version:report&quot; instead.</p>
+									<p>NOTE: This command must be run from within a project.</p>
+									<p>Examples:
 									$ sfdx force:package2:version:get --package2versionid 05i...</p>
 									<p>To update package version values, run &quot;sfdx force:package2:version:update&quot;.
 									force:package2:version:get -i <id> [-v <string>] [--json] [--loglevel <string>]</p>
@@ -1389,12 +1401,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L759">generated/package2.ts:759</a></li>
+								<li>Defined in generated/package2.ts:786</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>list all package versions in the Dev Hub org</p>
+								<p>(deprecated) list all package versions in the Dev Hub org</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1404,7 +1416,8 @@ img { max-width: 100%; }
 								<dd><p>Lists all package2 versions in the Dev Hub org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Displays details of each package2 version in the org.</p>
+								<dd><p>WARNING: The command &quot;version:list&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:version:list&quot; instead.</p>
+									<p>Displays details of each package2 version in the org.</p>
 									<p>Use --concise or --verbose to display limited or additional details, respectively.</p>
 									<p>All filter parameters are applied using the AND logical operator (not OR).</p>
 									<p>Examples:
@@ -1437,12 +1450,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/package2.ts#L796">generated/package2.ts:796</a></li>
+								<li>Defined in generated/package2.ts:822</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>update a second-generation package version</p>
+								<p>(deprecated) update a second-generation package version</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1452,12 +1465,14 @@ img { max-width: 100%; }
 								<dd><p>Updates a second-generation package version in the Dev Hub org.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>Specify a new value for each option you want to update.</p>
+								<dd><p>WARNING: The command &quot;version:update&quot; has been deprecated and will be removed in v43.01.0 or later. Use &quot;force:package:version:update&quot; instead.</p>
+									<p>NOTE: This command must be run from within a project.</p>
+									<p>Specify a new value for each option you want to update.</p>
 									<p>Examples:
 										$ sfdx force:package2:version:update --package2versionid 05i... --setasreleased
 									$ sfdx force:package2:version:update -i 05i... -b master -t &#39;Release 1.0.7&#39;</p>
-									<p>To display details about a package2 version, run &quot;sfdx package2:version:get&quot;.
-									force:package2:version:update -i <id> [-n <string>] [-d <string>] [-b <string>] [-t <string>] [-k <string>] [-s] [-v <string>] [--json] [--loglevel <string>]</p>
+									<p>To display details about a package2 version, run &quot;sfdx force:package2:version:get&quot;.
+									force:package2:version:update -i <id> [-n <string>] [-d <string>] [-b <string>] [-t <string>] [-k <string>] [-s] [-p] [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>

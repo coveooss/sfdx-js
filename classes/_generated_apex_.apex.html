@@ -931,10 +931,16 @@ img { max-width: 100%; }
 					<a href="_generated_apex_.apex.html#loglist" class="tsd-kind-icon">log<wbr>List</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_generated_apex_.apex.html#logtail" class="tsd-kind-icon">log<wbr>Tail</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_generated_apex_.apex.html#testreport" class="tsd-kind-icon">test<wbr>Report</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_generated_apex_.apex.html#testrun" class="tsd-kind-icon">test<wbr>Run</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_generated_apex_.apex.html#triggercreate" class="tsd-kind-icon">trigger<wbr>Create</a>
 				</li>
 			</ul>
 		</li>
@@ -951,10 +957,16 @@ img { max-width: 100%; }
 			<a href="../interfaces/_generated_apex_.iapexloglist.html" class="tsd-kind-icon">IApex<wbr>Log<wbr>List</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_generated_apex_.iapexlogtail.html" class="tsd-kind-icon">IApex<wbr>Log<wbr>Tail</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_generated_apex_.iapextestreport.html" class="tsd-kind-icon">IApex<wbr>Test<wbr>Report</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_generated_apex_.iapextestrun.html" class="tsd-kind-icon">IApex<wbr>Test<wbr>Run</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_generated_apex_.iapextriggercreate.html" class="tsd-kind-icon">IApex<wbr>Trigger<wbr>Create</a>
 		</li>
 	</ul>
 </nav>
@@ -1005,8 +1017,10 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_apex_.apex.html#execute" class="tsd-kind-icon">execute</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_apex_.apex.html#logget" class="tsd-kind-icon">log<wbr>Get</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_apex_.apex.html#loglist" class="tsd-kind-icon">log<wbr>List</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_apex_.apex.html#logtail" class="tsd-kind-icon">log<wbr>Tail</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_apex_.apex.html#testreport" class="tsd-kind-icon">test<wbr>Report</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_apex_.apex.html#testrun" class="tsd-kind-icon">test<wbr>Run</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_apex_.apex.html#triggercreate" class="tsd-kind-icon">trigger<wbr>Create</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1024,7 +1038,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/apex.ts#L343">generated/apex.ts:343</a></li>
+								<li>Defined in generated/apex.ts:502</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1046,7 +1060,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/apex.ts#L344">generated/apex.ts:344</a></li>
+						<li>Defined in generated/apex.ts:503</li>
 					</ul>
 				</aside>
 			</section>
@@ -1063,7 +1077,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/apex.ts#L361">generated/apex.ts:361</a></li>
+								<li>Defined in generated/apex.ts:520</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1107,7 +1121,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/apex.ts#L399">generated/apex.ts:399</a></li>
+								<li>Defined in generated/apex.ts:553</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1133,7 +1147,7 @@ img { max-width: 100%; }
 										<blockquote>
 											<p>Start typing Apex code. Press the Enter key after each line,
 												then press CTRL+D when finished.
-											force:apex:execute [-f <file>] [-u <string>] [--json] [--loglevel <string>]</p>
+											force:apex:execute [-f <filepath>] [-u <string>] [--json] [--loglevel <string>]</p>
 										</blockquote>
 									</blockquote>
 								</dd>
@@ -1153,13 +1167,13 @@ img { max-width: 100%; }
 				<a name="logget" class="tsd-anchor"></a>
 				<h3>log<wbr>Get</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">log<wbr>Get<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_generated_apex_.iapexlogget.html" class="tsd-signature-type">IApexLogGet</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">log<wbr>Get<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_generated_apex_.iapexlogget.html" class="tsd-signature-type">IApexLogGet</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/apex.ts#L428">generated/apex.ts:428</a></li>
+								<li>Defined in generated/apex.ts:584</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1174,18 +1188,22 @@ img { max-width: 100%; }
 								<dd><p>Fetches a specific debug log.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>When you execute this command in a project, it fetches the specified log from your default scratch org.To get the IDs for your debug logs, run &quot;sfdx force:apex:log:list&quot;.</p>
+								<dd><p>When you execute this command in a project, it fetches the specified log or given number of last logs from your default scratch org.</p>
+									<p>To get the IDs for your debug logs, run &quot;sfdx force:apex:log:list&quot;.</p>
+									<p>To specify a count of logs to return, use the --number parameter to return the most recent logs.</p>
+									<p>Executing this command without parameters returns the most recent log.</p>
 									<p>Examples:
 										$ sfdx force:apex:log:get -i <log id>
-											$ sfdx force:apex:log:get -i <log id> -u me@my.org
-									force:apex:log:get -i <id> [-u <string>] [--json] [--loglevel <string>]</p>
+											$ sfdx force:apex:log:get -i <log id> -u <a href="mailto:me@my.org">me@my.org</a>
+												$ sfdx force:apex:log:get -n 2 -c
+									force:apex:log:get (-i <id> | -n <number>) [-c] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>options: <a href="../interfaces/_generated_apex_.iapexlogget.html" class="tsd-signature-type">IApexLogGet</a></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_apex_.iapexlogget.html" class="tsd-signature-type">IApexLogGet</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1202,7 +1220,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/apex.ts#L457">generated/apex.ts:457</a></li>
+								<li>Defined in generated/apex.ts:610</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1220,7 +1238,7 @@ img { max-width: 100%; }
 								<dd><p>When you execute this command in a project, it lists the log IDs for your default scratch org.</p>
 									<p>Examples:
 										$ sfdx force:apex:log:list
-										$ sfdx force:apex:log:list -u me@my.org
+										$ sfdx force:apex:log:list -u <a href="mailto:me@my.org">me@my.org</a>
 									force:apex:log:list [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1229,6 +1247,55 @@ img { max-width: 100%; }
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_apex_.iapexloglist.html" class="tsd-signature-type">IApexLogList</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="logtail" class="tsd-anchor"></a>
+				<h3>log<wbr>Tail</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">log<wbr>Tail<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_generated_apex_.iapexlogtail.html" class="tsd-signature-type">IApexLogTail</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in generated/apex.ts:644</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>start debug logging and display logs</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>memberof</dt>
+								<dd><p>Apex</p>
+								</dd>
+								<dt>description</dt>
+								<dd><p>Activates debug logging and displays logs in the terminal. You can also pipe the logs to a file.</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>Tails logs from your target org for 30 minutes.</p>
+									<p>If a DEVELOPER_LOG trace flag does not exist, this command creates one in the target org.</p>
+									<p>If the active trace flag&#39;s expiration date is within this command&#39;s timeout window, the command sets the trace flag&#39;s expiration date to 30 minutes from the current time.</p>
+									<p>The --debuglevel parameter assigns a debug level to the active DEVELOPER_LOG trace flag.</p>
+									<p>Use --skiptraceflag to skip trace flag setup, including setting expiration date and debug level. Include this flag only if there is an active user-based trace flag for your user.</p>
+									<p>The --json parameter emits log lines in JSON, but does not follow the standard Salesforce CLI JSON format (which includes status and result values).</p>
+									<p>Examples:
+										$ sfdx force:apex:log:tail
+										$ sfdx force:apex:log:tail --debuglevel MyDebugLevel
+										$ sfdx force:apex:log:tail -c -s
+									force:apex:log:tail [-c] [-d <string>] [-s] [-u <string>] [--json] [--loglevel <string>]</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_apex_.iapexlogtail.html" class="tsd-signature-type">IApexLogTail</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1245,7 +1312,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/apex.ts#L486">generated/apex.ts:486</a></li>
+								<li>Defined in generated/apex.ts:671</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1289,7 +1356,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/apex.ts#L523">generated/apex.ts:523</a></li>
+								<li>Defined in generated/apex.ts:707</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1304,14 +1371,16 @@ img { max-width: 100%; }
 								<dd><p>Runs Apex tests.</p>
 								</dd>
 								<dt>example</dt>
-								<dd><p>By default, runs all Apex tests in the org’s namespace.
-									To run specific tests, specify the class names or suite names or set a --testlevel value.</p>
+								<dd><p>By default, runs all Apex tests in the org’s namespace.</p>
+									<p>To run specific test classes, specify class names or suite names, or set a --testlevel value.</p>
+									<p>To run specific test methods, use --tests.</p>
 									<p>Examples:
 										$ sfdx force:apex:test:run
 										$ sfdx force:apex:test:run -n MyClassTest,MyOtherClassTest -r human
 										$ sfdx force:apex:test:run -s MySuite,MyOtherSuite -c --json
-										$ sfdx force:apex:test:run -l RunLocalTests -d <path to outputdir> -u me@my.org
-									force:apex:test:run (-n <string>... | -s <string>...) [-c] [-d <directory>] [-l <string>] [-r <string>] [-u <string>] [--json] [--loglevel <string>] [--verbose]</p>
+										$ sfdx force:apex:test:run -t MyClassTest.testCoolFeature,MyClassTest.testAwesomeFeature,AnotherClassTest,namespace.TheirClassTest.testThis -r human
+										$ sfdx force:apex:test:run -l RunLocalTests -d <path to outputdir> -u <a href="mailto:me@my.org">me@my.org</a>
+									force:apex:test:run (-n <string>... | -s <string>... | -t <string>...) [-c] [-d <directory>] [-l <string>] [-r <string>] [-w <minutes>] [-y] [-u <string>] [--json] [--loglevel <string>] [--verbose]</p>
 								</dd>
 							</dl>
 						</div>
@@ -1319,6 +1388,51 @@ img { max-width: 100%; }
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_apex_.iapextestrun.html" class="tsd-signature-type">IApexTestRun</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="triggercreate" class="tsd-anchor"></a>
+				<h3>trigger<wbr>Create</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">trigger<wbr>Create<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_generated_apex_.iapextriggercreate.html" class="tsd-signature-type">IApexTriggerCreate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in generated/apex.ts:744</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>create an Apex trigger</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>memberof</dt>
+								<dd><p>Apex</p>
+								</dd>
+								<dt>description</dt>
+								<dd><p>Creates an Apex trigger in the specified directory or the current working directory. If you don’t explicitly set the API version, it defaults to the current API version. The .trigger file and associated metadata file are created.</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>If not supplied, the apiversion, template, and outputdir use default values.
+									The outputdir can be an absolute path or relative to the current working directory.</p>
+									<p>Examples:
+										$ sfdx force:apex:trigger:create -n MyTrigger
+										$ sfdx force:apex:trigger:create -n MyTrigger -s Account -e &#39;before insert, after upsert&#39;
+									$ sfdx force:apex:trigger:create -n MyTrigger -d triggers</p>
+									<p>force:apex:trigger:create -n <string> [-t <string>] [-d <string>] [-a <string>] [-s <string>] [-e <string>...] [--json] [--loglevel <string>]</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>options: <a href="../interfaces/_generated_apex_.iapextriggercreate.html" class="tsd-signature-type">IApexTriggerCreate</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>

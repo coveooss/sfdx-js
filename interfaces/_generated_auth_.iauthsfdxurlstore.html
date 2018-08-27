@@ -915,6 +915,9 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="_generated_auth_.iauthjwtgrant.html" class="tsd-kind-icon">IAuth<wbr>Jwt<wbr>Grant</a>
 		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="_generated_auth_.iauthlogout.html" class="tsd-kind-icon">IAuth<wbr>Logout</a>
+		</li>
 		<li class="current tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="_generated_auth_.iauthsfdxurlstore.html" class="tsd-kind-icon">IAuth<wbr>Sfdxurl<wbr>Store</a>
 			<ul>
@@ -923,6 +926,9 @@ img { max-width: 100%; }
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_generated_auth_.iauthsfdxurlstore.html#loglevel" class="tsd-kind-icon">loglevel</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="_generated_auth_.iauthsfdxurlstore.html#noprompt" class="tsd-kind-icon">noprompt</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_generated_auth_.iauthsfdxurlstore.html#setalias" class="tsd-kind-icon">setalias</a>
@@ -976,6 +982,7 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_auth_.iauthsfdxurlstore.html#json" class="tsd-kind-icon">json</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_auth_.iauthsfdxurlstore.html#loglevel" class="tsd-kind-icon">loglevel</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_auth_.iauthsfdxurlstore.html#noprompt" class="tsd-kind-icon">noprompt</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_auth_.iauthsfdxurlstore.html#setalias" class="tsd-kind-icon">setalias</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_auth_.iauthsfdxurlstore.html#setdefaultdevhubusername" class="tsd-kind-icon">setdefaultdevhubusername</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_generated_auth_.iauthsfdxurlstore.html#setdefaultusername" class="tsd-kind-icon">setdefaultusername</a></li>
@@ -993,7 +1000,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">json<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L108">generated/auth.ts:108</a></li>
+						<li>Defined in generated/auth.ts:162</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1016,7 +1023,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">loglevel<span class="tsd-signature-symbol">:</span> <a href="_generated_auth_.iauthsfdxurlstore.html#loglevel" class="tsd-signature-type">loglevel</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L101">generated/auth.ts:101</a></li>
+						<li>Defined in generated/auth.ts:155</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1034,12 +1041,35 @@ img { max-width: 100%; }
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="noprompt" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> noprompt</h3>
+				<div class="tsd-signature tsd-kind-icon">noprompt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in generated/auth.ts:169</li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>[Optional] Do not prompt for auth confirmation in demo mode.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>type</dt>
+						<dd><p>{Boolean}</p>
+						</dd>
+						<dt>memberof</dt>
+						<dd><p>IAuthSfdxurlStore</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="setalias" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagOptional">Optional</span> setalias</h3>
 				<div class="tsd-signature tsd-kind-icon">setalias<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L115">generated/auth.ts:115</a></li>
+						<li>Defined in generated/auth.ts:176</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1062,7 +1092,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">setdefaultdevhubusername<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L129">generated/auth.ts:129</a></li>
+						<li>Defined in generated/auth.ts:190</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1085,7 +1115,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">setdefaultusername<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L122">generated/auth.ts:122</a></li>
+						<li>Defined in generated/auth.ts:183</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1108,7 +1138,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">sfdxurlfile<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/auth.ts#L94">generated/auth.ts:94</a></li>
+						<li>Defined in generated/auth.ts:148</li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

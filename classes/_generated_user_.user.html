@@ -1017,7 +1017,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/user.ts#L234">generated/user.ts:234</a></li>
+								<li>Defined in generated/user.ts:241</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1039,7 +1039,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/user.ts#L235">generated/user.ts:235</a></li>
+						<li>Defined in generated/user.ts:242</li>
 					</ul>
 				</aside>
 			</section>
@@ -1056,7 +1056,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/user.ts#L252">generated/user.ts:252</a></li>
+								<li>Defined in generated/user.ts:259</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1075,8 +1075,8 @@ img { max-width: 100%; }
 									<p>Examples:
 										$ sfdx force:user:create
 										$ sfdx force:user:create -a testuser1 -f config/project-user-def.json
-										$ sfdx force:user:create username=testuser1@my.org email=me@my.org permsets=DreamHouse
-										$ sfdx force:user:create -f config/project-user-def.json email=me@my.org generatepassword=true
+										$ sfdx force:user:create <a href="mailto:username=testuser1@my.org">username=testuser1@my.org</a> <a href="mailto:email=me@my.org">email=me@my.org</a> permsets=DreamHouse
+										$ sfdx force:user:create -f config/project-user-def.json <a href="mailto:email=me@my.org">email=me@my.org</a> generatepassword=true
 									force:user:create name=value... [-f <filepath>] [-a <string>] [-u <string>] [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1101,7 +1101,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/user.ts#L283">generated/user.ts:283</a></li>
+								<li>Defined in generated/user.ts:285</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1119,7 +1119,7 @@ img { max-width: 100%; }
 								<dd><p>Output includes the profile name, org ID, access token, instance URL, login URL, and alias if applicable.
 										Examples:
 										$ sfdx force:user:display
-										$ sfdx force:user:display -u me@my.org --json
+										$ sfdx force:user:display -u <a href="mailto:me@my.org">me@my.org</a> --json
 									force:user:display [-u <string>] [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1144,7 +1144,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/user.ts#L312">generated/user.ts:312</a></li>
+								<li>Defined in generated/user.ts:309</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1162,7 +1162,7 @@ img { max-width: 100%; }
 								<dd><p>The original scratch org admin is marked with &quot;(A)&quot;
 										Examples:
 										$ sfdx force:user:list
-										$ sfdx force:user:list -u me@my.org --json
+										$ sfdx force:user:list -u <a href="mailto:me@my.org">me@my.org</a> --json
 										$ sfdx force:user:list --json &gt; tmp/MyUserList.json
 									force:user:list [-u <string>] [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
@@ -1188,7 +1188,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/user.ts#L346">generated/user.ts:346</a></li>
+								<li>Defined in generated/user.ts:338</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1208,8 +1208,8 @@ img { max-width: 100%; }
 									<p>To see a password that was previously generated, run &quot;sfdx force:user:display&quot;.</p>
 									<p>Examples:
 										$ sfdx force:user:password:generate
-										$ sfdx force:user:password:generate -u me@my.org --json
-										$ sfdx force:user:password:generate -o user1@my.org,user2@my.org,user3@my.org
+										$ sfdx force:user:password:generate -u <a href="mailto:me@my.org">me@my.org</a> --json
+										$ sfdx force:user:password:generate -o <a href="mailto:user1@my.org">user1@my.org</a>,<a href="mailto:user2@my.org">user2@my.org</a>,<a href="mailto:user3@my.org">user3@my.org</a>
 									force:user:password:generate [-o <string>...] [-u <string>] [-v <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1234,7 +1234,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7de4e3c/src/generated/user.ts#L379">generated/user.ts:379</a></li>
+								<li>Defined in generated/user.ts:364</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1252,8 +1252,8 @@ img { max-width: 100%; }
 								<dd><p>Defaults to the defaultusername.</p>
 									<p>Examples:
 										$ sfdx force:user:permset:assign -n DreamHouse
-										$ sfdx force:user:permset:assign -n DreamHouse -u me@my.org
-										$ sfdx force:user:permset:assign -n DreamHouse -o user1@my.org,user2,user3
+										$ sfdx force:user:permset:assign -n DreamHouse -u <a href="mailto:me@my.org">me@my.org</a>
+										$ sfdx force:user:permset:assign -n DreamHouse -o <a href="mailto:user1@my.org">user1@my.org</a>,user2,user3
 									force:user:permset:assign -n <string> [-o <string>...] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
