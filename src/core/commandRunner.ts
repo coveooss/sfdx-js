@@ -1,21 +1,18 @@
-import { execSync, ExecSyncOptions } from "child_process"
+import { spawnSync, SpawnSyncOptions } from "child_process"
 import * as _ from "underscore"
 
 export interface ICommandRunner {
-  runCommand(command: string, options?: ExecSyncOptions): Promise<string>
+  runCommand(command: string, options?: SpawnSyncOptions): Promise<string>
 }
 
 export class CommandRunner implements ICommandRunner {
   constructor(private SFDXPath: string) {}
 
-  public runCommand(
-    command: string,
-    options?: ExecSyncOptions
-  ): Promise<string> {
+  public runCommand(command: string, options?: SpawnSyncOptions): Promise<string> {
     let executePromise = new Promise<string>((resolve, reject) => {
       const fullCommand = this.SFDXPath + " " + command
 
-      let actualOptions: ExecSyncOptions = {
+      let actualOptions: SpawnSyncOptions = {
         stdio: "pipe",
         env: this.getCommandEnv()
       }
@@ -25,8 +22,20 @@ export class CommandRunner implements ICommandRunner {
       }
 
       try {
-        let buffer = execSync(fullCommand, actualOptions)
-        resolve((buffer as Buffer).toString("utf8"))
+        let cmdResult = spawnSync(fullCommand, actualOptions)
+        if (cmdResult.error) {
+          console.error(`${fullCommand} failed`)
+          throw cmdResult.error
+        }
+        if (cmdResult.stderr) {
+          console.error(`${fullCommand} failed`)
+          reject(cmdResult.stderr.toString("utf8"))
+        }
+        if (!cmdResult.signal) {
+          console.error(`${fullCommand} failed`)
+          reject()
+        }
+        resolve(cmdResult.stdout.toString("utf8"))
       } catch (e) {
         let message: string
         if (e !== undefined && e.stderr !== undefined) {
