@@ -24,16 +24,13 @@ export class CommandRunner implements ICommandRunner {
       try {
         let cmdResult = spawnSync(fullCommand, actualOptions)
         if (cmdResult.error) {
-          console.error(`${fullCommand} failed`)
           throw cmdResult.error
         }
         if (cmdResult.stderr) {
-          console.error(`${fullCommand} failed`)
-          reject(cmdResult.stderr.toString("utf8"))
+          throw cmdResult.stderr.toString("utf8")
         }
         if (!cmdResult.signal) {
-          console.error(`${fullCommand} failed`)
-          reject()
+          throw new Error(`No error specified, exit signal=${cmdResult.signal}`)
         }
         resolve(cmdResult.stdout.toString("utf8"))
       } catch (e) {
