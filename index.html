@@ -920,7 +920,7 @@ img { max-width: 100%; }
 				<a href="https://travis-ci.org/coveo/sfdx-js"><img src="https://img.shields.io/travis/coveo/sfdx-js.svg" alt="Travis"></a>
 				<a href="https://coveralls.io/github/coveo/sfdx-js"><img src="https://img.shields.io/coveralls/coveo/sfdx-js.svg" alt="Coveralls"></a>
 			<a href="https://david-dm.org/coveo/sfdx-js?type=dev"><img src="https://david-dm.org/coveo/sfdx-js/dev-status.svg" alt="Dev Dependencies"></a></p>
-			<p>A typescript compatible javascript wrapper for Salesforce DX cli.</p>
+			<p>A TypeScript compatible JavaScript wrapper for Salesforce DX CLI.</p>
 			<h3 id="usage">Usage</h3>
 			<pre><code>    <span class="hljs-keyword">const</span> sfdx = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sfdx-js'</span>).Client.createUsingPath(<span class="hljs-string">'sfdx'</span>)
     sfdx.auth.webLogin().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -930,23 +930,23 @@ img { max-width: 100%; }
 			<a href="https://coveo.github.io/sfdx-js/">https://coveo.github.io/sfdx-js/</a></p>
 			<h3 id="dev-scripts">dev scripts</h3>
 			<ul>
-				<li><code>npm t</code>: Run test suite</li>
-				<li><code>npm start</code>: Runs <code>npm run build</code> in watch mode</li>
-				<li><code>npm run test:watch</code>: Run test suite in <a href="http://facebook.github.io/jest/docs/cli.html#watch">interactive watch mode</a></li>
-				<li><code>npm run test:prod</code>: Run linting and generate coverage</li>
-				<li><code>npm run build</code>: Generage bundles and typings, create docs</li>
-				<li><code>npm run lint</code>: Lints code</li>
-				<li><code>npm run commit</code>: Commit using conventional commit style (<a href="https://github.com/typicode/husky">husky</a> will tell you to use it if you haven&#39;t :wink:)</li>
+				<li><code>npm t</code>: Run test suite.</li>
+				<li><code>npm start</code>: Runs <code>npm run build</code> in watch mode.</li>
+				<li><code>npm run test:watch</code>: Run test suite in <a href="http://facebook.github.io/jest/docs/cli.html#watch">interactive watch mode</a>.</li>
+				<li><code>npm run test:prod</code>: Run linting and generate coverage.</li>
+				<li><code>npm run build</code>: Generage bundles and typings, create docs.</li>
+				<li><code>npm run lint</code>: Lints code.</li>
+				<li><code>npm run commit</code>: Commit using conventional commit style (<a href="https://github.com/typicode/husky">husky</a> will tell you to use it if you haven&#39;t :wink:).</li>
 				<li><code>npm run generate</code>: Generate wrapper classes using the SFDX executable in path.</li>
 			</ul>
 			<h3 id="git-hooks">Git Hooks</h3>
 			<p>There is already set a <code>precommit</code> hook for formatting your code with Prettier :nail_care:</p>
 			<p>By default, there are 2 disabled git hooks. They&#39;re set up when you run the <code>npm run semantic-release-prepare</code> script. They make sure:</p>
 			<ul>
-				<li>You follow a <a href="https://github.com/conventional-changelog/conventional-changelog">conventional commit message</a></li>
-				<li>Your build is not gonna fail in <a href="https://travis-ci.org">Travis</a> (or your CI server), since it&#39;s runned locally before <code>git push</code></li>
+				<li>You follow a <a href="https://github.com/conventional-changelog/conventional-changelog">conventional commit message</a>.</li>
+				<li>Your build is not gonna fail in <a href="https://travis-ci.org">Travis</a> (or your CI server), since it&#39;s runned locally before <code>git push</code>.</li>
 			</ul>
-			<p>This makes more sense in combination with <a href="#automatic-releases">automatic releases</a></p>
+			<p>This makes more sense in combination with <a href="#automatic-releases">automatic releases</a>.</p>
 			<h2 id="credits">Credits</h2>
 			<p>Made with :heart:</p>
 		</div>
