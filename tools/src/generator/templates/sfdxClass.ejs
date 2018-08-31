@@ -1,16 +1,16 @@
 // Generated on <%= getCurrentFormatedDate() %>. DO NOT MODIFY
 import { ICommandExecutioner } from "../core/commandExecutioner";<%
  _.each(classDefinitions, function(classDefinition) { %>
-import {<%= classDefinition.className %>} from "./<%= classDefinition.fileName %>";<% }) %>
+import {<%= classDefinition.className %>} from "./<%= classDefinition.fileName %>"<% }) %>
 
 export abstract class GeneratedClient {
   <% _.each(classDefinitions, function(classDefinition) { %>
   public <%= classDefinition.fileName %>!: <%= classDefinition.className %>;<% }) %>
 
-  protected requestExecutioner!: ICommandExecutioner;
+  protected requestExecutioner!: ICommandExecutioner
 
   protected initializeModules(){<%
      _.each(classDefinitions, function(classDefinition) { %>
-    this.<%= classDefinition.fileName %> = new <%= classDefinition.className %>(this.requestExecutioner);<% }) %>
+    this.<%= classDefinition.fileName %> = new <%= classDefinition.className %>(this.requestExecutioner)<% }) %>
   }
 }

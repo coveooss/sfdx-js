@@ -46,7 +46,7 @@
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
-      "prettier --write",
+      "prettier --write --no-semi",
       "git add"
     ]
   },
