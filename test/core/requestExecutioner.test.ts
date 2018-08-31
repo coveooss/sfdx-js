@@ -8,14 +8,9 @@ describe("Can create commands", () => {
   })
 })
 
-describe("It should throw on error", () => {
-  it("Should be able to execute command", async () => {
+describe("Can return the output of the command", () => {
+  it("Should be able to echo a simple message", async () => {
     let commandRunner = new CommandRunner("")
-    try {
-      await commandRunner.runCommand("stuff")
-      fail()
-    } catch (e) {
-      expect.anything();
-    }
+    expect((await commandRunner.runCommand("echo boop")).trim()).toBe("boop")
   })
 })
