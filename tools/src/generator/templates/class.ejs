@@ -4,9 +4,9 @@ import {
   apiNamespace,
   apiCommandClass,
   apiCommand
-} from "../core/decorators"
-import { loglevel, IStringKeyPair } from "../modules/common"
-import { ICommandExecutioner } from "../core/commandExecutioner"
+} from "../core/decorators";
+import { loglevel, IStringKeyPair } from "../modules/common";
+import { ICommandExecutioner } from "../core/commandExecutioner";
 
 <% _.each(functionDefinitions, function(functionDef) { %>
 /**
@@ -24,7 +24,7 @@ export interface I<%= className %><%= capitalizeFirstLetter(functionDef.name) %>
    * @type {<%= functionParameter.type %>}
    * @memberof I<%= className %><%= capitalizeFirstLetter(functionDef.name) %>
    */
-  <%= functionParameter.name %><% if(functionParameter.optional){ %>?<% } %>: <%= functionParameter.type %><% if((numberOfParameters - 1) !== index){ %>,<% } %>
+  <%= functionParameter.name %><% if(functionParameter.optional){ %>?<% } %>: <%= functionParameter.type %>;
 <% }) %>}
 <% }) %>
 
@@ -53,9 +53,9 @@ export class <%= className %> {
       <% var numberOfParameters = functionDef.parameters.length;
       _.each(functionDef.parameters, function(functionParameter, index) {
       %>  <%= functionParameter.name %>: "<%= functionParameter.flagKey %>"<% if((numberOfParameters - 1) !== index){ %>,<% } %>
-      <% }) %>}
+      <% }) %>};
 
-      return this.requestExecutioner.execute<<%= functionDef.returnType %>>(this, this.<%= functionDef.name %>, options, parameterNamesToSwitchNames)
+      return this.requestExecutioner.execute<<%= functionDef.returnType %>>(this, this.<%= functionDef.name %>, options, parameterNamesToSwitchNames);
     }
   <% }) %>
 }

@@ -8,6 +8,6 @@ export enum loglevel {
 }
 
 export interface IStringKeyPair {
-  key: string
-  value: string
+  key: string;
+  value: string;
 }
