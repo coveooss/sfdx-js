@@ -21,7 +21,7 @@ export class CommandRunner implements ICommandRunner {
       }
 
       exec(fullCommand, actualOptions, (error, stdout, stderr) => {
-        var errorMessage = stderr.toString()
+        const errorMessage = stderr.toString()
         if (error || errorMessage !== "") {
           reject(stderr)
         } else {
