@@ -1,12 +1,20 @@
 import { exec, ExecOptions } from "child_process"
 import * as _ from "underscore"
-
 export interface ICommandRunner {
   runCommand(command: string, options?: ExecOptions): Promise<string>
 }
 
+export interface CustomLogger {
+  error(data: string): void
+  info(data: string): void
+}
+
 export class CommandRunner implements ICommandRunner {
-  constructor(private SFDXPath: string) {}
+  constructor(
+    private SFDXPath: string,
+    private useLiveLog: boolean = false,
+    private customLogger: CustomLogger = console
+  ) {}
 
   public runCommand(command: string, options?: ExecOptions): Promise<string> {
     let executePromise = new Promise<string>((resolve, reject) => {
@@ -20,7 +28,7 @@ export class CommandRunner implements ICommandRunner {
         actualOptions = Object.assign(actualOptions, options)
       }
 
-      exec(fullCommand, actualOptions, (error, stdout, stderr) => {
+      let execProcess = exec(fullCommand, actualOptions, (error, stdout, stderr) => {
         const errorMessage = stderr.toString()
         if (error || errorMessage !== "") {
           reject(stderr)
@@ -28,6 +36,19 @@ export class CommandRunner implements ICommandRunner {
           resolve(stdout)
         }
       })
+      if (this.useLiveLog) {
+        execProcess.stdout.on("data", data => {
+          this.customLogger.info(`${data}`)
+        })
+
+        execProcess.stderr.on("data", data => {
+          this.customLogger.error(`${data}`)
+        })
+
+        execProcess.on("close", code => {
+          this.customLogger.info(`${fullCommand} exited with code ${code}`)
+        })
+      }
     })
     return executePromise
   }
