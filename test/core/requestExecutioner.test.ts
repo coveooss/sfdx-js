@@ -14,6 +14,8 @@ describe("It should throw on error", () => {
     try {
       await commandRunner.runCommand("stuff")
       fail()
-    } catch (e) {}
+    } catch (e) {
+      expect.anything();
+    }
   })
 })
