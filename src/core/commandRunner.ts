@@ -28,29 +28,35 @@ export class CommandRunner implements ICommandRunner {
         actualOptions = Object.assign(actualOptions, options)
       }
 
+      // Execute the command. If there's an error thrown or the stderr is not empty, it will reject the promise.
+      // Otherwise, it will resolve with the content of the stdout.
       let execProcess = exec(fullCommand, actualOptions, (error, stdout, stderr) => {
-        const errorMessage = stderr.toString()
-        if (error || errorMessage !== "") {
+        if (error || stderr !== "") {
           reject(stderr)
         } else {
           resolve(stdout)
         }
       })
       if (this.useLiveLog) {
-        execProcess.stdout.on("data", data => {
-          this.customLogger.info(`${data}`)
-        })
-
-        execProcess.stderr.on("data", data => {
-          this.customLogger.error(`${data}`)
-        })
-
-        execProcess.on("close", code => {
-          this.customLogger.info(`${fullCommand} exited with code ${code}`)
-        })
+        this.bindProcessListeners(execProcess, fullCommand)
       }
     })
     return executePromise
+  }
+
+  private bindProcessListeners(
+    execProcess: import("child_process").ChildProcess,
+    fullCommand: string
+  ) {
+    execProcess.stdout.on("data", data => {
+      this.customLogger.info(`${data}`)
+    })
+    execProcess.stderr.on("data", data => {
+      this.customLogger.error(`${data}`)
+    })
+    execProcess.on("close", code => {
+      this.customLogger.info(`${fullCommand} exited with code ${code}`)
+    })
   }
 
   private getCommandEnv(): NodeJS.ProcessEnv {
