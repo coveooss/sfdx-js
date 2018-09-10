@@ -1,12 +1,12 @@
-import { exec, ExecOptions } from "child_process"
-import * as _ from "underscore"
+import { exec, ExecOptions } from "child_process";
+import * as _ from "underscore";
 export interface ICommandRunner {
-  runCommand(command: string, options?: ExecOptions): Promise<string>
+  runCommand(command: string, options?: ExecOptions): Promise<string>;
 }
 
 export interface CustomLogger {
-  error(data: string): void
-  info(data: string): void
+  error(data: string): void;
+  info(data: string): void;
 }
 
 export class CommandRunner implements ICommandRunner {
@@ -18,30 +18,30 @@ export class CommandRunner implements ICommandRunner {
 
   public runCommand(command: string, options?: ExecOptions): Promise<string> {
     let executePromise = new Promise<string>((resolve, reject) => {
-      const fullCommand = this.SFDXPath + " " + command
+      const fullCommand = this.SFDXPath + " " + command;
 
       let actualOptions: ExecOptions = {
         env: this.getCommandEnv()
-      }
+      };
 
       if (options !== undefined) {
-        actualOptions = Object.assign(actualOptions, options)
+        actualOptions = Object.assign(actualOptions, options);
       }
 
       // Execute the command. If there's an error thrown or the stderr is not empty, it will reject the promise.
       // Otherwise, it will resolve with the content of the stdout.
       let execProcess = exec(fullCommand, actualOptions, (error, stdout, stderr) => {
         if (error || stderr !== "") {
-          reject(stderr)
+          reject(stderr);
         } else {
-          resolve(stdout)
+          resolve(stdout);
         }
-      })
+      });
       if (this.useLiveLog) {
-        this.bindProcessListeners(execProcess, fullCommand)
+        this.bindProcessListeners(execProcess, fullCommand);
       }
-    })
-    return executePromise
+    });
+    return executePromise;
   }
 
   private bindProcessListeners(
@@ -49,29 +49,29 @@ export class CommandRunner implements ICommandRunner {
     fullCommand: string
   ) {
     execProcess.stdout.on("data", data => {
-      this.customLogger.info(`${data}`)
-    })
+      this.customLogger.info(`${data}`);
+    });
     execProcess.stderr.on("data", data => {
-      this.customLogger.error(`${data}`)
-    })
+      this.customLogger.error(`${data}`);
+    });
     execProcess.on("close", code => {
-      this.customLogger.info(`${fullCommand} exited with code ${code}`)
-    })
+      this.customLogger.info(`${fullCommand} exited with code ${code}`);
+    });
   }
 
   private getCommandEnv(): NodeJS.ProcessEnv {
-    const env = process.env
+    const env = process.env;
     // https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_env_variables.htm
 
     // Return everything has JSON.
-    env["SFDX_CONTENT_TYPE"] = "JSON"
+    env["SFDX_CONTENT_TYPE"] = "JSON";
 
     //  Specify this variable when using the CLI with ssh or "headless" in a CI environment.
-    env["SFDX_USE_GENERIC_UNIX_KEYCHAIN"] = "true"
+    env["SFDX_USE_GENERIC_UNIX_KEYCHAIN"] = "true";
 
     // Disable updates.
-    env["SFDX_AUTOUPDATE_DISABLE"] = "true"
+    env["SFDX_AUTOUPDATE_DISABLE"] = "true";
 
-    return env
+    return env;
   }
 }

@@ -1,7 +1,7 @@
-import { ICommandRunner } from "./commandRunner"
-import { ResponseParser } from "./responseParser"
-import { CommandBuilder } from "./commandBuilder"
-import { ExecOptions } from "child_process"
+import { ICommandRunner } from "./commandRunner";
+import { ResponseParser } from "./responseParser";
+import { CommandBuilder } from "./commandBuilder";
+import { ExecOptions } from "child_process";
 
 export interface ICommandExecutioner {
   execute<T>(
@@ -9,7 +9,7 @@ export interface ICommandExecutioner {
     requestMethod: Function,
     requestOptions: any,
     parameterNamesToSwitchNames: Object
-  ): Promise<T | string | void>
+  ): Promise<T | string | void>;
 }
 
 export class CommandExecutioner implements ICommandExecutioner {
@@ -30,10 +30,10 @@ export class CommandExecutioner implements ICommandExecutioner {
       requestMethod,
       requestOptions,
       parameterNamesToSwitchNames
-    )
+    );
 
-    let responseParser = new ResponseParser()
-    return responseParser.parse<T>(result)
+    let responseParser = new ResponseParser();
+    return responseParser.parse<T>(result);
   }
 
   private async internalExecute(
@@ -48,17 +48,17 @@ export class CommandExecutioner implements ICommandExecutioner {
       requestOptions,
       this.defaultOptions || {},
       parameterNamesToSwitchNames
-    )
-    let command = requestBuilder.build()
+    );
+    let command = requestBuilder.build();
 
     let commandOptions: ExecOptions = {
       maxBuffer: 20000 * 1024
-    }
+    };
 
     if (this.commandOptions !== undefined) {
-      commandOptions = Object.assign(commandOptions, this.commandOptions)
+      commandOptions = Object.assign(commandOptions, this.commandOptions);
     }
 
-    return this.commandRunner.runCommand(command, commandOptions)
+    return this.commandRunner.runCommand(command, commandOptions);
   }
 }

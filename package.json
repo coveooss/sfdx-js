@@ -46,7 +46,7 @@
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
-      "prettier --write --no-semi",
+      "prettier --write",
       "git add"
     ]
   },
@@ -99,7 +99,7 @@
     "moment": "^2.22.2",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2",
-    "rollup": "^0.64.1",
+    "rollup": "^0.65.2",
     "rollup-plugin-commonjs": "^9.1.5",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
@@ -110,7 +110,7 @@
     "tsc-watch": "^1.0.26",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
-    "tslint-config-standard": "^7.1.0",
+    "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.12.0",
     "typescript": "^3.0.1",
     "validate-commit-msg": "^2.14.0"
