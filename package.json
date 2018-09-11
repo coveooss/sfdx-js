@@ -41,7 +41,7 @@
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "commit": "git-cz",
     "precommit": "lint-staged",
-    "run-generator": "tsc --project ./tools && node tools/generate-files.js",
+    "run-generator": "node tools/generate-files.js",
     "generate": "sfdx force:doc:commands:display --json > commands.json && npm run run-generator"
   },
   "lint-staged": {
@@ -104,6 +104,7 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "semantic-release": "^15.9.9",
+    "sfdx-generator": "1.0.0",
     "sfdx-prebuilt": "5.9.4",
     "ts-jest": "^23.1.4",
     "ts-node": "^7.0.1",
