@@ -912,6 +912,9 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="../classes/_core_commandrunner_.commandrunner.html" class="tsd-kind-icon">Command<wbr>Runner</a>
 		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="_core_commandrunner_.customlogger.html" class="tsd-kind-icon">Custom<wbr>Logger</a>
+		</li>
 		<li class="current tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="_core_commandrunner_.icommandrunner.html" class="tsd-kind-icon">ICommand<wbr>Runner</a>
 			<ul>
@@ -919,6 +922,9 @@ img { max-width: 100%; }
 					<a href="_core_commandrunner_.icommandrunner.html#runcommand" class="tsd-kind-icon">run<wbr>Command</a>
 				</li>
 			</ul>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="_core_commandrunner_.icommandrunneroptions.html" class="tsd-kind-icon">ICommand<wbr>Runner<wbr>Options</a>
 		</li>
 	</ul>
 </nav>
@@ -957,13 +963,13 @@ img { max-width: 100%; }
 				<a name="runcommand" class="tsd-anchor"></a>
 				<h3>run<wbr>Command</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-					<li class="tsd-signature tsd-kind-icon">run<wbr>Command<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ExecSyncOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">run<wbr>Command<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ExecOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/core/commandRunner.ts#L5">core/commandRunner.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L4">core/commandRunner.ts:4</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -972,7 +978,7 @@ img { max-width: 100%; }
 								<h5>command: <span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">ExecSyncOptions</span></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">ExecOptions</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>

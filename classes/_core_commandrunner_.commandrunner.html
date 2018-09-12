@@ -916,7 +916,16 @@ img { max-width: 100%; }
 					<a href="_core_commandrunner_.commandrunner.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a href="_core_commandrunner_.commandrunner.html#sfdxpath" class="tsd-kind-icon">SFDXPath</a>
+					<a href="_core_commandrunner_.commandrunner.html#customlogger" class="tsd-kind-icon">custom<wbr>Logger</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a href="_core_commandrunner_.commandrunner.html#sfdxpath" class="tsd-kind-icon">sfdx<wbr>Path</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a href="_core_commandrunner_.commandrunner.html#uselivelog" class="tsd-kind-icon">use<wbr>Live<wbr>Log</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a href="_core_commandrunner_.commandrunner.html#bindprocesslisteners" class="tsd-kind-icon">bind<wbr>Process<wbr>Listeners</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="_core_commandrunner_.commandrunner.html#getcommandenv" class="tsd-kind-icon">get<wbr>Command<wbr>Env</a>
@@ -924,10 +933,19 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_core_commandrunner_.commandrunner.html#runcommand" class="tsd-kind-icon">run<wbr>Command</a>
 				</li>
+				<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-static">
+					<a href="_core_commandrunner_.commandrunner.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a>
+				</li>
 			</ul>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_core_commandrunner_.customlogger.html" class="tsd-kind-icon">Custom<wbr>Logger</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_core_commandrunner_.icommandrunner.html" class="tsd-kind-icon">ICommand<wbr>Runner</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_core_commandrunner_.icommandrunneroptions.html" class="tsd-kind-icon">ICommand<wbr>Runner<wbr>Options</a>
 		</li>
 	</ul>
 </nav>
@@ -960,14 +978,23 @@ img { max-width: 100%; }
 					<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_commandrunner_.commandrunner.html#sfdxpath" class="tsd-kind-icon">SFDXPath</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_commandrunner_.commandrunner.html#customlogger" class="tsd-kind-icon">custom<wbr>Logger</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_commandrunner_.commandrunner.html#sfdxpath" class="tsd-kind-icon">sfdx<wbr>Path</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_commandrunner_.commandrunner.html#uselivelog" class="tsd-kind-icon">use<wbr>Live<wbr>Log</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_commandrunner_.commandrunner.html#bindprocesslisteners" class="tsd-kind-icon">bind<wbr>Process<wbr>Listeners</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_core_commandrunner_.commandrunner.html#getcommandenv" class="tsd-kind-icon">get<wbr>Command<wbr>Env</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_commandrunner_.commandrunner.html#runcommand" class="tsd-kind-icon">run<wbr>Command</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Object literals</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-static"><a href="_core_commandrunner_.commandrunner.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a></li>
 						</ul>
 					</section>
 				</div>
@@ -979,19 +1006,19 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Command<wbr>Runner<span class="tsd-signature-symbol">(</span>SFDXPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_core_commandrunner_.commandrunner.html" class="tsd-signature-type">CommandRunner</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Command<wbr>Runner<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_core_commandrunner_.icommandrunneroptions.html" class="tsd-signature-type">ICommandRunnerOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_core_commandrunner_.commandrunner.html" class="tsd-signature-type">CommandRunner</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/core/commandRunner.ts#L8">core/commandRunner.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L26">core/commandRunner.ts:26</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>SFDXPath: <span class="tsd-signature-type">string</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/_core_commandrunner_.icommandrunneroptions.html" class="tsd-signature-type">ICommandRunnerOptions</a><span class="tsd-signature-symbol"> =&nbsp;CommandRunner.defaultOptions</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="_core_commandrunner_.commandrunner.html" class="tsd-signature-type">CommandRunner</a></h4>
@@ -1002,18 +1029,64 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-				<a name="sfdxpath" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> SFDXPath</h3>
-				<div class="tsd-signature tsd-kind-icon">SFDXPath<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<a name="customlogger" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> custom<wbr>Logger</h3>
+				<div class="tsd-signature tsd-kind-icon">custom<wbr>Logger<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandrunner_.customlogger.html" class="tsd-signature-type">CustomLogger</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/core/commandRunner.ts#L9">core/commandRunner.ts:9</a></li>
+						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L26">core/commandRunner.ts:26</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<a name="sfdxpath" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> sfdx<wbr>Path</h3>
+				<div class="tsd-signature tsd-kind-icon">sfdx<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L24">core/commandRunner.ts:24</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<a name="uselivelog" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> use<wbr>Live<wbr>Log</h3>
+				<div class="tsd-signature tsd-kind-icon">use<wbr>Live<wbr>Log<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L25">core/commandRunner.ts:25</a></li>
 					</ul>
 				</aside>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Methods</h2>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+				<a name="bindprocesslisteners" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> bind<wbr>Process<wbr>Listeners</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<li class="tsd-signature tsd-kind-icon">bind<wbr>Process<wbr>Listeners<span class="tsd-signature-symbol">(</span>execProcess<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ChildProcess</span>, fullCommand<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L67">core/commandRunner.ts:67</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>execProcess: <span class="tsd-signature-type">ChildProcess</span></h5>
+							</li>
+							<li>
+								<h5>fullCommand: <span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 				<a name="getcommandenv" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Command<wbr>Env</h3>
@@ -1024,7 +1097,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/core/commandRunner.ts#L41">core/commandRunner.ts:41</a></li>
+								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L82">core/commandRunner.ts:82</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ProcessEnv</span></h4>
@@ -1035,14 +1108,14 @@ img { max-width: 100%; }
 				<a name="runcommand" class="tsd-anchor"></a>
 				<h3>run<wbr>Command</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">run<wbr>Command<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ExecSyncOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">run<wbr>Command<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ExecOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Implementation of <a href="../interfaces/_core_commandrunner_.icommandrunner.html">ICommandRunner</a>.<a href="../interfaces/_core_commandrunner_.icommandrunner.html#runcommand">runCommand</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/core/commandRunner.ts#L11">core/commandRunner.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L39">core/commandRunner.ts:39</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1051,12 +1124,45 @@ img { max-width: 100%; }
 								<h5>command: <span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">ExecSyncOptions</span></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">ExecOptions</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Object literals</h2>
+			<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class tsd-is-static">
+				<a name="defaultoptions" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> default<wbr>Options</h3>
+				<div class="tsd-signature tsd-kind-icon">default<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L19">core/commandRunner.ts:19</a></li>
+					</ul>
+				</aside>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+					<a name="defaultoptions.sfdxpath-1" class="tsd-anchor"></a>
+					<h3>sfdx<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">sfdx<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;sfdx&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L20">core/commandRunner.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+					<a name="defaultoptions.uselivelog-1" class="tsd-anchor"></a>
+					<h3>use<wbr>Live<wbr>Log</h3>
+					<div class="tsd-signature tsd-kind-icon">use<wbr>Live<wbr>Log<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/core/commandRunner.ts#L21">core/commandRunner.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
 			</section>
 		</section>
 		<footer class="with-border-bottom">

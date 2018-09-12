@@ -1056,19 +1056,25 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Client<span class="tsd-signature-symbol">(</span>requestExecutioner<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_sfdx_js_.client.html" class="tsd-signature-type">Client</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Client<span class="tsd-signature-symbol">(</span>requestExecutioner<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a>, useLiveLog<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, customLogger<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_core_commandrunner_.customlogger.html" class="tsd-signature-type">CustomLogger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_sfdx_js_.client.html" class="tsd-signature-type">Client</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/sfdx-js.ts#L6">sfdx-js.ts:6</a></li>
+								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/sfdx-js.ts#L6">sfdx-js.ts:6</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> requestExecutioner: <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> useLiveLog: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> customLogger: <a href="../interfaces/_core_commandrunner_.customlogger.html" class="tsd-signature-type">CustomLogger</a><span class="tsd-signature-symbol"> =&nbsp;console</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="_sfdx_js_.client.html" class="tsd-signature-type">Client</a></h4>
@@ -1312,19 +1318,25 @@ img { max-width: 100%; }
 				<a name="createusingpath" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Using<wbr>Path</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">create<wbr>Using<wbr>Path<span class="tsd-signature-symbol">(</span>SFDXPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_sfdx_js_.client.html" class="tsd-signature-type">Client</a></li>
+					<li class="tsd-signature tsd-kind-icon">create<wbr>Using<wbr>Path<span class="tsd-signature-symbol">(</span>SFDXPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, useLiveLog<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, customLogger<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_core_commandrunner_.customlogger.html" class="tsd-signature-type">CustomLogger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_sfdx_js_.client.html" class="tsd-signature-type">Client</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/sfdx-js.ts#L20">sfdx-js.ts:20</a></li>
+								<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/sfdx-js.ts#L24">sfdx-js.ts:24</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>SFDXPath: <span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> useLiveLog: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> customLogger: <a href="../interfaces/_core_commandrunner_.customlogger.html" class="tsd-signature-type">CustomLogger</a><span class="tsd-signature-symbol"> =&nbsp;console</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="_sfdx_js_.client.html" class="tsd-signature-type">Client</a></h4>
@@ -1340,7 +1352,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">default<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/sfdx-js.ts#L6">sfdx-js.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/sfdx-js.ts#L6">sfdx-js.ts:6</a></li>
 					</ul>
 				</aside>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1349,7 +1361,7 @@ img { max-width: 100%; }
 					<div class="tsd-signature tsd-kind-icon">json<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/7f58a33/src/sfdx-js.ts#L6">sfdx-js.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/coveo/sfdx-js/blob/a1d6cde/src/sfdx-js.ts#L6">sfdx-js.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
