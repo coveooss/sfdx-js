@@ -12,7 +12,7 @@ export class Client extends GeneratedClient {
   ) {
     super();
     if (requestExecutioner === undefined) {
-      const commandRunner = new CommandRunner("sfdx", useLiveLog, customLogger);
+      const commandRunner = new CommandRunner();
       this.requestExecutioner = new CommandExecutioner(commandRunner, Client.defaultOptions);
     } else {
       this.requestExecutioner = requestExecutioner;
@@ -26,7 +26,11 @@ export class Client extends GeneratedClient {
     useLiveLog: boolean = false,
     customLogger: CustomLogger = console
   ) {
-    const commandRunner = new CommandRunner(SFDXPath, useLiveLog, customLogger);
+    const commandRunner = new CommandRunner({
+      sfdxPath: SFDXPath,
+      useLiveLog: useLiveLog,
+      customLogger: customLogger
+    });
     const requestExecutioner = new CommandExecutioner(commandRunner, Client.defaultOptions);
 
     return new Client(requestExecutioner);

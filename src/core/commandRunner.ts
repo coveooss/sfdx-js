@@ -9,16 +9,36 @@ export interface CustomLogger {
   info(data: string): void;
 }
 
+export interface ICommandRunnerOptions {
+  sfdxPath: string;
+  useLiveLog: boolean;
+  customLogger?: CustomLogger;
+}
+
 export class CommandRunner implements ICommandRunner {
-  constructor(
-    private SFDXPath: string,
-    private useLiveLog: boolean = false,
-    private customLogger: CustomLogger = console
-  ) {}
+  public static defaultOptions: ICommandRunnerOptions = {
+    sfdxPath: "sfdx",
+    useLiveLog: false
+  };
+
+  private sfdxPath: string;
+  private useLiveLog: boolean;
+  private customLogger!: CustomLogger;
+
+  constructor(options: ICommandRunnerOptions = CommandRunner.defaultOptions) {
+    this.sfdxPath = options.sfdxPath;
+    this.useLiveLog = options.useLiveLog;
+    if (this.useLiveLog && !options.customLogger) {
+      throw new Error("UseLiveLog set to true and no custom logger is given.");
+    }
+    if (options.customLogger !== undefined) {
+      this.customLogger = options.customLogger;
+    }
+  }
 
   public runCommand(command: string, options?: ExecOptions): Promise<string> {
     let executePromise = new Promise<string>((resolve, reject) => {
-      const fullCommand = this.SFDXPath + " " + command;
+      const fullCommand = this.sfdxPath + " " + command;
 
       let actualOptions: ExecOptions = {
         env: this.getCommandEnv()
