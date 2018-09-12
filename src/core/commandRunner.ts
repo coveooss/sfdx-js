@@ -1,19 +1,46 @@
-import { execSync, ExecSyncOptions } from "child_process";
+import { exec, ExecOptions } from "child_process";
 import * as _ from "underscore";
-
 export interface ICommandRunner {
-  runCommand(command: string, options?: ExecSyncOptions): Promise<string>;
+  runCommand(command: string, options?: ExecOptions): Promise<string>;
+}
+
+export interface CustomLogger {
+  error(data: string): void;
+  info(data: string): void;
+}
+
+export interface ICommandRunnerOptions {
+  sfdxPath: string;
+  useLiveLog: boolean;
+  customLogger?: CustomLogger;
 }
 
 export class CommandRunner implements ICommandRunner {
-  constructor(private SFDXPath: string) {}
+  public static defaultOptions: ICommandRunnerOptions = {
+    sfdxPath: "sfdx",
+    useLiveLog: false
+  };
 
-  public runCommand(command: string, options?: ExecSyncOptions): Promise<string> {
+  private sfdxPath: string;
+  private useLiveLog: boolean;
+  private customLogger!: CustomLogger;
+
+  constructor(options: ICommandRunnerOptions = CommandRunner.defaultOptions) {
+    this.sfdxPath = options.sfdxPath;
+    this.useLiveLog = options.useLiveLog;
+    if (this.useLiveLog && !options.customLogger) {
+      throw new Error("UseLiveLog set to true and no custom logger is given.");
+    }
+    if (options.customLogger !== undefined) {
+      this.customLogger = options.customLogger;
+    }
+  }
+
+  public runCommand(command: string, options?: ExecOptions): Promise<string> {
     let executePromise = new Promise<string>((resolve, reject) => {
-      const fullCommand = this.SFDXPath + " " + command;
+      const fullCommand = this.sfdxPath + " " + command;
 
-      let actualOptions: ExecSyncOptions = {
-        stdio: "pipe",
+      let actualOptions: ExecOptions = {
         env: this.getCommandEnv()
       };
 
@@ -21,21 +48,35 @@ export class CommandRunner implements ICommandRunner {
         actualOptions = Object.assign(actualOptions, options);
       }
 
-      try {
-        let buffer = execSync(fullCommand, actualOptions);
-        resolve((buffer as Buffer).toString("utf8"));
-      } catch (e) {
-        let message: string;
-        if (e !== undefined && e.stderr !== undefined) {
-          message = e["stderr"].toString("utf8");
+      // Execute the command. If there's an error thrown or the stderr is not empty, it will reject the promise.
+      // Otherwise, it will resolve with the content of the stdout.
+      let execProcess = exec(fullCommand, actualOptions, (error, stdout, stderr) => {
+        if (error || stderr !== "") {
+          reject(stderr);
         } else {
-          message = e;
+          resolve(stdout);
         }
-
-        reject(message);
+      });
+      if (this.useLiveLog) {
+        this.bindProcessListeners(execProcess, fullCommand);
       }
     });
     return executePromise;
+  }
+
+  private bindProcessListeners(
+    execProcess: import("child_process").ChildProcess,
+    fullCommand: string
+  ) {
+    execProcess.stdout.on("data", data => {
+      this.customLogger.info(`${data}`);
+    });
+    execProcess.stderr.on("data", data => {
+      this.customLogger.error(`${data}`);
+    });
+    execProcess.on("close", code => {
+      this.customLogger.info(`${fullCommand} exited with code ${code}`);
+    });
   }
 
   private getCommandEnv(): NodeJS.ProcessEnv {
