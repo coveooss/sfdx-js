@@ -31,7 +31,7 @@
   },
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "postinstall": "ts-node tools/semantic-release-prepare",
+    "prepare": "ts-node tools/semantic-release-prepare",
     "prebuild": "rimraf dist",
     "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target cjs --theme minimal src",
     "start": "tsc-watch --onSuccess \"rollup -c\"",
