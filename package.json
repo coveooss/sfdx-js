@@ -31,6 +31,7 @@
   },
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "prepare": "ts-node tools/semantic-release-prepare",
     "prebuild": "rimraf dist",
     "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target cjs --theme minimal src",
     "start": "tsc-watch --onSuccess \"rollup -c\"",
@@ -42,7 +43,9 @@
     "commit": "git-cz",
     "precommit": "lint-staged",
     "run-generator": "node tools/generate-files.js",
-    "generate": "sfdx force:doc:commands:display --json > commands.json && npm run run-generator"
+    "generate": "sfdx force:doc:commands:display --json > commands.json && npm run run-generator",
+    "prepush": "npm run test:prod && npm run build",
+    "commitmsg": "validate-commit-msg"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -99,11 +102,11 @@
     "moment": "^2.22.2",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2",
-    "rollup": "^0.65.2",
+    "rollup": "^0.66.0",
     "rollup-plugin-commonjs": "^9.1.5",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
-    "semantic-release": "^15.9.9",
+    "semantic-release": "^15.9.15",
     "sfdx-generator": "1.0.0",
     "sfdx-prebuilt": "5.9.4",
     "ts-jest": "^23.1.4",
