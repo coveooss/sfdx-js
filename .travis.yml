@@ -14,6 +14,7 @@ before_script:
   - greenkeeper-lockfile-update
   - npm run generate
 script:
+  - commitlint-travis
   - npm run test:prod
   - npm run build
 after_success:
