@@ -35,7 +35,7 @@ https://coveo.github.io/sfdx-js/
 
 There is already set a `precommit` hook for formatting your code with Prettier :nail_care:
 
-By default, there are 2 disabled git hooks. They're set up when you run the `npm run semantic-release-prepare` script. They make sure:
+There are 2 Git hooks, they make sure that:
  - You follow a [conventional commit message](https://github.com/conventional-changelog/conventional-changelog).
  - Your build is not gonna fail in [Travis](https://travis-ci.org) (or your CI server), since it's runned locally before `git push`.
 

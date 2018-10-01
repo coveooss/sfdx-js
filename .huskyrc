@@ -1,0 +1,8 @@
+{
+  "hooks": {
+    "pre-commit": "lint-staged",
+    "commit": "git-cz",
+    "commit-msg": "validate-commit-msg",
+    "pre-push": "npm run test:prod && npm run build",
+  }
+}

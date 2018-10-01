@@ -31,7 +31,6 @@
   },
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "prepare": "ts-node tools/semantic-release-prepare",
     "prebuild": "rimraf dist",
     "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target cjs --theme minimal src",
     "start": "tsc-watch --onSuccess \"rollup -c\"",
@@ -40,18 +39,8 @@
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
     "prepare-doc": "ts-node tools/gh-pages-prepare",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "commit": "git-cz",
-    "precommit": "lint-staged",
     "run-generator": "node tools/generate-files.js",
-    "generate": "sfdx force:doc:commands:display --json > commands.json && npm run run-generator",
-    "prepush": "npm run test:prod && npm run build",
-    "commitmsg": "validate-commit-msg"
-  },
-  "lint-staged": {
-    "{src,test}/**/*.ts": [
-      "prettier --write",
-      "git add"
-    ]
+    "generate": "sfdx force:doc:commands:display --json > commands.json && npm run run-generator"
   },
   "config": {
     "commitizen": {
@@ -61,24 +50,6 @@
       "types": "conventional-commit-types",
       "helpMessage": "Use \"npm run commit\" instead, we use conventional-changelog format :) (https://github.com/commitizen/cz-cli)"
     }
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/test/"
-    ]
   },
   "dependencies": {
     "reflect-metadata": "^0.1.12",
