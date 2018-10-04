@@ -2,7 +2,7 @@
   "hooks": {
     "pre-commit": "lint-staged",
     "commit": "git-cz",
-    "commit-msg": "validate-commit-msg",
-    "pre-push": "npm run test:prod && npm run build",
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+    "pre-push": "npm run test:prod && npm run build"
   }
 }
