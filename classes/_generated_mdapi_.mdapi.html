@@ -1061,7 +1061,7 @@ img { max-width: 100%; }
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>convert metadata from the Metadata API format into the Salesforce DX format</p>
+								<p>convert metadata from the Metadata API format into the source format</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
@@ -1072,11 +1072,11 @@ img { max-width: 100%; }
 								</dd>
 								<dt>example</dt>
 								<dd><p>NOTE: This command must be run from within a project.</p>
-									<p>To work with metadata that you retrieved via Metadata API using the Salesforce DX tools, convert the metadata to the Salesforce DX source format using &quot;sfdx force:mdapi:convert&quot;.</p>
-									<p>To convert the source back to the Metadata API format, so that you can deploy it using &quot;sfdx force:mdapi:deploy&quot;, run &quot;sfdx force:source:convert&quot;.</p>
+									<p>To use Salesforce CLI to work with components that you retrieved via Metadata API, first convert your files from the metadata format to the source format using &quot;sfdx force:mdapi:convert&quot;.</p>
+									<p>To convert files from the source format back to the metadata format, so that you can deploy them using &quot;sfdx force:mdapi:deploy&quot;, run &quot;sfdx force:source:convert&quot;.</p>
 									<p>Examples:
-										$ sfdx force:mdapi:convert -r <path to source>
-											$ sfdx force:mdapi:convert -r <path to source> -d <path to outputdir>
+										$ sfdx force:mdapi:convert -r path/to/metadata
+										$ sfdx force:mdapi:convert -r path/to/metadata -d path/to/outputdir
 									force:mdapi:convert -r <directory> [-d <directory>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>

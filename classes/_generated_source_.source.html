@@ -922,6 +922,12 @@ img { max-width: 100%; }
 					<a href="_generated_source_.source.html#convert" class="tsd-kind-icon">convert</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_generated_source_.source.html#delete" class="tsd-kind-icon">delete</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_generated_source_.source.html#deploy" class="tsd-kind-icon">deploy</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_generated_source_.source.html#open" class="tsd-kind-icon">open</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -929,6 +935,9 @@ img { max-width: 100%; }
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_generated_source_.source.html#push" class="tsd-kind-icon">push</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_generated_source_.source.html#retrieve" class="tsd-kind-icon">retrieve</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_generated_source_.source.html#status" class="tsd-kind-icon">status</a>
@@ -939,6 +948,12 @@ img { max-width: 100%; }
 			<a href="../interfaces/_generated_source_.isourceconvert.html" class="tsd-kind-icon">ISource<wbr>Convert</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_generated_source_.isourcedelete.html" class="tsd-kind-icon">ISource<wbr>Delete</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_generated_source_.isourcedeploy.html" class="tsd-kind-icon">ISource<wbr>Deploy</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_generated_source_.isourceopen.html" class="tsd-kind-icon">ISource<wbr>Open</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
@@ -946,6 +961,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_generated_source_.isourcepush.html" class="tsd-kind-icon">ISource<wbr>Push</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_generated_source_.isourceretrieve.html" class="tsd-kind-icon">ISource<wbr>Retrieve</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_generated_source_.isourcestatus.html" class="tsd-kind-icon">ISource<wbr>Status</a>
@@ -996,9 +1014,12 @@ img { max-width: 100%; }
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_source_.source.html#convert" class="tsd-kind-icon">convert</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_source_.source.html#delete" class="tsd-kind-icon">delete</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_source_.source.html#deploy" class="tsd-kind-icon">deploy</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_source_.source.html#open" class="tsd-kind-icon">open</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_source_.source.html#pull" class="tsd-kind-icon">pull</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_source_.source.html#push" class="tsd-kind-icon">push</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_source_.source.html#retrieve" class="tsd-kind-icon">retrieve</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generated_source_.source.html#status" class="tsd-kind-icon">status</a></li>
 						</ul>
 					</section>
@@ -1017,7 +1038,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in generated/source.ts:262</li>
+								<li>Defined in generated/source.ts:440</li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1039,7 +1060,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">request<wbr>Executioner<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_commandexecutioner_.icommandexecutioner.html" class="tsd-signature-type">ICommandExecutioner</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in generated/source.ts:263</li>
+						<li>Defined in generated/source.ts:441</li>
 					</ul>
 				</aside>
 			</section>
@@ -1056,28 +1077,28 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in generated/source.ts:284</li>
+								<li>Defined in generated/source.ts:462</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>convert Salesforce DX source into Metadata API format</p>
+								<p>convert source into Metadata API format</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
 								<dd><p>Source</p>
 								</dd>
 								<dt>description</dt>
-								<dd><p>Converts source in a Salesforce DX project into metadata that you can deploy using Metadata API.</p>
+								<dd><p>Converts source-formatted files into metadata that you can deploy using Metadata API.</p>
 								</dd>
 								<dt>example</dt>
 								<dd><p>NOTE: This command must be run from within a project.</p>
-									<p>To convert Salesforce DX–formatted source into a format that you can deploy using Metadata API, run &quot;sfdx force:source:convert&quot;. Then deploy the metadata using &quot;sfdx force:mdapi:deploy&quot;.</p>
-									<p>To convert Metadata API–formatted source into the Salesforce DX format, run &quot;sfdx force:mdapi:convert&quot;.</p>
+									<p>To convert source-formatted files into the metadata format, so that you can deploy them using Metadata API, run &quot;sfdx force:source:convert&quot;. Then deploy the metadata using &quot;sfdx force:mdapi:deploy&quot;.</p>
+									<p>To convert Metadata API–formatted files into the source format, run &quot;sfdx force:mdapi:convert&quot;.</p>
 									<p>To specify a package name that includes spaces, enclose the name in single quotes.</p>
 									<p>Examples:
-										$ sfdx force:source:convert -r <path to source>
-											$ sfdx force:source:convert -r <path to source> -d <path to output dir> -n &#39;My Package&#39;
+										$ sfdx force:source:convert -r path/to/source
+										$ sfdx force:source:convert -r path/to/source -d path/to/outputdir -n &#39;My Package&#39;
 									force:source:convert [-r <directory>] [-d <directory>] [-n <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
@@ -1086,6 +1107,113 @@ img { max-width: 100%; }
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_source_.isourceconvert.html" class="tsd-signature-type">ISourceConvert</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="delete" class="tsd-anchor"></a>
+				<h3>delete</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_generated_source_.isourcedelete.html" class="tsd-signature-type">ISourceDelete</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in generated/source.ts:490</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>delete source from your project and from a non-source-tracked org</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>memberof</dt>
+								<dd><p>Source</p>
+								</dd>
+								<dt>description</dt>
+								<dd><p>Deletes source files from your project and from a non-source-tracked org, such as a sandbox.</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>Use this command to delete components from orgs that don’t have source tracking, such as sandboxes.
+									To remove deleted items from scratch orgs, which have change tracking, use &quot;sfdx force:source:push&quot;.</p>
+									<p>Examples:
+										$ sfdx force:source:delete -p path/to/source
+										$ sfdx force:source:delete -m <metadata>
+									force:source:delete (-p <filepath>... | -m <string>...) [-r] [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_source_.isourcedelete.html" class="tsd-signature-type">ISourceDelete</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="deploy" class="tsd-anchor"></a>
+				<h3>deploy</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">deploy<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_generated_source_.isourcedeploy.html" class="tsd-signature-type">ISourceDeploy</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in generated/source.ts:542</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>deploy source to a non-source-tracked org</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>memberof</dt>
+								<dd><p>Source</p>
+								</dd>
+								<dt>description</dt>
+								<dd><p>Deploys source to a non-source-tracked org, such as a sandbox.</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>Use this command to deploy source to orgs that don’t have source tracking, such as sandboxes.
+										To push source to scratch orgs, which have change tracking, use &quot;sfdx force:source:push&quot;.
+									To deploy metadata that’s in the Metadata API format, use &quot;sfdx force:mdapi:deploy&quot;.</p>
+									<p>The source you deploy overwrites the corresponding metadata in your org. This command does not attempt to merge your source with the versions in your org.</p>
+									<p>If the comma-separated list you’re supplying contains spaces, enclose the entire comma-separated list in one set of double quotes.</p>
+									<p>Examples:</p>
+									<p>To deploy the source files in a directory:
+										$ sfdx force:source:deploy -p path/to/source
+										To deploy a specific Apex class and the objects whose source is in a directory:
+										$ sfdx force:source:deploy -p path/to/apex/classes/MyClass.cls,path/to/source/objects
+										To deploy source files in a comma-separated list that contains spaces:
+									$ sfdx force:source:deploy -p &quot;path/to/objects/MyCustomObject/fields/MyField.field-meta.xml, path/to/apex/classes&quot;</p>
+									<p>To deploy all Apex classes:
+										$ sfdx force:source:deploy -m ApexClass
+										To deploy a specific Apex class:
+										$ sfdx force:source:deploy -m ApexClass:MyApexClass
+										To deploy all custom objects and Apex classes:
+										$ sfdx force:source:deploy -m CustomObject,ApexClass
+										To deploy all Apex classes and two specific profiles (one of which has a space in its name):
+									$ sfdx force:source:deploy -m &quot;ApexClass, Profile:My Profile, Profile: AnotherProfile&quot;</p>
+									<p>To deploy all components listed in a manifest:
+										$ sfdx force:source:deploy -x path/to/package.xml
+									force:source:deploy (-p <filepath>... | -x <filepath>) [-w <minutes>] [-m <string>...] [-u <string>] [--json] [--loglevel <string>]</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_source_.isourcedeploy.html" class="tsd-signature-type">ISourceDeploy</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1102,7 +1230,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in generated/source.ts:313</li>
+								<li>Defined in generated/source.ts:573</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1148,7 +1276,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in generated/source.ts:336</li>
+								<li>Defined in generated/source.ts:596</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1189,19 +1317,19 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in generated/source.ts:359</li>
+								<li>Defined in generated/source.ts:619</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>push source to an org from the project</p>
+								<p>push source to a scratch org from the project</p>
 							</div>
 							<dl class="tsd-comment-tags">
 								<dt>memberof</dt>
 								<dd><p>Source</p>
 								</dd>
 								<dt>description</dt>
-								<dd><p>Pushes changed source from your project to the scratch org to keep them in sync.</p>
+								<dd><p>Pushes changed source from your project to a scratch org to keep them in sync.</p>
 								</dd>
 								<dt>example</dt>
 								<dd><p>NOTE: This command must be run from within a project.</p>
@@ -1221,6 +1349,68 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="retrieve" class="tsd-anchor"></a>
+				<h3>retrieve</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">retrieve<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_generated_source_.isourceretrieve.html" class="tsd-signature-type">ISourceRetrieve</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in generated/source.ts:671</li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>retrieve source from a non-source-tracked org</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>memberof</dt>
+								<dd><p>Source</p>
+								</dd>
+								<dt>description</dt>
+								<dd><p>Retrieves source from a non-source-tracked org, such as a sandbox, to your local Salesforce DX project.</p>
+								</dd>
+								<dt>example</dt>
+								<dd><p>NOTE: This command must be run from within a project.</p>
+									<p>Use this command to retrieve source from orgs that don’t have source tracking, such as sandboxes.
+										To pull source from scratch orgs, which have change tracking, use &quot;sfdx force:source:pull&quot;.
+									To retrieve metadata that’s in the Metadata API format, use &quot;sfdx force:mdapi:retrieve&quot;.</p>
+									<p>The source you retrieve overwrites the corresponding source files in your local project. This command does not attempt to merge the source from your org with your local source files.</p>
+									<p>If the comma-separated list you’re supplying contains spaces, enclose the entire comma-separated list in one set of double quotes.</p>
+									<p>Examples:</p>
+									<p>To retrieve the source files in a directory:
+										$ sfdx force:source:retrieve -p path/to/source
+										To retrieve a specific Apex class and the objects whose source is in a directory:
+										$ sfdx force:source:retrieve -p path/to/apex/classes/MyClass.cls,path/to/source/objects
+										To retrieve source files in a comma-separated list that contains spaces:
+									$ sfdx force:source:retrieve -p &quot;path/to/objects/MyCustomObject/fields/MyField.field-meta.xml, path/to/apex/classes&quot;</p>
+									<p>To retrieve all Apex classes:
+										$ sfdx force:source:retrieve -m ApexClass
+										To retrieve a specific Apex class:
+										$ sfdx force:source:retrieve -m ApexClass:MyApexClass
+										To retrieve all custom objects and Apex classes:
+										$ sfdx force:source:retrieve -m CustomObject,ApexClass
+										To retrieve all Apex classes and two specific profiles (one of which has a space in its name):
+									$ sfdx force:source:retrieve -m &quot;ApexClass, Profile:My Profile, Profile: AnotherProfile&quot;</p>
+									<p>To retrieve all metadata components listed in a manifest:
+										$ sfdx force:source:retrieve -x path/to/package.xml
+									force:source:retrieve (-x <filepath> | -m <string>... | -p <filepath>...) [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_generated_source_.isourceretrieve.html" class="tsd-signature-type">ISourceRetrieve</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="status" class="tsd-anchor"></a>
 				<h3>status</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1230,7 +1420,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in generated/source.ts:388</li>
+								<li>Defined in generated/source.ts:700</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1250,7 +1440,7 @@ img { max-width: 100%; }
 										$ sfdx force:source:status -l
 										$ sfdx force:source:status -r
 										$ sfdx force:source:status -a
-										$ sfdx force:source:status -a -u <a href="mailto:me@my.org">me@my.org</a> --json
+										$ sfdx force:source:status -a -u <a href="mailto:me@example.com">me@example.com</a> --json
 									force:source:status [-a] [-l] [-r] [-u <string>] [--json] [--loglevel <string>]</p>
 								</dd>
 							</dl>
