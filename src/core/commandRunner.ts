@@ -1,5 +1,5 @@
 import { exec, ExecOptions } from "child_process";
-import * as _ from "underscore";
+import _ from "underscore";
 export interface ICommandRunner {
   runCommand(command: string, options?: ExecOptions): Promise<string>;
 }
@@ -52,6 +52,15 @@ export class CommandRunner implements ICommandRunner {
       // Otherwise, it will resolve with the content of the stdout.
       let execProcess = exec(fullCommand, actualOptions, (error, stdout, stderr) => {
         if (error || stderr !== "") {
+          // If there's no error object and the error stream only contains some warning, keep going.
+          let stderrJSON = JSON.parse(stderr.trim());
+          if (
+            !error &&
+            Object.keys(stderrJSON).length === 1 &&
+            stderrJSON.hasOwnProperty("warnings")
+          ) {
+            resolve(`Completed with warnings:\n${stderr}\n\n${stdout}`);
+          }
           reject(stderr);
         } else {
           resolve(stdout);
