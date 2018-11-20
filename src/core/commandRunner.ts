@@ -51,9 +51,17 @@ export class CommandRunner implements ICommandRunner {
       // Execute the command. If there's an error thrown or the stderr is not empty, it will reject the promise.
       // Otherwise, it will resolve with the content of the stdout.
       let execProcess = exec(fullCommand, actualOptions, (error, stdout, stderr) => {
+        // If there's no error object and the error stream only contains some warning, keep going.
         if (error || stderr !== "") {
-          // If there's no error object and the error stream only contains some warning, keep going.
-          let stderrJSON = JSON.parse(stderr.trim());
+          let stderrJSON;
+          // Ensure that the error is in JSON format, for now, we won't deal with the case that the error is not a JSON.
+          // Mostly used for unit test for now and as a sanity check.
+          try {
+            stderrJSON = JSON.parse(stderr.trim());
+          } catch (error) {
+            return reject(error);
+          }
+
           if (
             !error &&
             Object.keys(stderrJSON).length === 1 &&
