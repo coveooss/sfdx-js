@@ -25,7 +25,12 @@ export class Client extends GeneratedClient {
     SFDXPath: string,
     useLiveLog: boolean = false,
     customLogger: CustomLogger = console
-  ) {
+  ): Client {
+    if (!SFDXPath) {
+      console.warn("SFDX path is undefined/null, defaulting to sfdx");
+      SFDXPath = "sfdx";
+    }
+
     const commandRunner = new CommandRunner({
       sfdxPath: SFDXPath,
       useLiveLog: useLiveLog,
