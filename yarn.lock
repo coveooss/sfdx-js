@@ -324,9 +324,10 @@
     "@types/glob" "*"
     "@types/node" "*"
 
-"@types/underscore@^1.8.9":
-  version "1.8.9"
-  resolved "https://registry.yarnpkg.com/@types/underscore/-/underscore-1.8.9.tgz#fef41f800cd23db1b4f262ddefe49cd952d82323"
+"@types/underscore@^1.8.19":
+  version "1.8.19"
+  resolved "https://registry.yarnpkg.com/@types/underscore/-/underscore-1.8.19.tgz#ae1357f2d28b8089f86ba0e5545d0512e6ef5b28"
+  integrity sha512-9r6zM91/lTnSYTEJbxf7FwgeVXzRZDegaGPXF+Bp0MSMYTTI2UvQPkoti/YE9ZWThU+0DMya6l9XePvOPBLKow==
 
 JSONStream@^1.0.4, JSONStream@^1.3.3:
   version "1.3.4"
